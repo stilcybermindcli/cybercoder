@@ -132,8 +132,8 @@ jobs:
     - name: Build packages
       run: pnpm build || echo "Build step skipped"
       
-    - name: Publish packages
-      run: pnpm publish -r --access public --no-git-checks || echo "Publish may require version bump"
+    - name: Publish CLI package
+      run: pnpm publish --filter @cybermind/cli --access public --no-git-checks || echo "Publish may require version bump"
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
