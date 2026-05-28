@@ -1,6 +1,6 @@
 {
   "name": "@cybermind/cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CyberMind CLI — fullstack agentic coding assistant",
   "type": "module",
   "main": "./dist/index.js",
@@ -8,7 +8,11 @@
     "cybermind": "./bin/cybermind.mjs",
     "cm": "./bin/cybermind.mjs"
   },
-  "files": ["bin", "dist", "README.md"],
+  "files": [
+    "bin",
+    "dist",
+    "README.md"
+  ],
   "engines": {
     "node": ">=20.0.0"
   },
