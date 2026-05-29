@@ -131,6 +131,11 @@ jobs:
     - name: Build packages
       run: pnpm build || echo "Build step skipped"
       
+    - name: Verify NPM auth
+      run: npm whoami
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        
     - name: Publish CLI package
       run: |
         cd packages/cli
