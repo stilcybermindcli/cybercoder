@@ -2,6 +2,10 @@ import { createLogger } from '@cybermind/shared';
 import { AnthropicProvider } from './anthropic.js';
 import { CybermindCloudProvider } from './cybermind-cloud.js';
 import { OllamaProvider } from './ollama.js';
+import { OpenAIProvider } from './openai.js';
+import { GroqProvider } from './groq.js';
+import { GoogleProvider } from './google.js';
+import { OpenRouterProvider } from './openrouter.js';
 import type { ChatChunk, ChatRequest, LLMProvider, ProviderInfo } from './types.js';
 
 const log = createLogger('providers:router');
@@ -19,6 +23,10 @@ export interface RouterOptions {
   cloud?: { apiKey?: string; baseURL?: string };
   /** Ollama opts. */
   ollama?: { baseURL?: string; defaultModel?: string };
+  openai?: { apiKey?: string; baseURL?: string };
+  groq?: { apiKey?: string; baseURL?: string };
+  google?: { apiKey?: string; baseURL?: string };
+  openrouter?: { apiKey?: string; baseURL?: string };
 }
 
 /**
@@ -36,6 +44,10 @@ export class ProviderRouter implements LLMProvider {
   constructor(opts: RouterOptions = {}) {
     this.providers.set('anthropic', new AnthropicProvider(opts.anthropic));
     this.providers.set('cybermind-cloud', new CybermindCloudProvider(opts.cloud));
+    this.providers.set('openai', new OpenAIProvider(opts.openai));
+    this.providers.set('groq', new GroqProvider(opts.groq));
+    this.providers.set('gemini', new GoogleProvider(opts.google));
+    this.providers.set('openrouter', new OpenRouterProvider(opts.openrouter));
     const ollama = new OllamaProvider(opts.ollama);
     this.providers.set('ollama', ollama);
 

@@ -47,7 +47,7 @@ export type ChatChunk =
   | { type: 'done'; reason: 'end_turn' | 'tool_use' | 'max_tokens' | 'stop' | 'error'; error?: string };
 
 export interface ProviderInfo {
-  id: 'anthropic' | 'openai' | 'gemini' | 'cybermind-cloud' | 'ollama';
+  id: 'anthropic' | 'openai' | 'gemini' | 'cybermind-cloud' | 'ollama' | 'groq' | 'openrouter';
   displayName: string;
   /** True if this provider needs internet access. */
   requiresNetwork: boolean;

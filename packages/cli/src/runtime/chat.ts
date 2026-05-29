@@ -28,6 +28,10 @@ export function getRouter(): ProviderRouter {
         apiKey: cloudApiKey,
         baseURL: process.env.CYBERMIND_CLOUD_URL ?? 'https://cybercli-api.onrender.com/v1'
       },
+      openai: { apiKey: process.env.OPENAI_API_KEY ?? configKeys.openai },
+      groq: { apiKey: process.env.GROQ_API_KEY ?? configKeys.groq },
+      google: { apiKey: process.env.GEMINI_API_KEY ?? process.env.GOOGLE_API_KEY ?? configKeys.google ?? configKeys.gemini },
+      openrouter: { apiKey: process.env.OPENROUTER_API_KEY ?? configKeys.openrouter },
       ollama: {
         defaultModel: config.lastModel || 'auto'
       }
@@ -50,6 +54,18 @@ function defaultProviderOrder(config: any, configKeys: Record<string, string>): 
   }
   if (process.env.ANTHROPIC_API_KEY || configKeys.anthropic) {
     order.push('anthropic');
+  }
+  if (process.env.OPENAI_API_KEY || configKeys.openai) {
+    order.push('openai');
+  }
+  if (process.env.GROQ_API_KEY || configKeys.groq) {
+    order.push('groq');
+  }
+  if (process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || configKeys.google || configKeys.gemini) {
+    order.push('gemini');
+  }
+  if (process.env.OPENROUTER_API_KEY || configKeys.openrouter) {
+    order.push('openrouter');
   }
   order.push('ollama');
   return order;

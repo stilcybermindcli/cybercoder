@@ -166,8 +166,8 @@ var CheckpointManager = class {
       model,
       provider
     };
-    const path = join3(this.dir, `${id}.json`);
-    writeFileSync(path, JSON.stringify(checkpoint, null, 2), "utf8");
+    const path2 = join3(this.dir, `${id}.json`);
+    writeFileSync(path2, JSON.stringify(checkpoint, null, 2), "utf8");
     const latest = join3(this.dir, "latest.json");
     try {
       writeFileSync(latest, JSON.stringify(checkpoint, null, 2), "utf8");
@@ -179,10 +179,10 @@ var CheckpointManager = class {
   }
   /** Load a checkpoint by id. Returns null if not found or corrupt. */
   load(id) {
-    const path = join3(this.dir, `${id}.json`);
-    if (!existsSync2(path)) return null;
+    const path2 = join3(this.dir, `${id}.json`);
+    if (!existsSync2(path2)) return null;
     try {
-      const raw = readFileSync(path, "utf8");
+      const raw = readFileSync(path2, "utf8");
       const parsed = JSON.parse(raw);
       const checkpoint = CheckpointSchema.parse(parsed);
       return checkpoint;
@@ -193,10 +193,10 @@ var CheckpointManager = class {
   }
   /** Load the most recent checkpoint (latest.json). */
   loadLatest() {
-    const path = join3(this.dir, "latest.json");
-    if (!existsSync2(path)) return null;
+    const path2 = join3(this.dir, "latest.json");
+    if (!existsSync2(path2)) return null;
     try {
-      const raw = readFileSync(path, "utf8");
+      const raw = readFileSync(path2, "utf8");
       const parsed = JSON.parse(raw);
       const checkpoint = CheckpointSchema.parse(parsed);
       return checkpoint;
@@ -223,10 +223,10 @@ var CheckpointManager = class {
   }
   /** Delete a checkpoint file. */
   delete(id) {
-    const path = join3(this.dir, `${id}.json`);
-    if (!existsSync2(path)) return false;
+    const path2 = join3(this.dir, `${id}.json`);
+    if (!existsSync2(path2)) return false;
     try {
-      writeFileSync(path, "");
+      writeFileSync(path2, "");
       log.info("deleted checkpoint", { id });
       return true;
     } catch (err) {
@@ -430,10 +430,10 @@ var CollaborationManager = class {
   }
   /** Get a session by ID */
   getSession(sessionId) {
-    const path = join4(this.sessionsDir, `${sessionId}.json`);
-    if (!existsSync4(path)) return null;
+    const path2 = join4(this.sessionsDir, `${sessionId}.json`);
+    if (!existsSync4(path2)) return null;
     try {
-      const raw = readFileSync3(path, "utf8");
+      const raw = readFileSync3(path2, "utf8");
       const parsed = JSON.parse(raw);
       return CollaborationSessionSchema.parse(parsed);
     } catch (err) {
@@ -512,9 +512,9 @@ var CollaborationManager = class {
     return true;
   }
   saveSession(session) {
-    const path = join4(this.sessionsDir, `${session.id}.json`);
+    const path2 = join4(this.sessionsDir, `${session.id}.json`);
     try {
-      writeFileSync3(path, JSON.stringify(session, null, 2), "utf8");
+      writeFileSync3(path2, JSON.stringify(session, null, 2), "utf8");
     } catch (err) {
       log3.error("Failed to save session", { sessionId: session.id, error: String(err) });
     }
@@ -778,9 +778,9 @@ var WebMirrorManager = class {
     for (const file of files) {
       if (!file.isFile() || !file.name.endsWith(".json")) continue;
       const mirrorId = file.name.slice(0, -5);
-      const path = join5(this.mirrorsDir, file.name);
+      const path2 = join5(this.mirrorsDir, file.name);
       try {
-        const raw = readFileSync4(path, "utf8");
+        const raw = readFileSync4(path2, "utf8");
         const parsed = JSON.parse(raw);
         const mirror = MirrorSessionSchema.parse(parsed);
         this.sessions.set(mirrorId, mirror);
@@ -790,9 +790,9 @@ var WebMirrorManager = class {
     }
   }
   saveMirror(mirror) {
-    const path = join5(this.mirrorsDir, `${mirror.id}.json`);
+    const path2 = join5(this.mirrorsDir, `${mirror.id}.json`);
     try {
-      writeFileSync4(path, JSON.stringify(mirror, null, 2), "utf8");
+      writeFileSync4(path2, JSON.stringify(mirror, null, 2), "utf8");
     } catch (err) {
       log4.error("Failed to save mirror", { mirrorId: mirror.id, error: String(err) });
     }
@@ -1059,8 +1059,8 @@ var RichIOManager = class {
     return mimeTypes[ext || ""] || "image/png";
   }
   loadCostMetrics() {
-    const path = join6(this.dataDir, "cost-metrics.json");
-    if (!existsSync6(path)) {
+    const path2 = join6(this.dataDir, "cost-metrics.json");
+    if (!existsSync6(path2)) {
       const metrics = {
         totalTokens: 0,
         totalCost: 0,
@@ -1068,11 +1068,11 @@ var RichIOManager = class {
         sessionStart: Date.now(),
         lastUpdate: Date.now()
       };
-      writeFileSync5(path, JSON.stringify(metrics, null, 2), "utf8");
+      writeFileSync5(path2, JSON.stringify(metrics, null, 2), "utf8");
       return metrics;
     }
     try {
-      const raw = readFileSync5(path, "utf8");
+      const raw = readFileSync5(path2, "utf8");
       const parsed = JSON.parse(raw);
       return CostMetricsSchema.parse(parsed);
     } catch (err) {
@@ -1087,9 +1087,9 @@ var RichIOManager = class {
     }
   }
   saveCostMetrics() {
-    const path = join6(this.dataDir, "cost-metrics.json");
+    const path2 = join6(this.dataDir, "cost-metrics.json");
     try {
-      writeFileSync5(path, JSON.stringify(this.costMetrics, null, 2), "utf8");
+      writeFileSync5(path2, JSON.stringify(this.costMetrics, null, 2), "utf8");
     } catch (err) {
       log5.error("Failed to save cost metrics", { error: String(err) });
     }
@@ -1331,24 +1331,24 @@ var EcosystemManager = class {
     return [];
   }
   saveMCPServer(server) {
-    const path = join7(this.mcpDir, `${server.id}.json`);
+    const path2 = join7(this.mcpDir, `${server.id}.json`);
     try {
-      writeFileSync6(path, JSON.stringify(server, null, 2), "utf8");
+      writeFileSync6(path2, JSON.stringify(server, null, 2), "utf8");
     } catch (err) {
       log6.error("Failed to save MCP server", { serverId: server.id, error: String(err) });
     }
   }
   saveSkill(skill) {
-    const path = join7(this.skillsDir, `${skill.id}.json`);
+    const path2 = join7(this.skillsDir, `${skill.id}.json`);
     try {
-      writeFileSync6(path, JSON.stringify(skill, null, 2), "utf8");
+      writeFileSync6(path2, JSON.stringify(skill, null, 2), "utf8");
     } catch (err) {
       log6.error("Failed to save skill", { skillId: skill.id, error: String(err) });
     }
   }
   loadTelemetrySettings() {
-    const path = join7(this.dataDir, "telemetry-settings.json");
-    if (!existsSync7(path)) {
+    const path2 = join7(this.dataDir, "telemetry-settings.json");
+    if (!existsSync7(path2)) {
       const settings = {
         enabled: false,
         // Default to off
@@ -1358,11 +1358,11 @@ var EcosystemManager = class {
         shareErrorReports: false,
         sharePerformanceMetrics: false
       };
-      writeFileSync6(path, JSON.stringify(settings, null, 2), "utf8");
+      writeFileSync6(path2, JSON.stringify(settings, null, 2), "utf8");
       return settings;
     }
     try {
-      const raw = readFileSync6(path, "utf8");
+      const raw = readFileSync6(path2, "utf8");
       const parsed = JSON.parse(raw);
       return TelemetrySettingsSchema.parse(parsed);
     } catch (err) {
@@ -1378,9 +1378,9 @@ var EcosystemManager = class {
     }
   }
   saveTelemetrySettings() {
-    const path = join7(this.dataDir, "telemetry-settings.json");
+    const path2 = join7(this.dataDir, "telemetry-settings.json");
     try {
-      writeFileSync6(path, JSON.stringify(this.telemetrySettings, null, 2), "utf8");
+      writeFileSync6(path2, JSON.stringify(this.telemetrySettings, null, 2), "utf8");
     } catch (err) {
       log6.error("Failed to save telemetry settings", { error: String(err) });
     }
@@ -3449,7 +3449,6 @@ function buildExitCommand(ctx) {
 // src/commands/stubs.ts
 var STUBS = [
   // Session / context
-  { name: "compact", category: "session", milestone: "M5", description: "Compact conversation history to free context." },
   { name: "branch", category: "session", milestone: "M5", description: "Fork the conversation at this point." },
   { name: "background", category: "session", milestone: "M5", description: "Send this session to the background and free the terminal." },
   { name: "btw", category: "session", milestone: "M5", description: "Ask a quick side question without interrupting the main thread." },
@@ -3467,7 +3466,6 @@ var STUBS = [
   { name: "team", category: "auth", milestone: "M6", description: "Switch the active team workspace." },
   { name: "sync", category: "auth", milestone: "M6", description: "Push/pull skills and settings to/from the backend." },
   // Config / project
-  { name: "init", category: "config", milestone: "M7", description: "Initialize the project with an AGENTS.md." },
   { name: "add-dir", category: "config", milestone: "M5", description: "Add another working directory to this session." },
   // Safety
   // /trust, /secret wired in M5.
@@ -3925,8 +3923,251 @@ function toOllamaMessage(m) {
   return { role: m.role, content: m.content };
 }
 
+// ../providers/src/openai.ts
+var log13 = createLogger("providers:openai");
+var OpenAIProvider = class {
+  info;
+  apiKey;
+  baseURL;
+  defaultModel;
+  constructor(opts = {}, providerId = "openai", displayName = "OpenAI") {
+    this.apiKey = opts.apiKey ?? process.env.OPENAI_API_KEY ?? "";
+    this.baseURL = opts.baseURL ?? "https://api.openai.com/v1";
+    this.defaultModel = opts.defaultModel ?? "gpt-4o-mini";
+    this.info = {
+      id: providerId,
+      displayName,
+      requiresNetwork: true,
+      ready: Boolean(this.apiKey)
+    };
+  }
+  async listModels() {
+    return ["gpt-4o", "gpt-4o-mini", "o1-mini", "o1-preview"];
+  }
+  async *chat(req) {
+    const model = req.model && req.model !== "auto" ? req.model : this.defaultModel;
+    log13.debug("openai chat", { model, messages: req.messages.length });
+    const messages = [
+      ...req.systemPrompt ? [{ role: "system", content: req.systemPrompt }] : [],
+      ...req.messages.map(toOpenAIMessage)
+    ];
+    const body = {
+      model,
+      messages,
+      stream: true,
+      temperature: req.temperature ?? 0.7,
+      max_tokens: req.maxTokens ?? 4096,
+      stream_options: { include_usage: true }
+    };
+    if (req.tools?.length) {
+      body.tools = req.tools.map(toOpenAITool);
+    }
+    try {
+      const res = await fetch(`${this.baseURL}/chat/completions`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${this.apiKey}`
+        },
+        body: JSON.stringify(body),
+        signal: req.signal
+      });
+      if (!res.ok) {
+        const errText = await res.text().catch(() => res.statusText);
+        yield {
+          type: "done",
+          reason: "error",
+          error: `OpenAI HTTP ${res.status}: ${errText}`
+        };
+        return;
+      }
+      if (!res.body) {
+        yield { type: "done", reason: "error", error: "Response body is null" };
+        return;
+      }
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let done = false;
+      const toolCallsMap = /* @__PURE__ */ new Map();
+      let usageInfo = null;
+      while (!done) {
+        const { value, done: chunkDone } = await reader.read();
+        if (value) {
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split("\n");
+          buffer = lines.pop() ?? "";
+          for (const line of lines) {
+            const trimmed = line.trim();
+            if (!trimmed) continue;
+            if (trimmed === "data: [DONE]") {
+              done = true;
+              break;
+            }
+            if (trimmed.startsWith("data: ")) {
+              try {
+                const json = JSON.parse(trimmed.slice(6));
+                if (json.usage) {
+                  usageInfo = json.usage;
+                }
+                const choice = json.choices?.[0];
+                if (!choice) continue;
+                if (choice.delta?.content) {
+                  yield { type: "text", text: choice.delta.content };
+                }
+                if (choice.delta?.tool_calls) {
+                  for (const tcDelta of choice.delta.tool_calls) {
+                    const idx = tcDelta.index ?? 0;
+                    let tc = toolCallsMap.get(idx);
+                    if (!tc) {
+                      tc = { id: tcDelta.id, name: tcDelta.function?.name, arguments: "" };
+                      toolCallsMap.set(idx, tc);
+                    }
+                    if (tcDelta.id) tc.id = tcDelta.id;
+                    if (tcDelta.function?.name) tc.name = tcDelta.function.name;
+                    if (tcDelta.function?.arguments) tc.arguments += tcDelta.function.arguments;
+                  }
+                }
+              } catch (err) {
+              }
+            }
+          }
+        }
+        if (chunkDone) done = true;
+      }
+      for (const [, tc] of toolCallsMap) {
+        if (tc.id && tc.name) {
+          let parsedArgs = {};
+          try {
+            parsedArgs = tc.arguments ? JSON.parse(tc.arguments) : {};
+          } catch (e) {
+            log13.warn("Failed to parse tool arguments JSON", tc.arguments);
+          }
+          yield {
+            type: "tool_call",
+            toolCall: {
+              id: tc.id,
+              name: tc.name,
+              input: parsedArgs
+            }
+          };
+        }
+      }
+      if (usageInfo) {
+        yield {
+          type: "usage",
+          inputTokens: usageInfo.prompt_tokens,
+          outputTokens: usageInfo.completion_tokens
+        };
+      }
+      yield { type: "done", reason: toolCallsMap.size > 0 ? "tool_use" : "end_turn" };
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      log13.error("openai stream failed", msg);
+      yield { type: "done", reason: "error", error: msg };
+    }
+  }
+};
+function toOpenAIMessage(m) {
+  if (m.role === "tool") {
+    return {
+      role: "tool",
+      content: m.content,
+      tool_call_id: m.toolCallId
+    };
+  }
+  if (m.role === "assistant" && m.toolCalls?.length) {
+    return {
+      role: "assistant",
+      content: m.content || null,
+      tool_calls: m.toolCalls.map((tc) => ({
+        id: tc.id,
+        type: "function",
+        function: {
+          name: tc.name,
+          arguments: JSON.stringify(tc.input)
+        }
+      }))
+    };
+  }
+  return {
+    role: m.role,
+    content: m.content
+  };
+}
+function toOpenAITool(t) {
+  return {
+    type: "function",
+    function: {
+      name: t.name,
+      description: t.description,
+      parameters: t.inputSchema
+    }
+  };
+}
+
+// ../providers/src/groq.ts
+var GroqProvider = class extends OpenAIProvider {
+  constructor(opts = {}) {
+    super(
+      {
+        apiKey: opts.apiKey ?? process.env.GROQ_API_KEY,
+        baseURL: opts.baseURL ?? "https://api.groq.com/openai/v1",
+        defaultModel: opts.defaultModel ?? "llama-3.3-70b-versatile"
+      },
+      "groq",
+      "Groq"
+    );
+  }
+  async listModels() {
+    return ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "mixtral-8x7b-32768"];
+  }
+};
+
+// ../providers/src/google.ts
+var GoogleProvider = class extends OpenAIProvider {
+  constructor(opts = {}) {
+    super(
+      {
+        apiKey: opts.apiKey ?? process.env.GEMINI_API_KEY ?? process.env.GOOGLE_API_KEY,
+        baseURL: opts.baseURL ?? "https://generativelanguage.googleapis.com/v1beta/openai",
+        defaultModel: opts.defaultModel ?? "gemini-2.5-flash"
+      },
+      "gemini",
+      "Google Gemini"
+    );
+  }
+  async listModels() {
+    return ["gemini-2.5-flash", "gemini-2.5-pro"];
+  }
+};
+
+// ../providers/src/openrouter.ts
+var OpenRouterProvider = class extends OpenAIProvider {
+  constructor(opts = {}) {
+    super(
+      {
+        apiKey: opts.apiKey ?? process.env.OPENROUTER_API_KEY,
+        baseURL: opts.baseURL ?? "https://openrouter.ai/api/v1",
+        defaultModel: opts.defaultModel ?? "google/gemini-2.5-flash"
+      },
+      "openrouter",
+      "OpenRouter"
+    );
+  }
+  async listModels() {
+    return [
+      "google/gemini-2.5-flash",
+      "google/gemini-2.5-pro",
+      "meta-llama/llama-3.3-70b-instruct",
+      "deepseek/deepseek-r1-distill-llama-70b",
+      "anthropic/claude-3.5-sonnet"
+    ];
+  }
+};
+
 // ../providers/src/router.ts
-var log13 = createLogger("providers:router");
+var log14 = createLogger("providers:router");
 var ProviderRouter = class {
   info;
   providers = /* @__PURE__ */ new Map();
@@ -3935,6 +4176,10 @@ var ProviderRouter = class {
   constructor(opts = {}) {
     this.providers.set("anthropic", new AnthropicProvider(opts.anthropic));
     this.providers.set("cybermind-cloud", new CybermindCloudProvider(opts.cloud));
+    this.providers.set("openai", new OpenAIProvider(opts.openai));
+    this.providers.set("groq", new GroqProvider(opts.groq));
+    this.providers.set("gemini", new GoogleProvider(opts.google));
+    this.providers.set("openrouter", new OpenRouterProvider(opts.openrouter));
     const ollama = new OllamaProvider(opts.ollama);
     this.providers.set("ollama", ollama);
     this.fallback = opts.fallback ?? ollama;
@@ -3963,7 +4208,7 @@ var ProviderRouter = class {
   }
   async *chat(req) {
     const primary = this.activeProvider();
-    log13.debug("routing chat", { primary: primary.info.id });
+    log14.debug("routing chat", { primary: primary.info.id });
     let primaryYieldedSomething = false;
     let primaryError;
     for await (const chunk of primary.chat(req)) {
@@ -3975,7 +4220,7 @@ var ProviderRouter = class {
       yield chunk;
     }
     if (primaryError !== void 0 && primary !== this.fallback) {
-      log13.warn("primary provider failed; falling back", {
+      log14.warn("primary provider failed; falling back", {
         primary: primary.info.id,
         fallback: this.fallback.info.id,
         error: primaryError
@@ -3996,23 +4241,23 @@ var ProviderRouter = class {
 // ../tools/src/approval.ts
 import { existsSync as existsSync9, mkdirSync as mkdirSync8, readFileSync as readFileSync8, writeFileSync as writeFileSync8 } from "fs";
 import { dirname } from "path";
-var log14 = createLogger("tools:approval");
+var log15 = createLogger("tools:approval");
 function loadTrustStore() {
-  const path = getTrustPath();
-  if (!existsSync9(path)) return { tools: [] };
+  const path2 = getTrustPath();
+  if (!existsSync9(path2)) return { tools: [] };
   try {
-    const raw = readFileSync8(path, "utf8");
+    const raw = readFileSync8(path2, "utf8");
     const parsed = JSON.parse(raw);
     return { tools: Array.isArray(parsed.tools) ? parsed.tools : [] };
   } catch (err) {
-    log14.warn("failed to load trust store", String(err));
+    log15.warn("failed to load trust store", String(err));
     return { tools: [] };
   }
 }
 function saveTrustStore(store) {
-  const path = getTrustPath();
-  if (!existsSync9(dirname(path))) mkdirSync8(dirname(path), { recursive: true });
-  writeFileSync8(path, JSON.stringify(store, null, 2), "utf8");
+  const path2 = getTrustPath();
+  if (!existsSync9(dirname(path2))) mkdirSync8(dirname(path2), { recursive: true });
+  writeFileSync8(path2, JSON.stringify(store, null, 2), "utf8");
 }
 var ApprovalGate = class {
   constructor(ui) {
@@ -4034,7 +4279,7 @@ var ApprovalGate = class {
   trustPersistent(toolName) {
     this.persistent.add(toolName);
     saveTrustStore({ tools: [...this.persistent] });
-    log14.info("tool persistently trusted", { toolName });
+    log15.info("tool persistently trusted", { toolName });
   }
   /** Revoke persistent trust. */
   revoke(toolName) {
@@ -4078,7 +4323,7 @@ var HeadlessApprovalUI = class {
 // ../tools/src/secrets.ts
 import { existsSync as existsSync10, mkdirSync as mkdirSync9, readFileSync as readFileSync9, writeFileSync as writeFileSync9 } from "fs";
 import { createCipheriv, createDecipheriv, createHash, randomBytes, scryptSync } from "crypto";
-var log15 = createLogger("tools:secrets");
+var log16 = createLogger("tools:secrets");
 var ALGO = "aes-256-gcm";
 var IV_LEN = 12;
 var SALT_LEN = 16;
@@ -4109,13 +4354,13 @@ var SecretsVault = class {
   }
   load() {
     if (this.cache) return this.cache;
-    const path = getSecretsPath();
-    if (!existsSync10(path)) {
+    const path2 = getSecretsPath();
+    if (!existsSync10(path2)) {
       this.cache = {};
       return this.cache;
     }
     try {
-      const buf = readFileSync9(path);
+      const buf = readFileSync9(path2);
       const salt = buf.subarray(0, SALT_LEN);
       const iv = buf.subarray(SALT_LEN, SALT_LEN + IV_LEN);
       const tag = buf.subarray(SALT_LEN + IV_LEN, SALT_LEN + IV_LEN + 16);
@@ -4127,13 +4372,13 @@ var SecretsVault = class {
       this.cache = JSON.parse(plain.toString("utf8"));
       return this.cache;
     } catch (err) {
-      log15.error("failed to decrypt secrets vault; treating as empty", String(err));
+      log16.error("failed to decrypt secrets vault; treating as empty", String(err));
       this.cache = {};
       return this.cache;
     }
   }
   save(all) {
-    const path = getSecretsPath();
+    const path2 = getSecretsPath();
     if (!existsSync10(getHomeDir())) mkdirSync9(getHomeDir(), { recursive: true });
     const salt = randomBytes(SALT_LEN);
     const iv = randomBytes(IV_LEN);
@@ -4141,7 +4386,7 @@ var SecretsVault = class {
     const cipher = createCipheriv(ALGO, key, iv);
     const ciphertext = Buffer.concat([cipher.update(JSON.stringify(all), "utf8"), cipher.final()]);
     const tag = cipher.getAuthTag();
-    writeFileSync9(path, Buffer.concat([salt, iv, tag, ciphertext]));
+    writeFileSync9(path2, Buffer.concat([salt, iv, tag, ciphertext]));
     this.cache = { ...all };
   }
   /**
@@ -4174,9 +4419,9 @@ var readFileTool = {
   },
   destructive: false,
   async execute(input, ctx) {
-    const path = String(input.path ?? "");
-    if (!path) throw new Error("read_file requires a non-empty path");
-    const abs = resolve2(ctx.cwd, path);
+    const path2 = String(input.path ?? "");
+    if (!path2) throw new Error("read_file requires a non-empty path");
+    const abs = resolve2(ctx.cwd, path2);
     const raw = readFileSync10(abs);
     if (raw.byteLength > MAX_BYTES) {
       const truncated = raw.subarray(0, MAX_BYTES).toString("utf8");
@@ -4214,10 +4459,10 @@ var writeFileTool = {
   },
   destructive: true,
   async execute(input, ctx) {
-    const path = String(input.path ?? "");
+    const path2 = String(input.path ?? "");
     const content = String(input.content ?? "");
-    if (!path) throw new Error("write_file requires a path");
-    const abs = resolve3(ctx.cwd, path);
+    if (!path2) throw new Error("write_file requires a path");
+    const abs = resolve3(ctx.cwd, path2);
     if (existsSync11(abs)) {
       throw new Error(`Refusing to overwrite existing file ${abs}. Use the edit tool instead.`);
     }
@@ -4248,14 +4493,14 @@ var editTool = {
   },
   destructive: true,
   async execute(input, ctx) {
-    const path = String(input.path ?? "");
+    const path2 = String(input.path ?? "");
     const oldStr = String(input.old_string ?? "");
     const newStr = String(input.new_string ?? "");
     const replaceAll = Boolean(input.replace_all);
-    if (!path) throw new Error("edit requires a path");
+    if (!path2) throw new Error("edit requires a path");
     if (!oldStr) throw new Error("edit requires a non-empty old_string");
     if (oldStr === newStr) throw new Error("edit requires old_string !== new_string");
-    const abs = resolve4(ctx.cwd, path);
+    const abs = resolve4(ctx.cwd, path2);
     const original = readFileSync11(abs, "utf8");
     if (replaceAll) {
       const count = occurrenceCount(original, oldStr);
@@ -4305,8 +4550,8 @@ var listDirTool = {
   },
   destructive: false,
   async execute(input, ctx) {
-    const path = String(input.path ?? ".");
-    const abs = resolve5(ctx.cwd, path);
+    const path2 = String(input.path ?? ".");
+    const abs = resolve5(ctx.cwd, path2);
     const entries = readdirSync4(abs, { withFileTypes: true }).slice(0, MAX_ENTRIES);
     const lines = [];
     for (const e of entries) {
@@ -4546,7 +4791,7 @@ ${issues}`);
 import { existsSync as existsSync12, readFileSync as readFileSync13, readdirSync as readdirSync6, statSync as statSync3 } from "fs";
 import { dirname as dirname3, join as join11, resolve as resolve7 } from "path";
 import { fileURLToPath } from "url";
-var log16 = createLogger("skills:loader");
+var log17 = createLogger("skills:loader");
 function getBundledDir() {
   const here = dirname3(fileURLToPath(import.meta.url));
   let dir = here;
@@ -4566,7 +4811,7 @@ function scanDir(root, source) {
   try {
     entries = readdirSync6(root);
   } catch (err) {
-    log16.warn("failed to read skills dir", { root, err: String(err) });
+    log17.warn("failed to read skills dir", { root, err: String(err) });
     return [];
   }
   for (const name of entries) {
@@ -4586,7 +4831,7 @@ function scanDir(root, source) {
       const id = `${source}/${frontmatter.name}`;
       out.push({ id, source, path: skillFile, frontmatter, body });
     } catch (err) {
-      log16.warn("skipping malformed skill", { skillFile, err: String(err) });
+      log17.warn("skipping malformed skill", { skillFile, err: String(err) });
     }
   }
   return out;
@@ -4647,7 +4892,7 @@ var SkillRegistry = class {
 };
 
 // ../skills/src/runner.ts
-var log17 = createLogger("skills:runner");
+var log18 = createLogger("skills:runner");
 function buildSubagentSystemPrompt(skill) {
   return [
     `You are the "${skill.frontmatter.name}" sub-agent inside CyberMind CLI.`,
@@ -4677,7 +4922,7 @@ async function spawnSubagent(opts) {
   let usage = { inputTokens: 0, outputTokens: 0 };
   let reason = "end_turn";
   let error;
-  log17.debug("spawning subagent", {
+  log18.debug("spawning subagent", {
     skill: skill.frontmatter.name,
     tools: tools.map((t) => t.schema.name)
   });
@@ -4768,6 +5013,10 @@ function getRouter() {
         apiKey: cloudApiKey,
         baseURL: process.env.CYBERMIND_CLOUD_URL ?? "https://cybercli-api.onrender.com/v1"
       },
+      openai: { apiKey: process.env.OPENAI_API_KEY ?? configKeys.openai },
+      groq: { apiKey: process.env.GROQ_API_KEY ?? configKeys.groq },
+      google: { apiKey: process.env.GEMINI_API_KEY ?? process.env.GOOGLE_API_KEY ?? configKeys.google ?? configKeys.gemini },
+      openrouter: { apiKey: process.env.OPENROUTER_API_KEY ?? configKeys.openrouter },
       ollama: {
         defaultModel: config.lastModel || "auto"
       }
@@ -4787,6 +5036,18 @@ function defaultProviderOrder(config, configKeys) {
   }
   if (process.env.ANTHROPIC_API_KEY || configKeys.anthropic) {
     order.push("anthropic");
+  }
+  if (process.env.OPENAI_API_KEY || configKeys.openai) {
+    order.push("openai");
+  }
+  if (process.env.GROQ_API_KEY || configKeys.groq) {
+    order.push("groq");
+  }
+  if (process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || configKeys.google || configKeys.gemini) {
+    order.push("gemini");
+  }
+  if (process.env.OPENROUTER_API_KEY || configKeys.openrouter) {
+    order.push("openrouter");
   }
   order.push("ollama");
   return order;
@@ -5317,21 +5578,21 @@ function buildWorkflowCommand(ctx) {
         reply("Usage: /workflow run <name>  (or /workflow to list)");
         return;
       }
-      let path = "";
+      let path2 = "";
       for (const ext of [".yml", ".yaml"]) {
         const candidate = join12(workflowsDir, name + ext);
         if (existsSync13(candidate) && statSync4(candidate).isFile()) {
-          path = candidate;
+          path2 = candidate;
           break;
         }
       }
-      if (!path) {
+      if (!path2) {
         reply(`Workflow '${name}' not found in ${workflowsDir}.`);
         return;
       }
       let parsed;
       try {
-        const raw = readFileSync14(path, "utf8");
+        const raw = readFileSync14(path2, "utf8");
         const doc = parseYaml2(raw);
         parsed = WorkflowSchema.parse(doc);
       } catch (err) {
@@ -5797,7 +6058,7 @@ Share this URL with other participants to enable live collaboration.`);
             ...statusSession.participants.map((p) => `  - ${p}`),
             "",
             "Worktrees:",
-            ...Object.entries(statusSession.worktrees).map(([agent, path]) => `  - ${agent}: ${path}`),
+            ...Object.entries(statusSession.worktrees).map(([agent, path2]) => `  - ${agent}: ${path2}`),
             "",
             "Shared Context:",
             ...Object.entries(statusSession.sharedContext).map(([key, value]) => `  - ${key}: ${JSON.stringify(value)}`)
@@ -5895,8 +6156,8 @@ Note: Actual git worktree creation would run \`git worktree add ${worktreePath} 
             return;
           }
           const worktreeLines = [`Worktrees for session "${sessionId}":`];
-          for (const [agentId, path] of Object.entries(session.worktrees)) {
-            worktreeLines.push(`  ${agentId}: ${path}`);
+          for (const [agentId, path2] of Object.entries(session.worktrees)) {
+            worktreeLines.push(`  ${agentId}: ${path2}`);
           }
           reply(worktreeLines.join("\n"));
           break;
@@ -7284,7 +7545,7 @@ Creative approach with out-of-the-box thinking, design principles, and innovativ
 }
 
 // src/commands/auth.ts
-var log18 = createLogger("auth");
+var log19 = createLogger("auth");
 function buildLoginCommand(ctx) {
   return {
     name: "login",
@@ -7450,6 +7711,202 @@ function buildKnowledgeCommand(ctx) {
   };
 }
 
+// src/commands/init.ts
+import * as fs from "fs";
+import * as path from "path";
+function buildInitCommand(ctx) {
+  return {
+    name: "init",
+    description: "Initialize project with coding conventions (creates CYBER.md).",
+    category: "config",
+    usage: "/init",
+    run: () => {
+      const cwd = process.cwd();
+      const targetPath = path.join(cwd, "CYBER.md");
+      const reply = (content) => {
+        ctx.appendMessage({
+          id: `init-${Date.now()}`,
+          role: "system",
+          content,
+          createdAt: Date.now()
+        });
+      };
+      if (fs.existsSync(targetPath)) {
+        reply("\u26A0\uFE0F CYBER.md already exists in the current directory.");
+        return;
+      }
+      let projectType = "Generic";
+      let buildCommand = "make";
+      let testCommand = "make test";
+      let guidelines = "Write clean, modern, and self-documenting code.";
+      if (fs.existsSync(path.join(cwd, "package.json"))) {
+        projectType = "Node.js / TypeScript";
+        buildCommand = "npm run build";
+        testCommand = "npm test";
+        guidelines = "- Prefer TypeScript over plain JavaScript.\n- Use ES modules (import/export).\n- Keep dependencies minimal and use clean async/await patterns.";
+      } else if (fs.existsSync(path.join(cwd, "Cargo.toml"))) {
+        projectType = "Rust";
+        buildCommand = "cargo build";
+        testCommand = "cargo test";
+        guidelines = "- Follow standard rustfmt conventions.\n- Minimize use of `unsafe` blocks.\n- Handle errors explicitly using Result and Option.";
+      } else if (fs.existsSync(path.join(cwd, "go.mod"))) {
+        projectType = "Go";
+        buildCommand = "go build ./...";
+        testCommand = "go test ./...";
+        guidelines = "- Handle errors immediately where they occur.\n- Use standard naming style (camelCase).\n- Write table-driven unit tests.";
+      } else if (fs.existsSync(path.join(cwd, "requirements.txt")) || fs.existsSync(path.join(cwd, "pyproject.toml")) || fs.existsSync(path.join(cwd, "setup.py"))) {
+        projectType = "Python";
+        buildCommand = "python -m pip install -r requirements.txt";
+        testCommand = "pytest";
+        guidelines = "- Follow PEP 8 guidelines.\n- Use type hints for all public functions.\n- Write docstrings in Google style format.";
+      }
+      const template = `# CYBER.md - Project Conventions
+
+This file defines guidelines and standard instructions for CyberCoder when operating in this codebase.
+
+## Project Profile
+- **Project Type**: ${projectType}
+- **Build Command**: \`${buildCommand}\`
+- **Test Command**: \`${testCommand}\`
+
+## Coding Standards & Guidelines
+${guidelines}
+- Write thorough unit tests for new functionality.
+- Prioritize visual polish, responsive design, and CSS variables for UI components.
+
+## Architecture & Structure
+- Document major architecture modules.
+- Maintain clean separation between client (frontend) and server (backend) code.
+
+## Preferred Tools
+- CLI edits: Use \`edit\` tool for surgical modifications.
+- Commands: Propose standard commands using \`run_command\`.
+`;
+      try {
+        fs.writeFileSync(targetPath, template, "utf8");
+        reply(`\u2705 Successfully initialized project! Created CYBER.md for **${projectType}**.`);
+      } catch (err) {
+        reply(`\u274C Failed to create CYBER.md: ${err instanceof Error ? err.message : String(err)}`);
+      }
+    }
+  };
+}
+
+// src/commands/compact.ts
+function buildCompactCommand(ctx) {
+  return {
+    name: "compact",
+    description: "Compress conversation history to free context window.",
+    category: "session",
+    usage: "/compact [focus_topic]",
+    run: async (args) => {
+      const focus = args.trim();
+      const reply = (content) => {
+        ctx.appendMessage({
+          id: `compact-${Date.now()}`,
+          role: "system",
+          content,
+          createdAt: Date.now()
+        });
+      };
+      const getMessages = ctx.getMessages;
+      const setMessages = ctx.setMessages;
+      if (!getMessages || !setMessages) {
+        reply("\u26A0\uFE0F Compaction is not supported in this environment.");
+        return;
+      }
+      const history = getMessages();
+      const chatHistory = history.filter((m) => m.role === "user" || m.role === "assistant");
+      if (chatHistory.length < 3) {
+        reply("\u2139\uFE0F Message history is too brief to require compaction.");
+        return;
+      }
+      reply("\u28FE Compressing conversation history via active provider...");
+      const chatText = chatHistory.map((m) => `${m.role.toUpperCase()}: ${m.content}`).join("\n\n");
+      const systemPrompt = `You are a conversation compaction assistant. Your task is to summarize the preceding developer-assistant chat log into a single, dense, bulleted summary.
+Specify what files have been read/edited, what build/test commands were run, and what tasks remain.
+${focus ? `Focus particularly on: ${focus}` : ""}
+Keep the summary under 200 words. Do not introduce yourself or add pleasantries. Start immediately with the bulleted list.`;
+      try {
+        const router = getRouter();
+        let summary = "";
+        const chunks = router.chat({
+          model: "auto",
+          messages: [{ role: "user", content: chatText }],
+          systemPrompt,
+          temperature: 0.3
+        });
+        for await (const chunk of chunks) {
+          if (chunk.type === "text") {
+            summary += chunk.text;
+          } else if (chunk.type === "done" && chunk.reason === "error") {
+            throw new Error(chunk.error ?? "Unknown model error");
+          }
+        }
+        if (!summary) {
+          throw new Error("Empty summary returned");
+        }
+        const compactedMessage = {
+          id: `compact-summary-${Date.now()}`,
+          role: "system",
+          content: `[Conversation compacted to free context window]
+
+**Progress summary so far**:
+${summary.trim()}`,
+          createdAt: Date.now()
+        };
+        setMessages([compactedMessage]);
+        reply("\u2728 History successfully compacted!");
+      } catch (err) {
+        reply(`\u274C Failed to compact history: ${err instanceof Error ? err.message : String(err)}`);
+      }
+    }
+  };
+}
+
+// src/commands/usage-command.ts
+function buildUsageCommand(ctx) {
+  return {
+    name: "usage",
+    description: "Show live API usage stats from the backend.",
+    category: "auth",
+    usage: "/usage",
+    run: async () => {
+      const reply = (content) => {
+        ctx.appendMessage({
+          id: `usage-${Date.now()}`,
+          role: "system",
+          content,
+          createdAt: Date.now()
+        });
+      };
+      reply("\u28FE Querying usage statistics from backend...");
+      try {
+        const stats = await apiClient.getStats();
+        const lines = [
+          "\u256D\u2500\u2500\u2500 CyberCoder Usage Statistics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E",
+          `\u2502  Session ID: ${stats.current_session.id.slice(0, 12)}\u2026                   \u2502`,
+          `\u2502  Session Started: ${new Date(stats.current_session.started_at).toLocaleTimeString()}                           \u2502`,
+          "\u2502                                                             \u2502",
+          "\u2502  This Session:                                              \u2502",
+          `\u2502    - Commands executed: ${stats.usage.this_session.commands}                                   \u2502`,
+          `\u2502    - Tokens consumed: ${stats.usage.this_session.tokens.toLocaleString()}                               \u2502`,
+          `\u2502    - Session Cost: $${stats.usage.this_session.cost.toFixed(4)}                                \u2502`,
+          "\u2502                                                             \u2502",
+          "\u2502  This Month:                                                \u2502",
+          `\u2502    - Total requests: ${stats.usage.this_month.total_requests}                                   \u2502`,
+          `\u2502    - Total commands: ${stats.usage.this_month.total_commands}                                   \u2502`,
+          `\u2502    - Total cost: $${stats.usage.this_month.total_cost.toFixed(4)}                                    \u2502`,
+          "\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F"
+        ];
+        reply(lines.join("\n"));
+      } catch (err) {
+        reply(`\u274C Failed to retrieve usage statistics: ${err instanceof Error ? err.message : String(err)}`);
+      }
+    }
+  };
+}
+
 // src/commands/index.ts
 function buildCommandRegistry(ctx) {
   const commands = [
@@ -7494,6 +7951,9 @@ function buildCommandRegistry(ctx) {
     buildLogoutCommand(ctx),
     buildProfileCommand2(ctx),
     buildKnowledgeCommand(ctx),
+    buildInitCommand(ctx),
+    buildCompactCommand(ctx),
+    buildUsageCommand(ctx),
     ...buildStubCommands(ctx)
   ];
   const byName = /* @__PURE__ */ new Map();
@@ -7640,9 +8100,11 @@ var App = ({ showWelcome, initialModel, initialProvider }) => {
         setMessages([]);
         setWelcomeVisible(true);
         setScreen("onboarding");
-      }
+      },
+      getMessages: () => messages,
+      setMessages: (msgs) => setMessages(msgs)
     }),
-    [appendMessage, clearMessages, exit, model, provider, setScreen, setMessages, setWelcomeVisible]
+    [appendMessage, clearMessages, exit, model, provider, setScreen, setMessages, setWelcomeVisible, messages]
   );
   useInput8((input, key) => {
     if (key.ctrl && input === "c") {
@@ -7844,7 +8306,7 @@ function stringifyArgs(input) {
 
 // src/index.tsx
 import { jsx as jsx16 } from "react/jsx-runtime";
-var log19 = createLogger("cli");
+var log20 = createLogger("cli");
 async function main() {
   const program = new Command();
   program.name("cm").description("CyberCoder CLI \u2014 fullstack agentic coding assistant").version(CYBERMIND_VERSION, "-v, --version", "print the CyberCoder version").option("-d, --debug", "enable debug logging").option("--no-welcome", "skip the welcome screen on startup").option("-p, --print <prompt>", "print mode: run a single prompt non-interactively and exit").option("--model <name>", "override the default model for this session").option("--provider <name>", "override the default provider for this session").action((opts) => {
@@ -7852,7 +8314,7 @@ async function main() {
       process.env.CYBERMIND_LOG_LEVEL = "debug";
       process.env.CYBERMIND_LOG_STDERR = "true";
     }
-    log19.debug("starting CyberMind CLI", { opts });
+    log20.debug("starting CyberMind CLI", { opts });
     if (opts.print) {
       void runPrintMode(opts.print, opts.model);
       return;
@@ -7874,7 +8336,7 @@ async function main() {
     waitUntilExit().then(
       () => process.exit(0),
       (err) => {
-        log19.error("CLI exited with error", err instanceof Error ? err.message : err);
+        log20.error("CLI exited with error", err instanceof Error ? err.message : err);
         process.exit(1);
       }
     );
@@ -7917,7 +8379,7 @@ async function main() {
     process.exit(0);
   });
   program.parseAsync(process.argv).catch((err) => {
-    log19.error("failed to parse args", err instanceof Error ? err.message : err);
+    log20.error("failed to parse args", err instanceof Error ? err.message : err);
     process.exit(1);
   });
 }

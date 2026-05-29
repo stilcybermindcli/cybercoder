@@ -24,6 +24,9 @@ import { buildMCPCommand, buildSkillsMarketplaceCommand, buildTelemetryCommand }
 import { buildSuperCommand, buildAICommand, buildWorkspaceCommand, buildGenCommand } from './advanced.js';
 import { buildCustomCommand, buildCyberMindCommand } from './custom-server.js';
 import { buildLoginCommand, buildLogoutCommand, buildProfileCommand as buildAuthProfileCommand, buildKnowledgeCommand } from './auth.js';
+import { buildInitCommand } from './init.js';
+import { buildCompactCommand } from './compact.js';
+import { buildUsageCommand } from './usage-command.js';
 
 export interface CommandContext {
   clear: () => void;
@@ -50,6 +53,10 @@ export interface CommandContext {
   setScreen?: (screen: string) => void;
   /** Clear login state and return to onboarding. */
   logout?: () => void;
+  /** Get all messages in the active thread (for history compaction). */
+  getMessages?: () => SessionMessage[];
+  /** Overwrite the entire thread messages (for history compaction). */
+  setMessages?: (msgs: SessionMessage[]) => void;
 }
 
 export interface SlashCommandHandler {
@@ -122,6 +129,9 @@ export function buildCommandRegistry(ctx: CommandContext): CommandRegistry {
     buildLogoutCommand(ctx),
     buildAuthProfileCommand(ctx),
     buildKnowledgeCommand(ctx),
+    buildInitCommand(ctx),
+    buildCompactCommand(ctx),
+    buildUsageCommand(ctx),
     ...buildStubCommands(ctx),
   ];
 

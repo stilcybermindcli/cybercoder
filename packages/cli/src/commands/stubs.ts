@@ -21,7 +21,6 @@ interface StubSpec {
 
 const STUBS: StubSpec[] = [
   // Session / context
-  { name: 'compact', category: 'session', milestone: 'M5', description: 'Compact conversation history to free context.' },
   { name: 'branch', category: 'session', milestone: 'M5', description: 'Fork the conversation at this point.' },
   { name: 'background', category: 'session', milestone: 'M5', description: 'Send this session to the background and free the terminal.' },
   { name: 'btw', category: 'session', milestone: 'M5', description: 'Ask a quick side question without interrupting the main thread.' },
@@ -43,7 +42,6 @@ const STUBS: StubSpec[] = [
   { name: 'sync', category: 'auth', milestone: 'M6', description: 'Push/pull skills and settings to/from the backend.' },
 
   // Config / project
-  { name: 'init', category: 'config', milestone: 'M7', description: 'Initialize the project with an AGENTS.md.' },
   { name: 'add-dir', category: 'config', milestone: 'M5', description: 'Add another working directory to this session.' },
 
   // Safety
