@@ -1,6 +1,6 @@
 {
   "name": "@cybercli_chat/cli",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "CyberMind CLI — fullstack agentic coding assistant",
   "type": "module",
   "main": "./dist/index.js",

@@ -128,14 +128,6 @@ jobs:
     - name: Install dependencies
       run: pnpm install
       
-    - name: Build packages
-      run: pnpm build
-      
-    - name: Verify NPM auth
-      run: npm whoami
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        
     - name: Verify dist/ exists
       run: |
         if [ ! -f packages/cli/dist/index.js ]; then
@@ -144,6 +136,11 @@ jobs:
         fi
         echo "dist/index.js found: $(wc -c < packages/cli/dist/index.js) bytes"
       
+    - name: Verify NPM auth
+      run: npm whoami
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        
     - name: Publish CLI package
       run: |
         cd packages/cli
