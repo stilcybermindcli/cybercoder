@@ -1,7 +1,7 @@
 import { AnthropicProvider, type AnthropicProviderOptions } from './anthropic.js';
 import type { ProviderInfo } from './types.js';
 
-const DEFAULT_BASE_URL = process.env.CYBERMIND_CLOUD_URL ?? 'https://cybermindcli.info/v1';
+const DEFAULT_BASE_URL = process.env.CYBERMIND_CLOUD_URL ?? 'https://cybercli-api.onrender.com/v1';
 
 /**
  * `cybermind-cloud` provider talks to your own backend (`cybermindcli.info`)

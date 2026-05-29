@@ -14,7 +14,7 @@ import { ApprovalDialog, type PendingApproval } from './components/ApprovalDialo
 import { HintBar } from './components/HintBar.js';
 import { buildCommandRegistry } from './commands/index.js';
 import { runChat } from './runtime/chat.js';
-import { isOnboardingComplete, getTheme, setTheme, clearLogin } from './utils/config.js';
+import { isOnboardingComplete, getTheme, setTheme, clearLogin, isAuthenticated } from './utils/config.js';
 import { getUpdateMessage } from './utils/update.js';
 import type { ApprovalDecision, ApprovalPrompt, ApprovalUI } from '@cybermind/tools';
 import type { SessionMessage, SessionStatus } from './state/session.js';
@@ -30,9 +30,8 @@ interface AppProps {
 export const App: React.FC<AppProps> = ({ showWelcome, initialModel, initialProvider }) => {
   const { exit } = useApp();
 
-  // Check config for onboarding completion and saved theme
   const configTheme = getTheme();
-  const hasCompletedOnboarding = isOnboardingComplete();
+  const hasCompletedOnboarding = isOnboardingComplete() && isAuthenticated();
   const [screen, setScreen] = useState<Screen>(hasCompletedOnboarding ? 'welcome' : 'onboarding');
   const [themeConfig, setThemeConfig] = useState<ThemeConfig>({
     mode: configTheme.mode as ThemeConfig['mode'],
@@ -41,6 +40,8 @@ export const App: React.FC<AppProps> = ({ showWelcome, initialModel, initialProv
   void themeConfig; // used to track current theme across the app
 
   const [messages, setMessages] = useState<SessionMessage[]>([]);
+  const [totalTokens, setTotalTokens] = useState<number>(0);
+  const [totalCost, setTotalCost] = useState<number>(0);
   const [status, setStatus] = useState<SessionStatus>('idle');
   const [model, setModel] = useState<string>(initialModel ?? 'auto');
   const [provider, setProvider] = useState<string>(initialProvider ?? 'auto');
@@ -177,6 +178,10 @@ export const App: React.FC<AppProps> = ({ showWelcome, initialModel, initialProv
               setStatus('thinking');
               const trimmed = evt.output.length > 800 ? `${evt.output.slice(0, 800)}\n…[truncated]` : evt.output;
               appendDelta(`\n${trimmed}\n`);
+            } else if (evt.type === 'usage') {
+              setTotalTokens((prev) => prev + evt.inputTokens + evt.outputTokens);
+              const costAmt = evt.inputTokens * 0.000003 + evt.outputTokens * 0.000015;
+              setTotalCost((prev) => prev + costAmt);
             } else if (evt.type === 'done') {
               if (evt.reason === 'error') {
                 appendDelta(`\n[error] ${evt.error ?? 'unknown'}`);
@@ -309,7 +314,7 @@ export const App: React.FC<AppProps> = ({ showWelcome, initialModel, initialProv
             <MessageList messages={messages} />
             {pendingApproval && <ApprovalDialog pending={pendingApproval} />}
             <Prompt onSubmit={handleSubmit} disabled={status !== 'idle'} />
-            <StatusBar status={status} model={model} provider={provider} />
+            <StatusBar status={status} model={model} provider={provider} tokens={totalTokens} cost={totalCost} />
             <HintBar status={status} />
             {exitConfirm && <ExitConfirm />}
           </>
@@ -326,7 +331,7 @@ export const App: React.FC<AppProps> = ({ showWelcome, initialModel, initialProv
             <MessageList messages={messages} />
             {pendingApproval && <ApprovalDialog pending={pendingApproval} />}
             <Prompt onSubmit={handleSubmit} disabled={status !== 'idle'} />
-            <StatusBar status={status} model={model} provider={provider} />
+            <StatusBar status={status} model={model} provider={provider} tokens={totalTokens} cost={totalCost} />
             <HintBar status={status} />
             {exitConfirm && <ExitConfirm />}
           </>

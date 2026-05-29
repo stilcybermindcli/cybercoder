@@ -13,35 +13,36 @@ interface Props {
   pending: PendingApproval;
 }
 
-/**
- * Inline Ink approval dialog. Rendered above the prompt whenever the agent
- * loop is waiting for the user to allow/deny a tool call.
- *
- * Keys:
- *   y  → allow once
- *   s  → allow for this session
- *   t  → trust persistently (writes to ~/.cybermind/trust.json)
- *   n  → deny
- */
 export const ApprovalDialog: React.FC<Props> = ({ pending }) => {
-  useInput((input) => {
-    const key = input.toLowerCase();
-    if (key === 'y') pending.resolve('allow');
-    else if (key === 's') pending.resolve('allow-session');
-    else if (key === 't') pending.resolve('allow-persistent');
-    else if (key === 'n') pending.resolve('deny');
+  useInput((input, key) => {
+    const char = input.toLowerCase();
+    if (char === 'y') {
+      pending.resolve('allow');
+    } else if (char === 'n' || key.escape) {
+      pending.resolve('deny');
+    } else if (char === 'a') {
+      pending.resolve('allow-persistent');
+    }
   });
 
   return (
-    <Box flexDirection="column" borderStyle="round" borderColor={pending.destructive ? 'red' : 'yellow'} paddingX={1}>
-      <Text bold>
-        {pending.destructive ? '⚠ ' : ''}
-        Approve tool: <Text color="cyan">{pending.toolName}</Text>
+    <Box
+      flexDirection="column"
+      borderStyle="double"
+      borderColor={pending.destructive ? 'red' : 'yellow'}
+      paddingX={1}
+      marginY={1}
+    >
+      <Text bold color={pending.destructive ? 'red' : 'yellow'}>
+        {pending.destructive ? '⚠ Critical Tool Approval Required' : '⚡ Tool Approval Required'}
       </Text>
-      <Text>{pending.summary}</Text>
+      <Box marginTop={1} flexDirection="column">
+        <Text>Tool: <Text color="cyan" bold>{pending.toolName}</Text></Text>
+        <Text color="gray">{pending.summary}</Text>
+      </Box>
       <Box marginTop={1}>
-        <Text dimColor>
-          [y] allow once · [s] allow this session · [t] trust persistently · [n] deny
+        <Text>
+          <Text bold color="green">[y] Allow</Text> · <Text bold color="red">[n] Deny</Text> · <Text bold color="yellow">[a] Always allow</Text> · <Text bold color="gray">[ESC] Cancel</Text>
         </Text>
       </Box>
     </Box>

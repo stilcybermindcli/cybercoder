@@ -39,35 +39,25 @@ const STUBS: StubSpec[] = [
   { name: 'agent-browser', category: 'skills', milestone: 'M7', description: 'Run the Playwright browser-automation skill.' },
 
   // Auth / sync
-  { name: 'login', category: 'auth', milestone: 'M6', description: 'Log in via OAuth or with an API key.' },
-  { name: 'logout', category: 'auth', milestone: 'M6', description: 'Log out and clear credentials.' },
   { name: 'team', category: 'auth', milestone: 'M6', description: 'Switch the active team workspace.' },
   { name: 'sync', category: 'auth', milestone: 'M6', description: 'Push/pull skills and settings to/from the backend.' },
-  { name: 'usage', category: 'auth', milestone: 'M6', description: 'Show current API usage and quota.' },
-  { name: 'cost', category: 'auth', milestone: 'M12', description: 'Show pinned $/token meter. Use /cost limit <usd>.' },
 
   // Config / project
   { name: 'init', category: 'config', milestone: 'M7', description: 'Initialize the project with an AGENTS.md.' },
   { name: 'add-dir', category: 'config', milestone: 'M5', description: 'Add another working directory to this session.' },
-  { name: 'profile', category: 'config', milestone: 'M10', description: 'Switch the project profile (strict-ts, hobby, paranoid…).' },
-  { name: 'release-notes', category: 'config', milestone: 'M14', description: 'Show release notes for the current version.' },
 
   // Safety
   // /trust, /secret wired in M5.
   { name: 'sandbox', category: 'safety', milestone: 'M10', description: 'Toggle Docker/Podman sandbox for risky commands.' },
-  { name: 'rewind', category: 'safety', milestone: 'M10', description: 'Time-travel: undo the last N turns including file changes.' },
   { name: 'replay', category: 'safety', milestone: 'M10', description: 'Deterministically rerun a recorded session.' },
 
   // Collab
   { name: 'mirror', category: 'collab', milestone: 'M11', description: 'Open the web UI mirror at http://localhost:7777.' },
   { name: 'pair', category: 'collab', milestone: 'M11', description: 'Start or join a live pair session over LAN/tunnel.' },
-  { name: 'worktree', category: 'collab', milestone: 'M11', description: 'Toggle git-worktree-per-task isolation.' },
 
   // Workflows / palette
   // /workflow wired in M5.
   { name: 'palette', category: 'utility', milestone: 'M12', description: 'Open the fuzzy command palette (Ctrl+K).' },
-  { name: 'diff', category: 'utility', milestone: 'M10', description: 'Show pending file changes from the agent (lands with time-travel).' },
-  { name: 'mcp', category: 'utility', milestone: 'M13', description: 'Manage MCP servers and the MCP marketplace.' },
 
   // Cyber
   { name: 'cyber', category: 'cyber', milestone: 'Phase 2', description: 'Reserved for the autonomous bug-bounty mode. Coming soon.' },

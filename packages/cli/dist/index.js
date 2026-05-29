@@ -124,7 +124,7 @@ function createLogger(scope) {
 }
 
 // ../shared/src/version.ts
-var CYBERMIND_VERSION = "0.1.21";
+var CYBERMIND_VERSION = "0.1.22";
 var CYBERMIND_NAME = "CyberMind";
 
 // ../shared/src/checkpoint.ts
@@ -1612,11 +1612,11 @@ var CustomServerManager = class {
 var log9 = createLogger("auto-agent");
 
 // src/app.tsx
-import { Box as Box13, Text as Text15, useApp as useApp2, useInput as useInput7 } from "ink";
-import { useCallback, useEffect, useMemo, useRef, useState as useState7 } from "react";
+import { Box as Box14, Text as Text15, useApp as useApp2, useInput as useInput8 } from "ink";
+import { useCallback, useEffect as useEffect3, useMemo, useRef as useRef2, useState as useState8 } from "react";
 
 // src/components/Welcome.tsx
-import { Box, Text as Text3 } from "ink";
+import { Box, Text as Text2, useStdout } from "ink";
 
 // src/components/Mascot.tsx
 import { Text } from "ink";
@@ -1658,241 +1658,6 @@ var Mascot = () => {
     /* @__PURE__ */ jsx(Text, { color: "#FF4757", children: "     \u258C    \u258C     " })
   ] });
 };
-var MiniMascot = () => {
-  return /* @__PURE__ */ jsxs(Text, { children: [
-    /* @__PURE__ */ jsxs(Text, { color: "#FF8E8E", children: [
-      "  \u2584\u2584\u2584\u2584\u2584\u2584\u2584  ",
-      "\n"
-    ] }),
-    /* @__PURE__ */ jsxs(Text, { color: "#FF8E8E", children: [
-      " \u2584\u2588\u2584\u2584\u2584\u2584\u2584\u2584\u2588\u2584 ",
-      "\n"
-    ] }),
-    /* @__PURE__ */ jsxs(Text, { color: "#FF6B6B", children: [
-      " \u2588\u2591\u2591\u2584\u2591\u2591\u2584\u2591\u2591\u2588 ",
-      "\n"
-    ] }),
-    /* @__PURE__ */ jsxs(Text, { color: "#FF6B6B", children: [
-      " \u2588\u2591\u2591\u2580\u2591\u2591\u2580\u2591\u2591\u2588 ",
-      "\n"
-    ] }),
-    /* @__PURE__ */ jsxs(Text, { color: "#FF4757", children: [
-      "  \u2580\u2580\u2580\u2580\u2580\u2580\u2580\u2580  ",
-      "\n"
-    ] }),
-    /* @__PURE__ */ jsx(Text, { color: "#FF4757", children: "  \u2590      \u258C  " })
-  ] });
-};
-
-// src/components/SkyScene.tsx
-import { Text as Text2 } from "ink";
-import { jsx as jsx2, jsxs as jsxs2 } from "react/jsx-runtime";
-var SkyScene = () => {
-  return /* @__PURE__ */ jsxs2(Text2, { children: [
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "     " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                       " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#E8E8E8", children: "\u2588\u2588\u2588\u2588\u2588\u2593\u2593\u2591" }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                 " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "         " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#D0D0D0", children: "\u2588\u2588\u2588\u2593\u2591     \u2591\u2591" }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "            " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2591\u2591\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                        " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#B8B8B8", children: "\u2588\u2588\u2588\u2593\u2591        " }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "    " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#505050", children: "\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "   " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#707070", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                      " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#A0A0A0", children: "\u2588\u2588\u2588\u2593\u2591        " }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "   " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#404040", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "    " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#888888", children: "\u2588\u2588\u2593\u2591\u2591      \u2593" }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                             " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#707070", children: "\u2591\u2593\u2593\u2588\u2588\u2588\u2593\u2593\u2591 " }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: " " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                 " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#505050", children: "\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "               " }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                 " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "              " }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                               " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#707070", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "        " }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "       " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#404040", children: "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "               " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#808080", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "         " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "      " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#505050", children: "\u2588\u2588\u2584\u2588\u2588\u2588\u2588\u2588\u2584\u2588\u2588" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                        " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "               " }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "       " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "      " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                   " }),
-    "\n"
-  ] });
-};
-var DottedBorder = ({ width = 58 }) => {
-  return /* @__PURE__ */ jsx2(Text2, { color: "#D97736", children: ".".repeat(width) });
-};
-var CompactSkyScene = () => {
-  return /* @__PURE__ */ jsxs2(Text2, { children: [
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "     " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                 " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#E8E8E8", children: "\u2588\u2588\u2588\u2588\u2593\u2593\u2591" }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                         " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "         " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#C0C0C0", children: "\u2588\u2588\u2593\u2591   \u2591\u2591" }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "          " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2591\u2591\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                    " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#A0A0A0", children: "\u2588\u2588\u2593\u2591      " }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "   " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#505050", children: "\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "   " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#707070", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                  " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#888888", children: "\u2588\u2588\u2593\u2591      " }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "  " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#404040", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "  " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "              " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#707070", children: "\u2588\u2593\u2591\u2591    \u2593" }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                           " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2591\u2593\u2593\u2588\u2588\u2593\u2593\u2591" }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: " " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                               " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#505050", children: "\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "             " }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                               " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "            " }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                             " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#707070", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "      " }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "     " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#404040", children: "\u2588\u2588\u2588\u2588\u2588\u2588\u2588" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "             " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#808080", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "       " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "    " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#505050", children: "\u2588\u2588\u2584\u2588\u2588\u2588\u2584\u2588\u2588" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                      " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "             " }),
-    "\n",
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "     " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2588\u2588\u2588\u2588\u2588\u2588\u2588" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "    " }),
-    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
-    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                 " }),
-    "\n"
-  ] });
-};
-
-// src/components/Welcome.tsx
-import { jsx as jsx3, jsxs as jsxs3 } from "react/jsx-runtime";
-var Welcome = ({ model = "auto" }) => {
-  const cwd = process.cwd();
-  const user = process.env.USER ?? process.env.USERNAME ?? "friend";
-  return /* @__PURE__ */ jsxs3(Box, { flexDirection: "column", marginBottom: 1, children: [
-    /* @__PURE__ */ jsxs3(Text3, { color: "#D97736", children: [
-      CYBERMIND_NAME,
-      " Code v",
-      CYBERMIND_VERSION
-    ] }),
-    /* @__PURE__ */ jsx3(Text3, { color: "#D97736", children: "\u2500".repeat(58) }),
-    /* @__PURE__ */ jsxs3(Box, { flexDirection: "row", marginTop: 1, children: [
-      /* @__PURE__ */ jsxs3(Box, { flexDirection: "column", width: 40, paddingLeft: 1, children: [
-        /* @__PURE__ */ jsx3(Text3, { bold: true, color: "white", children: "  Welcome back!" }),
-        /* @__PURE__ */ jsx3(Box, { marginTop: 1 }),
-        /* @__PURE__ */ jsx3(CompactSkyScene, {}),
-        /* @__PURE__ */ jsx3(Box, { marginTop: 1 }),
-        /* @__PURE__ */ jsx3(MiniMascot, {}),
-        /* @__PURE__ */ jsx3(Box, { marginTop: 1 }),
-        /* @__PURE__ */ jsxs3(Text3, { color: "gray", children: [
-          "  ",
-          model,
-          " \xB7 API Usage Billing"
-        ] }),
-        /* @__PURE__ */ jsxs3(Text3, { color: "gray", children: [
-          "  ",
-          user,
-          "'s Individual Org"
-        ] }),
-        /* @__PURE__ */ jsx3(Box, { marginTop: 1 }),
-        /* @__PURE__ */ jsxs3(Text3, { color: "gray", children: [
-          "  ",
-          cwd
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxs3(Box, { flexDirection: "column", flexGrow: 1, paddingLeft: 1, children: [
-        /* @__PURE__ */ jsx3(Text3, { color: "#ff9f43", bold: true, children: "Tips for getting started" }),
-        /* @__PURE__ */ jsxs3(Text3, { children: [
-          "Run ",
-          /* @__PURE__ */ jsx3(Text3, { color: "cyan", children: "/init" }),
-          " to create a CYBER.md file with instructions for CyberCoder."
-        ] }),
-        /* @__PURE__ */ jsx3(Box, { marginTop: 1 }),
-        /* @__PURE__ */ jsx3(Text3, { color: "#ff9f43", bold: true, children: "What's new" }),
-        /* @__PURE__ */ jsx3(Text3, { color: "gray", children: "Fixed theme picker to apply colors in real-time across the terminal." }),
-        /* @__PURE__ */ jsx3(Text3, { color: "gray", children: "Added config persistence so login state survives between sessions." }),
-        /* @__PURE__ */ jsx3(Text3, { color: "gray", children: "New 3rd-party platform support: OpenRouter, Groq, local Ollama." }),
-        /* @__PURE__ */ jsxs3(Text3, { color: "gray", children: [
-          "See ",
-          /* @__PURE__ */ jsx3(Text3, { color: "cyan", children: "/release-notes" }),
-          " for the full changelog."
-        ] })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsx3(Text3, { color: "#D97736", children: "\u2500".repeat(58) })
-  ] });
-};
-
-// src/components/Onboarding.tsx
-import { useState } from "react";
-import { Box as Box2, Text as Text4, useInput, useApp, useStdout } from "ink";
-import TextInput from "ink-text-input";
-import { exec } from "child_process";
 
 // src/utils/config.ts
 import { readFileSync as readFileSync7, writeFileSync as writeFileSync7, existsSync as existsSync8, mkdirSync as mkdirSync7 } from "fs";
@@ -1911,6 +1676,8 @@ var DEFAULT_CONFIG = {
   lastProvider: "auto",
   lastModel: "auto",
   user: {},
+  authToken: void 0,
+  sessionId: void 0,
   autoUpdateCheck: true,
   showWelcome: true,
   telemetry: true,
@@ -1957,7 +1724,9 @@ function clearLogin() {
     onboardingComplete: false,
     loginMethod: null,
     user: {},
-    apiKeys: {}
+    apiKeys: {},
+    authToken: void 0,
+    sessionId: void 0
   });
 }
 function setApiKey(provider, key) {
@@ -1966,6 +1735,37 @@ function setApiKey(provider, key) {
   apiKeys[provider] = key;
   updateConfig({ apiKeys });
 }
+function setAuthToken(token) {
+  updateConfig({ authToken: token });
+}
+function getAuthToken() {
+  return loadConfig().authToken;
+}
+function setSessionId(sessionId) {
+  updateConfig({ sessionId });
+}
+function getSessionId() {
+  return loadConfig().sessionId;
+}
+function isAuthenticated() {
+  const config = loadConfig();
+  if (config.loginMethod === "cybercli") {
+    return !!config.authToken;
+  }
+  if (config.loginMethod === "apikey") {
+    return !!(config.apiKeys && (config.apiKeys.cybermind || config.apiKeys.cybermind_cloud || config.apiKeys.anthropic));
+  }
+  if (config.loginMethod === "thirdparty") {
+    return true;
+  }
+  return false;
+}
+function setUserProfile(profile) {
+  updateConfig({ user: profile });
+}
+function getUserProfile() {
+  return loadConfig().user ?? {};
+}
 function setTheme(mode, syntaxTheme) {
   updateConfig({ theme: { mode, syntaxTheme } });
 }
@@ -1973,33 +1773,350 @@ function getTheme() {
   return loadConfig().theme ?? DEFAULT_CONFIG.theme;
 }
 
+// src/components/Welcome.tsx
+import { jsx as jsx2, jsxs as jsxs2 } from "react/jsx-runtime";
+var Welcome = ({ model = "auto", provider = "auto" }) => {
+  const cwd = process.cwd();
+  const profile = getUserProfile();
+  const userName = profile.name || process.env.USER || process.env.USERNAME || "Coder";
+  const userPlan = profile.plan || "Free";
+  const { stdout } = useStdout();
+  const termWidth = stdout.columns ?? 80;
+  const contentWidth = Math.min(termWidth - 4, 76);
+  const renderBorderTop = (title) => {
+    const titleText = ` ${title} `;
+    const dashLength = Math.max(2, contentWidth - titleText.length - 2);
+    return /* @__PURE__ */ jsxs2(Text2, { color: "#D97757", children: [
+      "\u256D",
+      titleText,
+      "\u2500".repeat(dashLength),
+      "\u256E"
+    ] });
+  };
+  const renderBorderBottom = () => {
+    return /* @__PURE__ */ jsxs2(Text2, { color: "#D97757", children: [
+      "\u2570",
+      "\u2500".repeat(contentWidth),
+      "\u256F"
+    ] });
+  };
+  return /* @__PURE__ */ jsxs2(Box, { flexDirection: "column", paddingX: 1, width: contentWidth + 4, children: [
+    renderBorderTop(`${CYBERMIND_NAME} v${CYBERMIND_VERSION}`),
+    /* @__PURE__ */ jsxs2(Box, { flexDirection: "column", paddingX: 2, marginY: 1, children: [
+      /* @__PURE__ */ jsxs2(Box, { flexDirection: "row", alignItems: "center", marginBottom: 1, children: [
+        /* @__PURE__ */ jsx2(Mascot, {}),
+        /* @__PURE__ */ jsxs2(Box, { flexDirection: "column", marginLeft: 2, children: [
+          /* @__PURE__ */ jsxs2(Text2, { bold: true, color: "white", children: [
+            "Welcome back, ",
+            userName,
+            "!"
+          ] }),
+          /* @__PURE__ */ jsxs2(Text2, { color: "gray", children: [
+            "Model: ",
+            /* @__PURE__ */ jsx2(Text2, { color: "cyan", bold: true, children: model }),
+            " \xB7 Provider: ",
+            /* @__PURE__ */ jsx2(Text2, { color: "cyan", bold: true, children: provider })
+          ] }),
+          /* @__PURE__ */ jsxs2(Text2, { color: "gray", children: [
+            "Plan: ",
+            /* @__PURE__ */ jsx2(Text2, { color: "yellow", bold: true, children: userPlan }),
+            " \xB7 Organization: ",
+            userName,
+            "'s Workspace"
+          ] }),
+          /* @__PURE__ */ jsxs2(Text2, { color: "gray", wrap: "truncate-end", children: [
+            "Cwd: ",
+            /* @__PURE__ */ jsx2(Text2, { color: "cyan", children: cwd })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx2(Text2, { color: "#D97757", bold: true, marginBottom: 1, children: "\u2500".repeat(contentWidth - 4) }),
+      /* @__PURE__ */ jsxs2(Box, { flexDirection: "row", width: "100%", children: [
+        /* @__PURE__ */ jsxs2(Box, { flexDirection: "column", width: "50%", paddingRight: 1, children: [
+          /* @__PURE__ */ jsx2(Text2, { bold: true, color: "white", marginBottom: 1, children: "Tips" }),
+          /* @__PURE__ */ jsxs2(Text2, { color: "gray", children: [
+            "\u2022 ",
+            /* @__PURE__ */ jsx2(Text2, { color: "cyan", children: "/init" }),
+            " creates CYBER.md configuration"
+          ] }),
+          /* @__PURE__ */ jsxs2(Text2, { color: "gray", children: [
+            "\u2022 ",
+            /* @__PURE__ */ jsx2(Text2, { color: "cyan", children: "/model" }),
+            " changes active model"
+          ] }),
+          /* @__PURE__ */ jsxs2(Text2, { color: "gray", children: [
+            "\u2022 ",
+            /* @__PURE__ */ jsx2(Text2, { color: "cyan", children: "/compact" }),
+            " shrinks context size"
+          ] }),
+          /* @__PURE__ */ jsxs2(Text2, { color: "gray", children: [
+            "\u2022 ",
+            /* @__PURE__ */ jsx2(Text2, { color: "cyan", children: "/help" }),
+            " list all options"
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxs2(Box, { flexDirection: "column", width: "50%", paddingLeft: 1, children: [
+          /* @__PURE__ */ jsx2(Text2, { bold: true, color: "white", marginBottom: 1, children: "What's New" }),
+          /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "\u2022 Real-time model consensus mode" }),
+          /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "\u2022 Fully working web OAuth & redirection" }),
+          /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "\u2022 Rich terminal Markdown formatting" }),
+          /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "\u2022 Cost and token usage tracking" })
+        ] })
+      ] })
+    ] }),
+    renderBorderBottom(),
+    /* @__PURE__ */ jsx2(Box, { paddingX: 2, marginBottom: 1, children: /* @__PURE__ */ jsx2(Text2, { color: "gray", italic: true, children: "Need help? Ask CyberCoder a coding question or use / for commands." }) })
+  ] });
+};
+
+// src/components/Onboarding.tsx
+import { useState as useState2, useEffect as useEffect2, useRef } from "react";
+import { Box as Box3, Text as Text4, useInput, useApp, useStdout as useStdout2 } from "ink";
+import TextInput from "ink-text-input";
+import { exec } from "child_process";
+import http from "http";
+
+// src/components/LoadingSpinner.tsx
+import { useEffect, useState } from "react";
+import { Box as Box2, Text as Text3 } from "ink";
+import { jsx as jsx3, jsxs as jsxs3 } from "react/jsx-runtime";
+var LoadingSpinner = ({ text = "Thinking", showTimer = false }) => {
+  const [frame, setFrame] = useState(0);
+  const [elapsed, setElapsed] = useState(0);
+  const frames = ["\u28FE", "\u28FD", "\u28FB", "\u28BF", "\u287F", "\u28DF", "\u28EF", "\u28F7"];
+  useEffect(() => {
+    const frameInterval = setInterval(() => {
+      setFrame((f) => (f + 1) % frames.length);
+    }, 80);
+    return () => clearInterval(frameInterval);
+  }, []);
+  useEffect(() => {
+    if (!showTimer) return;
+    const timerInterval = setInterval(() => {
+      setElapsed((e) => e + 1);
+    }, 1e3);
+    return () => clearInterval(timerInterval);
+  }, [showTimer]);
+  const formatElapsed = (seconds) => {
+    if (seconds < 60) return `${seconds}s`;
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m}m ${s}s`;
+  };
+  return /* @__PURE__ */ jsxs3(Box2, { flexDirection: "row", alignItems: "center", children: [
+    /* @__PURE__ */ jsxs3(Text3, { color: "#D97757", children: [
+      frames[frame],
+      " "
+    ] }),
+    /* @__PURE__ */ jsx3(Text3, { color: "white", bold: true, children: text }),
+    showTimer && /* @__PURE__ */ jsxs3(Text3, { color: "gray", children: [
+      " (",
+      formatElapsed(elapsed),
+      ")"
+    ] })
+  ] });
+};
+
+// src/utils/api-client.ts
+import { hostname } from "os";
+var BACKEND_URL = process.env.CYBERMIND_CLOUD_URL ?? "https://cybercli-api.onrender.com/api/v1";
+var ApiClient = class {
+  getHeaders() {
+    const token = getAuthToken();
+    const sessionId = getSessionId();
+    const headers = {
+      "Content-Type": "application/json"
+    };
+    if (token) {
+      headers["Authorization"] = `Bearer ${token}`;
+    }
+    if (sessionId) {
+      headers["x-cli-session"] = sessionId;
+    }
+    return headers;
+  }
+  async authenticate(apiKey) {
+    const machineId = process.env.COMPUTERNAME || process.env.HOSTNAME || hostname() || "unknown-mac";
+    const osType = process.platform;
+    const shellType = process.env.SHELL || process.env.COMSPEC || "unknown-shell";
+    const currentCwd = process.cwd();
+    const response = await fetch(`${BACKEND_URL}/cli/auth`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        api_key: apiKey,
+        machine_id: machineId,
+        machine_name: hostname(),
+        os: osType,
+        shell: shellType,
+        cwd: currentCwd
+      })
+    });
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({ error: "Authentication failed" }));
+      throw new Error(err.error || "Authentication failed");
+    }
+    return response.json();
+  }
+  async refreshSession() {
+    const response = await fetch(`${BACKEND_URL}/cli/auth/refresh`, {
+      method: "POST",
+      headers: this.getHeaders()
+    });
+    if (!response.ok) {
+      throw new Error("Failed to refresh session");
+    }
+    return response.json();
+  }
+  async logout() {
+    const response = await fetch(`${BACKEND_URL}/cli/auth/logout`, {
+      method: "POST",
+      headers: this.getHeaders()
+    });
+    if (!response.ok) {
+      throw new Error("Failed to logout");
+    }
+    return response.json();
+  }
+  async getModels() {
+    const response = await fetch(`${BACKEND_URL}/cli/models`, {
+      method: "GET",
+      headers: this.getHeaders()
+    });
+    if (!response.ok) {
+      throw new Error("Failed to fetch models");
+    }
+    return response.json();
+  }
+  async getStats() {
+    const response = await fetch(`${BACKEND_URL}/cli/stats`, {
+      method: "GET",
+      headers: this.getHeaders()
+    });
+    if (!response.ok) {
+      throw new Error("Failed to fetch stats");
+    }
+    return response.json();
+  }
+  async getContext(prompt) {
+    const response = await fetch(`${BACKEND_URL}/cli/context?prompt=${encodeURIComponent(prompt)}`, {
+      method: "GET",
+      headers: this.getHeaders()
+    });
+    if (!response.ok) {
+      throw new Error("Failed to fetch context");
+    }
+    return response.json();
+  }
+  async updateContext(technologies, codeQuality, patternsDetected) {
+    const response = await fetch(`${BACKEND_URL}/cli/context/update`, {
+      method: "POST",
+      headers: this.getHeaders(),
+      body: JSON.stringify({
+        technologies,
+        code_quality: codeQuality,
+        patterns_detected: patternsDetected
+      })
+    });
+    if (!response.ok) {
+      throw new Error("Failed to update context");
+    }
+    return response.json();
+  }
+  async trackCommand(command, args, cwd, exitCode, outputPreview, durationMs) {
+    const response = await fetch(`${BACKEND_URL}/cli/track/command`, {
+      method: "POST",
+      headers: this.getHeaders(),
+      body: JSON.stringify({
+        command,
+        args,
+        cwd,
+        exit_code: exitCode,
+        output_preview: outputPreview,
+        duration_ms: durationMs
+      })
+    });
+    if (!response.ok) {
+      throw new Error("Failed to track command");
+    }
+    return response.json();
+  }
+  async *streamCompletion(payload) {
+    const response = await fetch(`${BACKEND_URL}/cli/complete`, {
+      method: "POST",
+      headers: this.getHeaders(),
+      body: JSON.stringify({
+        ...payload,
+        stream: true
+      })
+    });
+    if (!response.ok) {
+      const errText = await response.text();
+      throw new Error(`Streaming failed: ${response.status} ${errText}`);
+    }
+    if (!response.body) {
+      throw new Error("No response body for streaming");
+    }
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+    try {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop() || "";
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (!trimmed.startsWith("data: ")) continue;
+          const dataStr = trimmed.slice(6).trim();
+          if (dataStr === "[DONE]") {
+            return;
+          }
+          try {
+            const parsed = JSON.parse(dataStr);
+            yield parsed;
+          } catch {
+          }
+        }
+      }
+    } finally {
+      reader.releaseLock();
+    }
+  }
+};
+var apiClient = new ApiClient();
+
 // src/components/Onboarding.tsx
 import { jsx as jsx4, jsxs as jsxs4 } from "react/jsx-runtime";
 var LOGIN_METHODS = [
   {
     id: "cybercli",
-    label: "CyberCli account with subscription",
-    desc: "Pro, Max, Team, or Enterprise"
+    label: "CyberCli account (Pro, Max, Team)",
+    desc: "Automated OAuth browser sign-in"
   },
   {
     id: "apikey",
-    label: "API key (BYOK)",
-    desc: "Bring Your Own Key \u2014 API usage billing"
+    label: "API Key (Bring Your Own Key)",
+    desc: "Billed based on API usage"
   },
   {
     id: "thirdparty",
-    label: "3rd-party platform",
-    desc: "OpenRouter, Groq, or local Ollama"
+    label: "3rd-party platform (Ollama, Groq, etc.)",
+    desc: "Local setup and config"
   }
 ];
 var THIRDPARTY_PLATFORMS = [
-  { id: "openrouter", label: "OpenRouter", desc: "interactive setup" },
-  { id: "groq", label: "Groq", desc: "interactive setup" },
-  { id: "ollama", label: "Ollama (local)", desc: "interactive setup" },
+  { id: "openrouter", label: "OpenRouter", desc: "Get OpenRouter API keys" },
+  { id: "groq", label: "Groq", desc: "Get Groq API keys" },
+  { id: "ollama", label: "Ollama (local)", desc: "Run locally" },
   { id: "back", label: "Go back", desc: "" }
 ];
 var API_PROVIDERS = [
-  { id: "cybermind", label: "CyberMind (built-in)" },
+  { id: "cybermind", label: "CyberMind Cloud" },
   { id: "openai", label: "OpenAI" },
   { id: "anthropic", label: "Anthropic" },
   { id: "groq", label: "Groq" },
@@ -2021,16 +2138,79 @@ function openBrowser(url) {
 }
 var Onboarding = ({ onComplete }) => {
   const { exit } = useApp();
-  const { stdout } = useStdout();
-  const [screen, setScreen] = useState("main");
-  const [selected, setSelected] = useState(0);
-  const [apiKeyInput, setApiKeyInput] = useState("");
-  const [apiKeyProvider, setApiKeyProvider] = useState("cybermind");
-  const [apiKeyStage, setApiKeyStage] = useState("provider");
-  const [tpSelected, setTpSelected] = useState(0);
+  const { stdout } = useStdout2();
+  const [screen, setScreen] = useState2("main");
+  const [selected, setSelected] = useState2(0);
+  const [port, setPort] = useState2(null);
+  const [authError, setAuthError] = useState2(null);
+  const [waitingForAuth, setWaitingForAuth] = useState2(false);
+  const serverRef = useRef(null);
+  const [apiKeyInput, setApiKeyInput] = useState2("");
+  const [apiKeyProvider, setApiKeyProvider] = useState2("cybermind");
+  const [apiKeyStage, setApiKeyStage] = useState2("provider");
+  const [tpSelected, setTpSelected] = useState2(0);
   const termWidth = stdout.columns ?? 80;
-  const isWide = termWidth >= 100;
-  const contentWidth = Math.min(termWidth - 4, 78);
+  const contentWidth = Math.min(termWidth - 4, 76);
+  useEffect2(() => {
+    if (screen === "cybercli-login") {
+      setWaitingForAuth(true);
+      setAuthError(null);
+      const server = http.createServer((req, res) => {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        if (req.method === "OPTIONS") {
+          res.writeHead(200);
+          res.end();
+          return;
+        }
+        const urlObj = new URL(req.url || "", `http://${req.headers.host}`);
+        if (urlObj.pathname === "/auth") {
+          const token = urlObj.searchParams.get("token");
+          if (token) {
+            res.writeHead(200, { "Content-Type": "text/html" });
+            res.end("<h1>Authentication Successful!</h1><p>You can close this tab and return to the terminal.</p>");
+            setAuthToken(token);
+            apiClient.authenticate(token).then((authInfo) => {
+              setSessionId(authInfo.session_id);
+              setUserProfile(authInfo.user);
+              markOnboardingComplete("cybercli");
+              onComplete("cybercli");
+            }).catch((err) => {
+              setAuthError(err.message || "Token verification failed");
+              setWaitingForAuth(false);
+            });
+            setTimeout(() => {
+              server.close();
+            }, 1e3);
+          } else {
+            res.writeHead(400, { "Content-Type": "text/plain" });
+            res.end("Missing token");
+          }
+        } else {
+          res.writeHead(404, { "Content-Type": "text/plain" });
+          res.end("Not Found");
+        }
+      });
+      server.listen(0, "127.0.0.1", () => {
+        const addr = server.address();
+        const allocatedPort = typeof addr === "string" ? 0 : addr?.port || 0;
+        setPort(allocatedPort);
+        const frontendUrl = process.env.FRONTEND_URL || "https://cybermindcli.info";
+        openBrowser(`${frontendUrl}/login?redirect=cli&port=${allocatedPort}`);
+      });
+      serverRef.current = server;
+      const timeout = setTimeout(() => {
+        setAuthError("Authentication timed out. Please try again.");
+        setWaitingForAuth(false);
+        server.close();
+      }, 5 * 60 * 1e3);
+      return () => {
+        clearTimeout(timeout);
+        server.close();
+      };
+    }
+  }, [screen, onComplete]);
   useInput((input, key) => {
     if (key.ctrl && input === "c") {
       exit();
@@ -2066,12 +2246,6 @@ var Onboarding = ({ onComplete }) => {
         setScreen("main");
         setSelected(0);
         return;
-      }
-      if (key.return) {
-        const url = "https://cybermindcli.info/subscribe?redirect=cli";
-        openBrowser(url);
-        markOnboardingComplete("cybercli");
-        onComplete("cybercli");
       }
       return;
     }
@@ -2135,127 +2309,107 @@ var Onboarding = ({ onComplete }) => {
       return;
     }
   });
+  const renderBorderTop = (title) => {
+    const titleText = ` ${title} `;
+    const dashLength = Math.max(2, contentWidth - titleText.length - 2);
+    return /* @__PURE__ */ jsxs4(Text4, { color: "#D97757", children: [
+      "\u256D",
+      titleText,
+      "\u2500".repeat(dashLength),
+      "\u256E"
+    ] });
+  };
+  const renderBorderBottom = () => {
+    return /* @__PURE__ */ jsxs4(Text4, { color: "#D97757", children: [
+      "\u2570",
+      "\u2500".repeat(contentWidth),
+      "\u256F"
+    ] });
+  };
   if (screen === "main") {
-    return /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginBottom: 1, width: contentWidth, children: [
-      /* @__PURE__ */ jsxs4(Text4, { color: "#D97736", children: [
-        "Welcome to ",
-        CYBERMIND_NAME,
-        " Code v",
-        CYBERMIND_VERSION
-      ] }),
-      /* @__PURE__ */ jsx4(DottedBorder, { width: contentWidth - 2 }),
-      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-      /* @__PURE__ */ jsx4(SkyScene, {}),
-      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-      /* @__PURE__ */ jsx4(DottedBorder, { width: contentWidth - 2 }),
-      /* @__PURE__ */ jsxs4(Box2, { flexDirection: isWide ? "row" : "column", marginTop: 1, children: [
-        /* @__PURE__ */ jsx4(Box2, { flexDirection: "column", width: isWide ? 18 : contentWidth, paddingLeft: 2, children: /* @__PURE__ */ jsx4(Mascot, {}) }),
-        /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", flexGrow: 1, paddingRight: 2, paddingLeft: isWide ? 0 : 2, children: [
-          /* @__PURE__ */ jsxs4(Text4, { bold: true, color: "white", children: [
-            CYBERMIND_NAME,
-            " Code can be used with your CyberCli subscription or billed based on API usage through your own keys."
-          ] }),
-          /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-          /* @__PURE__ */ jsx4(Text4, { bold: true, color: "#D97736", children: "Select login method:" }),
-          /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-          LOGIN_METHODS.map((method, i) => /* @__PURE__ */ jsx4(Box2, { flexDirection: "column", marginBottom: 1, children: /* @__PURE__ */ jsxs4(Text4, { children: [
-            i === selected ? /* @__PURE__ */ jsx4(Text4, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "  " }),
-            /* @__PURE__ */ jsxs4(Text4, { color: i === selected ? "white" : "gray", bold: i === selected, children: [
-              i + 1,
-              ". ",
-              method.label
+    return /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", paddingX: 1, width: contentWidth + 4, children: [
+      renderBorderTop(`${CYBERMIND_NAME} v${CYBERMIND_VERSION}`),
+      /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", paddingX: 2, marginY: 1, children: [
+        /* @__PURE__ */ jsxs4(Box3, { flexDirection: "row", alignItems: "center", marginBottom: 1, children: [
+          /* @__PURE__ */ jsx4(Mascot, {}),
+          /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", marginLeft: 2, children: [
+            /* @__PURE__ */ jsxs4(Text4, { bold: true, color: "white", children: [
+              "Welcome to ",
+              CYBERMIND_NAME
             ] }),
-            /* @__PURE__ */ jsxs4(Text4, { color: "gray", children: [
-              " \xB7 ",
-              method.desc
-            ] })
-          ] }) }, method.id)),
-          /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-          /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Arrow keys to navigate, Enter to select, ESC to exit" })
-        ] })
-      ] })
+            /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "The fullstack agentic coding CLI" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsx4(Text4, { color: "white", bold: true, marginBottom: 1, children: "How would you like to authenticate?" }),
+        LOGIN_METHODS.map((method, i) => /* @__PURE__ */ jsx4(Box3, { flexDirection: "row", marginBottom: 1, children: /* @__PURE__ */ jsxs4(Text4, { children: [
+          i === selected ? /* @__PURE__ */ jsx4(Text4, { color: "#D97757", children: "\u203A " }) : /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "  " }),
+          /* @__PURE__ */ jsxs4(Text4, { color: i === selected ? "white" : "gray", bold: i === selected, children: [
+            i + 1,
+            ". ",
+            method.label
+          ] }),
+          /* @__PURE__ */ jsxs4(Text4, { color: "gray", children: [
+            " \xB7 ",
+            method.desc
+          ] })
+        ] }) }, method.id)),
+        /* @__PURE__ */ jsx4(Box3, { marginTop: 1, children: /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "\u2191\u2193 navigate \xB7 Enter select \xB7 ESC exit" }) })
+      ] }),
+      renderBorderBottom()
     ] });
   }
   if (screen === "cybercli-login") {
-    return /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginBottom: 1, width: contentWidth, children: [
-      /* @__PURE__ */ jsxs4(Text4, { color: "#D97736", children: [
-        "Welcome to ",
-        CYBERMIND_NAME,
-        " Code v",
-        CYBERMIND_VERSION
+    const frontendUrl = process.env.FRONTEND_URL || "https://cybermindcli.info";
+    return /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", paddingX: 1, width: contentWidth + 4, children: [
+      renderBorderTop("Waiting for Authentication"),
+      /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", paddingX: 2, marginY: 1, children: [
+        waitingForAuth ? /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", marginBottom: 1, children: [
+          /* @__PURE__ */ jsx4(LoadingSpinner, { text: "Waiting for browser authentication..." }),
+          /* @__PURE__ */ jsxs4(Box3, { marginTop: 1, children: [
+            /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "A browser window should have opened. If not, open:" }),
+            /* @__PURE__ */ jsxs4(Text4, { color: "cyan", children: [
+              frontendUrl,
+              "/login?redirect=cli&port=",
+              port || "..."
+            ] })
+          ] })
+        ] }) : /* @__PURE__ */ jsx4(Box3, { flexDirection: "column", marginBottom: 1, children: authError ? /* @__PURE__ */ jsxs4(Text4, { color: "red", bold: true, children: [
+          "\u2715 ",
+          authError
+        ] }) : /* @__PURE__ */ jsx4(Text4, { color: "green", bold: true, children: "\u2713 Authenticated successfully!" }) }),
+        /* @__PURE__ */ jsx4(Box3, { marginTop: 1, children: /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "ESC to go back to main menu" }) })
       ] }),
-      /* @__PURE__ */ jsx4(DottedBorder, { width: contentWidth - 2 }),
-      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-      /* @__PURE__ */ jsx4(SkyScene, {}),
-      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-      /* @__PURE__ */ jsx4(DottedBorder, { width: contentWidth - 2 }),
-      /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginTop: 1, paddingLeft: 2, paddingRight: 2, children: [
-        /* @__PURE__ */ jsx4(Text4, { bold: true, color: "white", children: "CyberCli subscription required" }),
-        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-        /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "A Pro, Max, or Team subscription is required to use CyberCli Code." }),
-        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-        /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Browser didn't open? Use the url below:" }),
-        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-        /* @__PURE__ */ jsx4(Text4, { color: "cyan", children: "https://cybermindcli.info/subscribe?redirect=cli" }),
-        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-        /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Press Enter to choose a plan, ESC to go back" })
-      ] })
+      renderBorderBottom()
     ] });
   }
   if (screen === "apikey-input") {
     if (apiKeyStage === "provider") {
-      return /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginBottom: 1, width: contentWidth, children: [
-        /* @__PURE__ */ jsxs4(Text4, { color: "#D97736", children: [
-          "Welcome to ",
-          CYBERMIND_NAME,
-          " Code v",
-          CYBERMIND_VERSION
-        ] }),
-        /* @__PURE__ */ jsx4(DottedBorder, { width: contentWidth - 2 }),
-        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-        /* @__PURE__ */ jsx4(SkyScene, {}),
-        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-        /* @__PURE__ */ jsx4(DottedBorder, { width: contentWidth - 2 }),
-        /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginTop: 1, paddingLeft: 2, paddingRight: 2, children: [
-          /* @__PURE__ */ jsx4(Text4, { bold: true, color: "white", children: "Enter your API key" }),
-          /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-          /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Select a provider:" }),
-          /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-          API_PROVIDERS.map((prov, i) => /* @__PURE__ */ jsx4(Box2, { flexDirection: "row", marginBottom: 1, children: /* @__PURE__ */ jsxs4(Text4, { children: [
-            i === selected ? /* @__PURE__ */ jsx4(Text4, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "  " }),
+      return /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", paddingX: 1, width: contentWidth + 4, children: [
+        renderBorderTop("Select API Provider"),
+        /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", paddingX: 2, marginY: 1, children: [
+          /* @__PURE__ */ jsx4(Text4, { color: "white", bold: true, marginBottom: 1, children: "Select an API provider:" }),
+          API_PROVIDERS.map((prov, i) => /* @__PURE__ */ jsx4(Box3, { flexDirection: "row", marginBottom: 1, children: /* @__PURE__ */ jsxs4(Text4, { children: [
+            i === selected ? /* @__PURE__ */ jsx4(Text4, { color: "#D97757", children: "\u203A " }) : /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "  " }),
             /* @__PURE__ */ jsxs4(Text4, { color: i === selected ? "white" : "gray", bold: i === selected, children: [
               i + 1,
               ". ",
               prov.label
             ] })
           ] }) }, prov.id)),
-          /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-          /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Arrow keys to navigate, Enter to select, ESC to go back" })
-        ] })
+          /* @__PURE__ */ jsx4(Box3, { marginTop: 1, children: /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "\u2191\u2193 navigate \xB7 Enter select \xB7 ESC go back" }) })
+        ] }),
+        renderBorderBottom()
       ] });
     }
-    return /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginBottom: 1, width: contentWidth, children: [
-      /* @__PURE__ */ jsxs4(Text4, { color: "#D97736", children: [
-        "Welcome to ",
-        CYBERMIND_NAME,
-        " Code v",
-        CYBERMIND_VERSION
-      ] }),
-      /* @__PURE__ */ jsx4(DottedBorder, { width: contentWidth - 2 }),
-      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-      /* @__PURE__ */ jsx4(SkyScene, {}),
-      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-      /* @__PURE__ */ jsx4(DottedBorder, { width: contentWidth - 2 }),
-      /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginTop: 1, paddingLeft: 2, paddingRight: 2, children: [
-        /* @__PURE__ */ jsx4(Text4, { bold: true, color: "white", children: "Enter your API key" }),
-        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-        /* @__PURE__ */ jsxs4(Text4, { color: "gray", children: [
+    return /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", paddingX: 1, width: contentWidth + 4, children: [
+      renderBorderTop("Enter API Key"),
+      /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", paddingX: 2, marginY: 1, children: [
+        /* @__PURE__ */ jsx4(Text4, { color: "white", bold: true, marginBottom: 1, children: "Paste your API key below:" }),
+        /* @__PURE__ */ jsxs4(Text4, { color: "gray", marginBottom: 1, children: [
           "Provider: ",
-          /* @__PURE__ */ jsx4(Text4, { color: "cyan", children: apiKeyProvider })
+          /* @__PURE__ */ jsx4(Text4, { color: "cyan", bold: true, children: apiKeyProvider })
         ] }),
-        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-        /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Paste your API key here:" }),
-        /* @__PURE__ */ jsxs4(Box2, { flexDirection: "row", children: [
+        /* @__PURE__ */ jsxs4(Box3, { flexDirection: "row", marginBottom: 1, children: [
           /* @__PURE__ */ jsxs4(Text4, { color: "gray", children: [
             ">",
             " "
@@ -2266,39 +2420,42 @@ var Onboarding = ({ onComplete }) => {
               value: apiKeyInput,
               onChange: setApiKeyInput,
               onSubmit: () => {
-                if (apiKeyInput.trim()) {
-                  setApiKey(apiKeyProvider, apiKeyInput.trim());
-                  markOnboardingComplete("apikey");
-                  onComplete("apikey");
+                const trimmed = apiKeyInput.trim();
+                if (trimmed) {
+                  setApiKey(apiKeyProvider, trimmed);
+                  if (apiKeyProvider === "cybermind") {
+                    setAuthToken(trimmed);
+                    apiClient.authenticate(trimmed).then((authInfo) => {
+                      setSessionId(authInfo.session_id);
+                      setUserProfile(authInfo.user);
+                      markOnboardingComplete("apikey");
+                      onComplete("apikey");
+                    }).catch((err) => {
+                      markOnboardingComplete("apikey");
+                      onComplete("apikey");
+                    });
+                  } else {
+                    markOnboardingComplete("apikey");
+                    onComplete("apikey");
+                  }
                 }
               },
               mask: "*"
             }
           )
         ] }),
-        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-        /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Press Enter to submit, ESC to go back" })
-      ] })
+        /* @__PURE__ */ jsx4(Box3, { marginTop: 1, children: /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Enter submit \xB7 ESC go back" }) })
+      ] }),
+      renderBorderBottom()
     ] });
   }
   if (screen === "thirdparty-platforms") {
-    return /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginBottom: 1, width: contentWidth, children: [
-      /* @__PURE__ */ jsxs4(Text4, { color: "#D97736", children: [
-        "Welcome to ",
-        CYBERMIND_NAME,
-        " Code v",
-        CYBERMIND_VERSION
-      ] }),
-      /* @__PURE__ */ jsx4(DottedBorder, { width: contentWidth - 2 }),
-      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-      /* @__PURE__ */ jsx4(SkyScene, {}),
-      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-      /* @__PURE__ */ jsx4(DottedBorder, { width: contentWidth - 2 }),
-      /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginTop: 1, paddingLeft: 2, paddingRight: 2, children: [
-        /* @__PURE__ */ jsx4(Text4, { bold: true, color: "white", children: "Using 3rd-party platforms" }),
-        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-        THIRDPARTY_PLATFORMS.map((plat, i) => /* @__PURE__ */ jsx4(Box2, { flexDirection: "column", marginBottom: 1, children: /* @__PURE__ */ jsxs4(Text4, { children: [
-          i === tpSelected ? /* @__PURE__ */ jsx4(Text4, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "  " }),
+    return /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", paddingX: 1, width: contentWidth + 4, children: [
+      renderBorderTop("3rd-Party Platforms"),
+      /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", paddingX: 2, marginY: 1, children: [
+        /* @__PURE__ */ jsx4(Text4, { color: "white", bold: true, marginBottom: 1, children: "Select a local or 3rd-party platform to set up:" }),
+        THIRDPARTY_PLATFORMS.map((plat, i) => /* @__PURE__ */ jsx4(Box3, { flexDirection: "column", marginBottom: 1, children: /* @__PURE__ */ jsxs4(Text4, { children: [
+          i === tpSelected ? /* @__PURE__ */ jsx4(Text4, { color: "#D97757", children: "\u203A " }) : /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "  " }),
           /* @__PURE__ */ jsxs4(Text4, { color: i === tpSelected ? "white" : "gray", bold: i === tpSelected, children: [
             i + 1,
             ". ",
@@ -2309,17 +2466,17 @@ var Onboarding = ({ onComplete }) => {
             plat.desc
           ] })
         ] }) }, plat.id)),
-        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
-        /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Arrow keys to navigate, Enter to select, ESC to go back" })
-      ] })
+        /* @__PURE__ */ jsx4(Box3, { marginTop: 1, children: /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "\u2191\u2193 navigate \xB7 Enter select \xB7 ESC go back" }) })
+      ] }),
+      renderBorderBottom()
     ] });
   }
   return null;
 };
 
 // src/components/ThemePicker.tsx
-import { useState as useState2 } from "react";
-import { Box as Box3, Text as Text5, useInput as useInput2 } from "ink";
+import { useState as useState3 } from "react";
+import { Box as Box4, Text as Text5, useInput as useInput2 } from "ink";
 import gradient from "gradient-string";
 import { Fragment, jsx as jsx5, jsxs as jsxs5 } from "react/jsx-runtime";
 var cyber = gradient(["#00e5ff", "#7b5cff", "#ff5c8a"]);
@@ -2340,9 +2497,9 @@ var SYNTAX_THEMES = [
   "GitHub Light"
 ];
 var ThemePicker = ({ onComplete }) => {
-  const [selected, setSelected] = useState2(1);
-  const [syntaxIdx, setSyntaxIdx] = useState2(0);
-  const [stage, setStage] = useState2("theme");
+  const [selected, setSelected] = useState3(1);
+  const [syntaxIdx, setSyntaxIdx] = useState3(0);
+  const [stage, setStage] = useState3("theme");
   useInput2((_, key) => {
     if (stage === "theme") {
       if (key.upArrow) {
@@ -2375,16 +2532,16 @@ var ThemePicker = ({ onComplete }) => {
     { line: 2, text: '  console.log("Hello, CyberCoder!");', new: true },
     { line: 3, text: "}", color: "cyan" }
   ];
-  return /* @__PURE__ */ jsxs5(Box3, { flexDirection: "column", marginBottom: 1, children: [
+  return /* @__PURE__ */ jsxs5(Box4, { flexDirection: "column", marginBottom: 1, children: [
     /* @__PURE__ */ jsx5(Text5, { children: cyber("\u256D\u2500 Theme Selection \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E") }),
-    /* @__PURE__ */ jsxs5(Box3, { flexDirection: "column", paddingLeft: 2, paddingRight: 2, marginTop: 1, children: [
+    /* @__PURE__ */ jsxs5(Box4, { flexDirection: "column", paddingLeft: 2, paddingRight: 2, marginTop: 1, children: [
       /* @__PURE__ */ jsx5(Text5, { bold: true, color: "white", children: "Let's get started." }),
-      /* @__PURE__ */ jsx5(Box3, { marginTop: 1 }),
+      /* @__PURE__ */ jsx5(Box4, { marginTop: 1 }),
       /* @__PURE__ */ jsx5(Text5, { bold: true, color: "#D97736", children: "Choose the text style that looks best with your terminal" }),
       /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "To change this later, run /theme" }),
-      /* @__PURE__ */ jsx5(Box3, { marginTop: 1 }),
+      /* @__PURE__ */ jsx5(Box4, { marginTop: 1 }),
       stage === "theme" && /* @__PURE__ */ jsxs5(Fragment, { children: [
-        THEMES.map((t, i) => /* @__PURE__ */ jsx5(Box3, { flexDirection: "row", children: /* @__PURE__ */ jsxs5(Text5, { children: [
+        THEMES.map((t, i) => /* @__PURE__ */ jsx5(Box4, { flexDirection: "row", children: /* @__PURE__ */ jsxs5(Text5, { children: [
           i === selected ? /* @__PURE__ */ jsx5(Text5, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "  " }),
           /* @__PURE__ */ jsxs5(Text5, { color: i === selected ? "white" : "gray", bold: i === selected, children: [
             i + 1,
@@ -2393,13 +2550,13 @@ var ThemePicker = ({ onComplete }) => {
           ] }),
           i === selected && /* @__PURE__ */ jsx5(Text5, { color: "green", children: "  \u2713" })
         ] }) }, t.id)),
-        /* @__PURE__ */ jsx5(Box3, { marginTop: 1 }),
+        /* @__PURE__ */ jsx5(Box4, { marginTop: 1 }),
         /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "Use arrow keys, Enter to confirm" })
       ] }),
       stage === "syntax" && /* @__PURE__ */ jsxs5(Fragment, { children: [
         /* @__PURE__ */ jsx5(Text5, { bold: true, color: "#D97736", children: "Choose syntax highlighting theme:" }),
-        /* @__PURE__ */ jsx5(Box3, { marginTop: 1 }),
-        SYNTAX_THEMES.map((t, i) => /* @__PURE__ */ jsx5(Box3, { flexDirection: "row", children: /* @__PURE__ */ jsxs5(Text5, { children: [
+        /* @__PURE__ */ jsx5(Box4, { marginTop: 1 }),
+        SYNTAX_THEMES.map((t, i) => /* @__PURE__ */ jsx5(Box4, { flexDirection: "row", children: /* @__PURE__ */ jsxs5(Text5, { children: [
           i === syntaxIdx ? /* @__PURE__ */ jsx5(Text5, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "  " }),
           /* @__PURE__ */ jsxs5(Text5, { color: i === syntaxIdx ? "white" : "gray", bold: i === syntaxIdx, children: [
             i + 1,
@@ -2407,12 +2564,12 @@ var ThemePicker = ({ onComplete }) => {
             t
           ] })
         ] }) }, t)),
-        /* @__PURE__ */ jsx5(Box3, { marginTop: 1 }),
+        /* @__PURE__ */ jsx5(Box4, { marginTop: 1 }),
         /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "Use arrow keys, Enter to confirm" })
       ] }),
-      /* @__PURE__ */ jsx5(Box3, { marginTop: 1 }),
+      /* @__PURE__ */ jsx5(Box4, { marginTop: 1 }),
       /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500" }),
-      previewLines.map((p, idx) => /* @__PURE__ */ jsxs5(Box3, { flexDirection: "row", children: [
+      previewLines.map((p, idx) => /* @__PURE__ */ jsxs5(Box4, { flexDirection: "row", children: [
         /* @__PURE__ */ jsxs5(Text5, { color: "gray", children: [
           p.line.toString().padStart(2),
           " "
@@ -2442,8 +2599,8 @@ var ThemePicker = ({ onComplete }) => {
 };
 
 // src/components/Settings.tsx
-import { useState as useState3 } from "react";
-import { Box as Box4, Text as Text6, useInput as useInput3 } from "ink";
+import { useState as useState4 } from "react";
+import { Box as Box5, Text as Text6, useInput as useInput3 } from "ink";
 import gradient2 from "gradient-string";
 import { jsx as jsx6, jsxs as jsxs6 } from "react/jsx-runtime";
 var cyber2 = gradient2(["#00e5ff", "#7b5cff", "#ff5c8a"]);
@@ -2452,42 +2609,69 @@ var SETTINGS_CATEGORIES = [
     id: "general",
     label: "General",
     items: [
-      { key: "welcome", label: "Show welcome screen on startup", value: true },
-      { key: "auto_approve", label: "Auto-approve non-destructive changes", value: false },
-      { key: "telemetry", label: "Enable telemetry", value: true }
+      { key: "welcome", label: "Show welcome screen on startup", isBool: true },
+      { key: "telemetry", label: "Enable telemetry", isBool: true }
     ]
   },
   {
     id: "appearance",
     label: "Appearance",
     items: [
-      { key: "theme", label: "Theme", value: "Dark mode" },
-      { key: "syntax", label: "Syntax highlighting", value: "Monokai Extended" },
-      { key: "mascot", label: "Show mascot", value: true }
+      { key: "theme", label: "Theme Mode", isBool: false },
+      { key: "syntax", label: "Syntax highlighting", isBool: false }
     ]
   },
   {
     id: "ai",
     label: "AI & Providers",
     items: [
-      { key: "default_provider", label: "Default provider", value: "auto" },
-      { key: "default_model", label: "Default model", value: "auto" },
-      { key: "council_mode", label: "Council Mode default", value: false }
-    ]
-  },
-  {
-    id: "safety",
-    label: "Safety",
-    items: [
-      { key: "confirm_destructive", label: "Confirm destructive operations", value: true },
-      { key: "max_tokens", label: "Max tokens per request", value: "4096" }
+      { key: "default_provider", label: "Default provider", isBool: false },
+      { key: "default_model", label: "Default model", isBool: false }
     ]
   }
 ];
 var Settings = ({ onClose }) => {
-  const [catIdx, setCatIdx] = useState3(0);
-  const [itemIdx, setItemIdx] = useState3(0);
+  const [catIdx, setCatIdx] = useState4(0);
+  const [itemIdx, setItemIdx] = useState4(0);
+  const [config, setConfig] = useState4(() => loadConfig());
   const currentCat = SETTINGS_CATEGORIES[catIdx];
+  const getSettingValue = (key) => {
+    switch (key) {
+      case "welcome":
+        return config.showWelcome ?? true;
+      case "telemetry":
+        return config.telemetry ?? true;
+      case "theme":
+        return config.theme?.mode ?? "dark";
+      case "syntax":
+        return config.theme?.syntaxTheme ?? "Monokai Extended";
+      case "default_provider":
+        return config.lastProvider ?? "auto";
+      case "default_model":
+        return config.lastModel ?? "auto";
+      default:
+        return config[key] ?? false;
+    }
+  };
+  const toggleSetting = (key) => {
+    const currentValue = getSettingValue(key);
+    let updatedPartial = {};
+    if (key === "welcome") {
+      updatedPartial = { showWelcome: !currentValue };
+    } else if (key === "telemetry") {
+      updatedPartial = { telemetry: !currentValue };
+    } else if (key === "theme") {
+      const modes = ["dark", "light", "auto", "dark-ansi", "light-ansi"];
+      const nextMode = modes[(modes.indexOf(currentValue) + 1) % modes.length];
+      updatedPartial = { theme: { ...config.theme, mode: nextMode, syntaxTheme: config.theme?.syntaxTheme || "Monokai Extended" } };
+    } else if (key === "default_provider") {
+      const providers = ["auto", "cybermind", "openai", "anthropic", "groq", "google", "openrouter", "ollama"];
+      const nextProvider = providers[(providers.indexOf(currentValue) + 1) % providers.length];
+      updatedPartial = { lastProvider: nextProvider };
+    }
+    const newConfig = updateConfig(updatedPartial);
+    setConfig(newConfig);
+  };
   useInput3((_, key) => {
     if (key.escape || key.ctrl && _ === "c") {
       onClose();
@@ -2506,16 +2690,15 @@ var Settings = ({ onClose }) => {
       setItemIdx(0);
     } else if (key.return) {
       const item = currentCat.items[itemIdx];
-      if (item && typeof item.value === "boolean") {
-        item.value = !item.value;
-        setItemIdx((i) => i);
+      if (item) {
+        toggleSetting(item.key);
       }
     }
   });
-  return /* @__PURE__ */ jsxs6(Box4, { flexDirection: "column", marginBottom: 1, children: [
+  return /* @__PURE__ */ jsxs6(Box5, { flexDirection: "column", marginBottom: 1, children: [
     /* @__PURE__ */ jsx6(Text6, { children: cyber2("\u256D\u2500 Settings \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E") }),
-    /* @__PURE__ */ jsxs6(Box4, { flexDirection: "column", paddingLeft: 2, paddingRight: 2, marginTop: 1, children: [
-      /* @__PURE__ */ jsx6(Box4, { flexDirection: "row", marginBottom: 1, children: SETTINGS_CATEGORIES.map((cat, i) => /* @__PURE__ */ jsxs6(Text6, { children: [
+    /* @__PURE__ */ jsxs6(Box5, { flexDirection: "column", paddingLeft: 2, paddingRight: 2, marginTop: 1, children: [
+      /* @__PURE__ */ jsx6(Box5, { flexDirection: "row", marginBottom: 1, children: SETTINGS_CATEGORIES.map((cat, i) => /* @__PURE__ */ jsxs6(Text6, { children: [
         /* @__PURE__ */ jsxs6(Text6, { color: i === catIdx ? "#D97736" : "gray", bold: i === catIdx, children: [
           " ",
           cat.label,
@@ -2523,25 +2706,28 @@ var Settings = ({ onClose }) => {
         ] }),
         i < SETTINGS_CATEGORIES.length - 1 && /* @__PURE__ */ jsx6(Text6, { color: "gray", children: "\u2502" })
       ] }, cat.id)) }),
-      /* @__PURE__ */ jsx6(Text6, { color: "gray", children: "\u2500".repeat(50) }),
-      currentCat && currentCat.items.map((item, i) => /* @__PURE__ */ jsxs6(Box4, { flexDirection: "row", marginY: 1, children: [
-        /* @__PURE__ */ jsxs6(Text6, { children: [
-          i === itemIdx ? /* @__PURE__ */ jsx6(Text6, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx6(Text6, { color: "gray", children: "  " }),
-          /* @__PURE__ */ jsx6(Text6, { color: i === itemIdx ? "white" : "gray", bold: i === itemIdx, children: item.label })
-        ] }),
-        /* @__PURE__ */ jsx6(Box4, { flexGrow: 1 }),
-        /* @__PURE__ */ jsx6(Text6, { color: typeof item.value === "boolean" ? item.value ? "green" : "red" : "cyan", children: typeof item.value === "boolean" ? item.value ? "\u2713 enabled" : "\u2717 disabled" : item.value })
-      ] }, item.key)),
-      /* @__PURE__ */ jsx6(Box4, { marginTop: 1 }),
-      /* @__PURE__ */ jsx6(Text6, { color: "gray", children: "Arrow keys to navigate, Enter to toggle, ESC to close" })
+      /* @__PURE__ */ jsx6(Text6, { color: "gray", children: "\u2500".repeat(66) }),
+      currentCat && currentCat.items.map((item, i) => {
+        const val = getSettingValue(item.key);
+        return /* @__PURE__ */ jsxs6(Box5, { flexDirection: "row", marginY: 1, children: [
+          /* @__PURE__ */ jsxs6(Text6, { children: [
+            i === itemIdx ? /* @__PURE__ */ jsx6(Text6, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx6(Text6, { color: "gray", children: "  " }),
+            /* @__PURE__ */ jsx6(Text6, { color: i === itemIdx ? "white" : "gray", bold: i === itemIdx, children: item.label })
+          ] }),
+          /* @__PURE__ */ jsx6(Box5, { flexGrow: 1 }),
+          /* @__PURE__ */ jsx6(Text6, { color: typeof val === "boolean" ? val ? "green" : "red" : "cyan", children: typeof val === "boolean" ? val ? "\u2713 enabled" : "\u2717 disabled" : val })
+        ] }, item.key);
+      }),
+      /* @__PURE__ */ jsx6(Box5, { marginTop: 1 }),
+      /* @__PURE__ */ jsx6(Text6, { color: "gray", children: "Arrow keys to navigate \xB7 Enter to toggle/cycle \xB7 ESC to close" })
     ] }),
     /* @__PURE__ */ jsx6(Text6, { children: cyber2("\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F") })
   ] });
 };
 
 // src/components/ModelPicker.tsx
-import { useState as useState4 } from "react";
-import { Box as Box5, Text as Text7, useInput as useInput4 } from "ink";
+import { useState as useState5 } from "react";
+import { Box as Box6, Text as Text7, useInput as useInput4 } from "ink";
 import { Fragment as Fragment2, jsx as jsx7, jsxs as jsxs7 } from "react/jsx-runtime";
 var PROVIDERS = [
   {
@@ -2596,9 +2782,9 @@ var PROVIDERS = [
   }
 ];
 var ModelPicker = ({ currentModel, onSelect, onClose }) => {
-  const [providerIdx, setProviderIdx] = useState4(0);
-  const [modelIdx, setModelIdx] = useState4(0);
-  const [stage, setStage] = useState4("provider");
+  const [providerIdx, setProviderIdx] = useState5(0);
+  const [modelIdx, setModelIdx] = useState5(0);
+  const [stage, setStage] = useState5("provider");
   useInput4((_, key) => {
     if (key.escape) {
       if (stage === "model") {
@@ -2636,13 +2822,13 @@ var ModelPicker = ({ currentModel, onSelect, onClose }) => {
     }
   });
   const currentProv = PROVIDERS[providerIdx];
-  return /* @__PURE__ */ jsxs7(Box5, { flexDirection: "column", marginBottom: 1, children: [
+  return /* @__PURE__ */ jsxs7(Box6, { flexDirection: "column", marginBottom: 1, children: [
     /* @__PURE__ */ jsx7(Text7, { color: "#D97736", children: "\u256D\u2500 Model Selection \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E" }),
-    /* @__PURE__ */ jsxs7(Box5, { flexDirection: "column", paddingLeft: 2, paddingRight: 2, marginTop: 1, children: [
+    /* @__PURE__ */ jsxs7(Box6, { flexDirection: "column", paddingLeft: 2, paddingRight: 2, marginTop: 1, children: [
       stage === "provider" && /* @__PURE__ */ jsxs7(Fragment2, { children: [
         /* @__PURE__ */ jsx7(Text7, { bold: true, color: "white", children: "Select a provider:" }),
-        /* @__PURE__ */ jsx7(Box5, { marginTop: 1 }),
-        PROVIDERS.map((prov, i) => /* @__PURE__ */ jsx7(Box5, { flexDirection: "row", marginBottom: 1, children: /* @__PURE__ */ jsxs7(Text7, { children: [
+        /* @__PURE__ */ jsx7(Box6, { marginTop: 1 }),
+        PROVIDERS.map((prov, i) => /* @__PURE__ */ jsx7(Box6, { flexDirection: "row", marginBottom: 1, children: /* @__PURE__ */ jsxs7(Text7, { children: [
           i === providerIdx ? /* @__PURE__ */ jsx7(Text7, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx7(Text7, { color: "gray", children: "  " }),
           /* @__PURE__ */ jsx7(Text7, { color: i === providerIdx ? "white" : "gray", bold: i === providerIdx, children: prov.label }),
           /* @__PURE__ */ jsxs7(Text7, { color: "gray", children: [
@@ -2651,7 +2837,7 @@ var ModelPicker = ({ currentModel, onSelect, onClose }) => {
             " models)"
           ] })
         ] }) }, prov.id)),
-        /* @__PURE__ */ jsx7(Box5, { marginTop: 1 }),
+        /* @__PURE__ */ jsx7(Box6, { marginTop: 1 }),
         /* @__PURE__ */ jsx7(Text7, { color: "gray", children: "Arrow keys to navigate, Enter to select, ESC to close" })
       ] }),
       stage === "model" && currentProv && /* @__PURE__ */ jsxs7(Fragment2, { children: [
@@ -2659,8 +2845,8 @@ var ModelPicker = ({ currentModel, onSelect, onClose }) => {
           currentProv.label,
           " \u2014 Select model:"
         ] }),
-        /* @__PURE__ */ jsx7(Box5, { marginTop: 1 }),
-        currentProv.models.map((m, i) => /* @__PURE__ */ jsxs7(Box5, { flexDirection: "column", marginBottom: 1, children: [
+        /* @__PURE__ */ jsx7(Box6, { marginTop: 1 }),
+        currentProv.models.map((m, i) => /* @__PURE__ */ jsxs7(Box6, { flexDirection: "column", marginBottom: 1, children: [
           /* @__PURE__ */ jsxs7(Text7, { children: [
             i === modelIdx ? /* @__PURE__ */ jsx7(Text7, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx7(Text7, { color: "gray", children: "  " }),
             /* @__PURE__ */ jsx7(Text7, { color: i === modelIdx ? "white" : "gray", bold: i === modelIdx, children: m.name }),
@@ -2673,7 +2859,7 @@ var ModelPicker = ({ currentModel, onSelect, onClose }) => {
             m.desc
           ] })
         ] }, m.id)),
-        /* @__PURE__ */ jsx7(Box5, { marginTop: 1 }),
+        /* @__PURE__ */ jsx7(Box6, { marginTop: 1 }),
         /* @__PURE__ */ jsx7(Text7, { color: "gray", children: "Arrow keys to navigate, Enter to select, ESC to go back" })
       ] })
     ] }),
@@ -2682,8 +2868,8 @@ var ModelPicker = ({ currentModel, onSelect, onClose }) => {
 };
 
 // src/components/ReleaseNotes.tsx
-import { useState as useState5 } from "react";
-import { Box as Box6, Text as Text8, useInput as useInput5 } from "ink";
+import { useState as useState6 } from "react";
+import { Box as Box7, Text as Text8, useInput as useInput5 } from "ink";
 import { Fragment as Fragment3, jsx as jsx8, jsxs as jsxs8 } from "react/jsx-runtime";
 var RELEASES = [
   {
@@ -2732,7 +2918,7 @@ var RELEASES = [
   }
 ];
 var ReleaseNotes = ({ onClose }) => {
-  const [selected, setSelected] = useState5(0);
+  const [selected, setSelected] = useState6(0);
   useInput5((_, key) => {
     if (key.escape || key.ctrl && _ === "c") {
       onClose();
@@ -2745,10 +2931,10 @@ var ReleaseNotes = ({ onClose }) => {
     }
   });
   const rel = RELEASES[selected];
-  return /* @__PURE__ */ jsxs8(Box6, { flexDirection: "column", marginBottom: 1, children: [
+  return /* @__PURE__ */ jsxs8(Box7, { flexDirection: "column", marginBottom: 1, children: [
     /* @__PURE__ */ jsx8(Text8, { color: "#D97736", children: "\u256D\u2500 Release Notes \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E" }),
-    /* @__PURE__ */ jsxs8(Box6, { flexDirection: "column", paddingLeft: 2, paddingRight: 2, marginTop: 1, children: [
-      /* @__PURE__ */ jsx8(Box6, { flexDirection: "row", marginBottom: 1, children: RELEASES.map((r, i) => /* @__PURE__ */ jsxs8(Text8, { children: [
+    /* @__PURE__ */ jsxs8(Box7, { flexDirection: "column", paddingLeft: 2, paddingRight: 2, marginTop: 1, children: [
+      /* @__PURE__ */ jsx8(Box7, { flexDirection: "row", marginBottom: 1, children: RELEASES.map((r, i) => /* @__PURE__ */ jsxs8(Text8, { children: [
         /* @__PURE__ */ jsxs8(Text8, { color: i === selected ? "#D97736" : "gray", bold: i === selected, children: [
           " ",
           r.version,
@@ -2763,13 +2949,13 @@ var ReleaseNotes = ({ onClose }) => {
           " \u2014 ",
           rel.date
         ] }),
-        /* @__PURE__ */ jsx8(Box6, { marginTop: 1 }),
-        rel.highlights.map((h, i) => /* @__PURE__ */ jsxs8(Box6, { flexDirection: "row", marginBottom: 1, children: [
+        /* @__PURE__ */ jsx8(Box7, { marginTop: 1 }),
+        rel.highlights.map((h, i) => /* @__PURE__ */ jsxs8(Box7, { flexDirection: "row", marginBottom: 1, children: [
           /* @__PURE__ */ jsx8(Text8, { color: "#D97736", children: "\u2022 " }),
           /* @__PURE__ */ jsx8(Text8, { color: "gray", children: h })
         ] }, i))
       ] }),
-      /* @__PURE__ */ jsx8(Box6, { marginTop: 1 }),
+      /* @__PURE__ */ jsx8(Box7, { marginTop: 1 }),
       /* @__PURE__ */ jsx8(Text8, { color: "gray", children: "Arrow keys to switch version, ESC to close" })
     ] }),
     /* @__PURE__ */ jsx8(Text8, { color: "#D97736", children: "\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F" })
@@ -2777,44 +2963,95 @@ var ReleaseNotes = ({ onClose }) => {
 };
 
 // src/components/Prompt.tsx
-import { useState as useState6 } from "react";
-import { Box as Box7, Text as Text9 } from "ink";
+import { useState as useState7 } from "react";
+import { Box as Box8, Text as Text9, useInput as useInput6 } from "ink";
 import TextInput2 from "ink-text-input";
 import { jsx as jsx9, jsxs as jsxs9 } from "react/jsx-runtime";
+var promptHistory = [];
 var Prompt = ({ onSubmit, disabled }) => {
-  const [value, setValue] = useState6("");
+  const [value, setValue] = useState7("");
+  const [historyIndex, setHistoryIndex] = useState7(-1);
+  const cwd = process.cwd();
+  const estTokens = Math.ceil(value.length / 4);
+  useInput6((input, key) => {
+    if (disabled) return;
+    if (key.upArrow) {
+      if (promptHistory.length > 0) {
+        const nextIndex = historyIndex === -1 ? promptHistory.length - 1 : Math.max(0, historyIndex - 1);
+        setHistoryIndex(nextIndex);
+        setValue(promptHistory[nextIndex] || "");
+      }
+    } else if (key.downArrow) {
+      if (historyIndex !== -1) {
+        const nextIndex = historyIndex + 1;
+        if (nextIndex >= promptHistory.length) {
+          setHistoryIndex(-1);
+          setValue("");
+        } else {
+          setHistoryIndex(nextIndex);
+          setValue(promptHistory[nextIndex] || "");
+        }
+      }
+    }
+  });
   const handleSubmit = (text) => {
-    onSubmit(text);
-    setValue("");
+    if (text.endsWith("\\")) {
+      setValue(text.slice(0, -1) + "\n");
+      return;
+    }
+    const trimmed = text.trim();
+    if (trimmed) {
+      if (promptHistory.length === 0 || promptHistory[promptHistory.length - 1] !== trimmed) {
+        promptHistory.push(trimmed);
+      }
+      setHistoryIndex(-1);
+      onSubmit(trimmed);
+      setValue("");
+    }
   };
   if (disabled) {
-    return /* @__PURE__ */ jsxs9(Box7, { flexDirection: "row", children: [
-      /* @__PURE__ */ jsxs9(Text9, { color: "gray", children: [
+    return /* @__PURE__ */ jsxs9(Box8, { flexDirection: "column", marginTop: 1, children: [
+      /* @__PURE__ */ jsx9(Text9, { color: "gray", dimColor: true, children: cwd }),
+      /* @__PURE__ */ jsxs9(Box8, { flexDirection: "row", children: [
+        /* @__PURE__ */ jsxs9(Text9, { color: "gray", children: [
+          ">",
+          " "
+        ] }),
+        /* @__PURE__ */ jsx9(Text9, { color: "gray", children: "(thinking\u2026)" })
+      ] })
+    ] });
+  }
+  return /* @__PURE__ */ jsxs9(Box8, { flexDirection: "column", marginTop: 1, children: [
+    /* @__PURE__ */ jsxs9(Box8, { flexDirection: "row", justifyContent: "space-between", width: "100%", children: [
+      /* @__PURE__ */ jsx9(Text9, { color: "gray", dimColor: true, children: cwd }),
+      value.length > 0 && /* @__PURE__ */ jsxs9(Text9, { color: "gray", dimColor: true, children: [
+        "[",
+        value.length,
+        " chars \xB7 est ",
+        estTokens,
+        " tokens]"
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs9(Box8, { flexDirection: "row", children: [
+      /* @__PURE__ */ jsxs9(Text9, { color: "#D97757", bold: true, children: [
         ">",
         " "
       ] }),
-      /* @__PURE__ */ jsx9(Text9, { color: "gray", children: "(thinking\u2026)" })
-    ] });
-  }
-  return /* @__PURE__ */ jsxs9(Box7, { flexDirection: "row", children: [
-    /* @__PURE__ */ jsxs9(Text9, { color: "cyan", children: [
-      ">",
-      " "
-    ] }),
-    /* @__PURE__ */ jsx9(
-      TextInput2,
-      {
-        value,
-        onChange: setValue,
-        onSubmit: handleSubmit,
-        placeholder: "write a test for <filepath>"
-      }
-    )
+      /* @__PURE__ */ jsx9(
+        TextInput2,
+        {
+          value,
+          onChange: setValue,
+          onSubmit: handleSubmit,
+          placeholder: "Ask CyberCoder... (/ for commands, end with \\ for multi-line)"
+        }
+      )
+    ] })
   ] });
 };
 
 // src/components/MessageList.tsx
-import { Box as Box8, Text as Text10 } from "ink";
+import { Box as Box9, Text as Text10 } from "ink";
 import { jsx as jsx10, jsxs as jsxs10 } from "react/jsx-runtime";
 var ROLE_COLOR = {
   user: "cyan",
@@ -2828,16 +3065,129 @@ var ROLE_LABEL = {
   system: "info",
   tool: "tool"
 };
+function renderFormattedText(text, key) {
+  const parts = [];
+  let currentText = "";
+  let i = 0;
+  while (i < text.length) {
+    if (text.startsWith("**", i)) {
+      if (currentText) {
+        parts.push(/* @__PURE__ */ jsx10(Text10, { children: currentText }, `txt-${i}`));
+        currentText = "";
+      }
+      i += 2;
+      const endIdx = text.indexOf("**", i);
+      if (endIdx !== -1) {
+        const boldContent = text.substring(i, endIdx);
+        parts.push(/* @__PURE__ */ jsx10(Text10, { bold: true, color: "white", children: boldContent }, `bold-${i}`));
+        i = endIdx + 2;
+      } else {
+        currentText += "**";
+      }
+    } else if (text.startsWith("`", i)) {
+      if (currentText) {
+        parts.push(/* @__PURE__ */ jsx10(Text10, { children: currentText }, `txt-${i}`));
+        currentText = "";
+      }
+      i += 1;
+      const endIdx = text.indexOf("`", i);
+      if (endIdx !== -1) {
+        const codeContent = text.substring(i, endIdx);
+        parts.push(/* @__PURE__ */ jsx10(Text10, { color: "cyan", bold: true, children: codeContent }, `inline-code-${i}`));
+        i = endIdx + 1;
+      } else {
+        currentText += "`";
+      }
+    } else {
+      currentText += text[i];
+      i++;
+    }
+  }
+  if (currentText) {
+    parts.push(/* @__PURE__ */ jsx10(Text10, { children: currentText }, `txt-end`));
+  }
+  if (text.startsWith("# ")) {
+    return /* @__PURE__ */ jsx10(Box9, { marginTop: 1, marginBottom: 1, children: /* @__PURE__ */ jsx10(Text10, { color: "#D97757", bold: true, underline: true, children: text.slice(2) }) }, key);
+  }
+  if (text.startsWith("## ")) {
+    return /* @__PURE__ */ jsx10(Box9, { marginTop: 1, children: /* @__PURE__ */ jsx10(Text10, { color: "#D97757", bold: true, children: text.slice(3) }) }, key);
+  }
+  return /* @__PURE__ */ jsx10(Box9, { flexDirection: "row", children: /* @__PURE__ */ jsx10(Text10, { children: parts }) }, key);
+}
+function parseContent(content) {
+  const lines = content.split("\n");
+  const elements = [];
+  let inCodeBlock = false;
+  let codeBlockLang = "";
+  let codeBlockLines = [];
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (line.startsWith("```")) {
+      if (inCodeBlock) {
+        inCodeBlock = false;
+        const langHeader = codeBlockLang ? ` ${codeBlockLang.toUpperCase()} ` : " CODE ";
+        elements.push(
+          /* @__PURE__ */ jsxs10(Box9, { flexDirection: "column", marginY: 1, borderStyle: "round", borderColor: "gray", children: [
+            /* @__PURE__ */ jsx10(Box9, { paddingX: 1, backgroundColor: "gray", children: /* @__PURE__ */ jsx10(Text10, { color: "black", bold: true, children: langHeader }) }),
+            /* @__PURE__ */ jsx10(Box9, { paddingX: 1, flexDirection: "column", children: codeBlockLines.map((l, idx) => /* @__PURE__ */ jsx10(Text10, { color: "white", children: l }, idx)) })
+          ] }, `code-${i}`)
+        );
+        codeBlockLines = [];
+        codeBlockLang = "";
+      } else {
+        inCodeBlock = true;
+        codeBlockLang = line.slice(3).trim();
+      }
+      continue;
+    }
+    if (inCodeBlock) {
+      codeBlockLines.push(line);
+      continue;
+    }
+    if (line.startsWith("[\u2192 ") && line.includes("]")) {
+      const match = line.match(/^\[→ ([^\]]+)\](.*)$/);
+      if (match) {
+        const toolName = match[1]?.trim() || "";
+        const toolArgs = match[2]?.trim() || "";
+        elements.push(
+          /* @__PURE__ */ jsxs10(Box9, { flexDirection: "column", paddingX: 1, marginY: 1, borderStyle: "single", borderColor: "yellow", children: [
+            /* @__PURE__ */ jsxs10(Text10, { color: "yellow", bold: true, children: [
+              "\u26A1 Tool Call: ",
+              toolName
+            ] }),
+            /* @__PURE__ */ jsx10(Text10, { color: "gray", children: toolArgs })
+          ] }, `tool-${i}`)
+        );
+        continue;
+      }
+    }
+    if (line.startsWith("+") && !line.startsWith("+++")) {
+      elements.push(/* @__PURE__ */ jsx10(Text10, { color: "green", children: line }, i));
+      continue;
+    } else if (line.startsWith("-") && !line.startsWith("---")) {
+      elements.push(/* @__PURE__ */ jsx10(Text10, { color: "red", children: line }, i));
+      continue;
+    } else if (line.startsWith("@@")) {
+      elements.push(/* @__PURE__ */ jsx10(Text10, { color: "cyan", children: line }, i));
+      continue;
+    }
+    elements.push(renderFormattedText(line, i));
+  }
+  return elements;
+}
 var MessageList = ({ messages }) => {
   if (messages.length === 0) return null;
-  return /* @__PURE__ */ jsx10(Box8, { flexDirection: "column", marginBottom: 1, children: messages.map((m) => /* @__PURE__ */ jsxs10(Box8, { flexDirection: "column", marginBottom: 1, children: [
-    /* @__PURE__ */ jsx10(Text10, { color: ROLE_COLOR[m.role], bold: true, children: ROLE_LABEL[m.role] }),
-    /* @__PURE__ */ jsx10(Text10, { color: m.role === "system" ? "gray" : void 0, children: m.content })
-  ] }, m.id)) });
+  return /* @__PURE__ */ jsx10(Box9, { flexDirection: "column", marginBottom: 1, children: messages.map((m) => {
+    if (m.role === "system" && !m.content.trim()) return null;
+    return /* @__PURE__ */ jsxs10(Box9, { flexDirection: "column", marginBottom: 1, children: [
+      /* @__PURE__ */ jsx10(Text10, { color: ROLE_COLOR[m.role], bold: true, children: ROLE_LABEL[m.role] }),
+      /* @__PURE__ */ jsx10(Box9, { flexDirection: "column", paddingLeft: 1, children: parseContent(m.content) })
+    ] }, m.id);
+  }) });
 };
 
 // src/components/StatusBar.tsx
-import { Box as Box9, Text as Text11 } from "ink";
+import { Box as Box10, Text as Text11 } from "ink";
 import { jsx as jsx11, jsxs as jsxs11 } from "react/jsx-runtime";
 var STATUS_LABEL = {
   idle: "ready",
@@ -2851,77 +3201,129 @@ var STATUS_COLOR = {
   "awaiting-approval": "magenta",
   error: "red"
 };
-var StatusBar = ({ status, model, provider }) => {
-  return /* @__PURE__ */ jsxs11(Box9, { marginTop: 1, children: [
+var StatusBar = ({ status, model, provider, tokens = 0, cost = 0 }) => {
+  const formatTokens = (num) => {
+    if (num >= 1e3) {
+      return `${(num / 1e3).toFixed(1)}k`;
+    }
+    return num.toString();
+  };
+  return /* @__PURE__ */ jsxs11(Box10, { marginTop: 1, paddingLeft: 1, children: [
     /* @__PURE__ */ jsx11(Text11, { color: "gray", children: "[" }),
     /* @__PURE__ */ jsx11(Text11, { color: STATUS_COLOR[status], bold: true, children: STATUS_LABEL[status] }),
-    /* @__PURE__ */ jsx11(Text11, { color: "gray", children: "] " }),
-    /* @__PURE__ */ jsx11(Text11, { color: "gray", children: "provider=" }),
-    /* @__PURE__ */ jsx11(Text11, { color: "cyan", children: provider }),
     /* @__PURE__ */ jsxs11(Text11, { color: "gray", children: [
-      "  ",
-      "model="
+      "] ",
+      " "
     ] }),
-    /* @__PURE__ */ jsx11(Text11, { color: "cyan", children: model }),
-    /* @__PURE__ */ jsx11(Text11, { color: "gray", children: "  \xB7 \xB7 for shortcuts" })
+    /* @__PURE__ */ jsx11(Text11, { color: "white", bold: true, children: model }),
+    /* @__PURE__ */ jsx11(Text11, { color: "gray", children: " \xB7 " }),
+    /* @__PURE__ */ jsx11(Text11, { color: "white", children: provider }),
+    /* @__PURE__ */ jsx11(Text11, { color: "gray", children: " \u2502 " }),
+    /* @__PURE__ */ jsx11(Text11, { color: "gray", children: "tokens: " }),
+    /* @__PURE__ */ jsx11(Text11, { color: "cyan", bold: true, children: formatTokens(tokens) }),
+    /* @__PURE__ */ jsx11(Text11, { color: "gray", children: " \u2502 " }),
+    /* @__PURE__ */ jsx11(Text11, { color: "gray", children: "cost: " }),
+    /* @__PURE__ */ jsxs11(Text11, { color: "green", bold: true, children: [
+      "$",
+      cost.toFixed(2)
+    ] }),
+    /* @__PURE__ */ jsx11(Text11, { color: "gray", children: " \u2502 " }),
+    /* @__PURE__ */ jsx11(Text11, { color: "gray", children: "? shortcuts" })
   ] });
 };
 
 // src/components/ExitConfirm.tsx
-import { Box as Box10, Text as Text12 } from "ink";
+import { Box as Box11, Text as Text12 } from "ink";
 import { jsx as jsx12 } from "react/jsx-runtime";
-var ExitConfirm = () => /* @__PURE__ */ jsx12(Box10, { marginTop: 1, children: /* @__PURE__ */ jsx12(Text12, { color: "yellow", children: "Press Ctrl+C again within 2s to exit, or type /exit." }) });
+var ExitConfirm = () => /* @__PURE__ */ jsx12(Box11, { marginTop: 1, children: /* @__PURE__ */ jsx12(Text12, { color: "yellow", children: "Press Ctrl+C again within 2s to exit, or type /exit." }) });
 
 // src/components/ApprovalDialog.tsx
-import { Box as Box11, Text as Text13, useInput as useInput6 } from "ink";
+import { Box as Box12, Text as Text13, useInput as useInput7 } from "ink";
 import { jsx as jsx13, jsxs as jsxs12 } from "react/jsx-runtime";
 var ApprovalDialog = ({ pending }) => {
-  useInput6((input) => {
-    const key = input.toLowerCase();
-    if (key === "y") pending.resolve("allow");
-    else if (key === "s") pending.resolve("allow-session");
-    else if (key === "t") pending.resolve("allow-persistent");
-    else if (key === "n") pending.resolve("deny");
+  useInput7((input, key) => {
+    const char = input.toLowerCase();
+    if (char === "y") {
+      pending.resolve("allow");
+    } else if (char === "n" || key.escape) {
+      pending.resolve("deny");
+    } else if (char === "a") {
+      pending.resolve("allow-persistent");
+    }
   });
-  return /* @__PURE__ */ jsxs12(Box11, { flexDirection: "column", borderStyle: "round", borderColor: pending.destructive ? "red" : "yellow", paddingX: 1, children: [
-    /* @__PURE__ */ jsxs12(Text13, { bold: true, children: [
-      pending.destructive ? "\u26A0 " : "",
-      "Approve tool: ",
-      /* @__PURE__ */ jsx13(Text13, { color: "cyan", children: pending.toolName })
-    ] }),
-    /* @__PURE__ */ jsx13(Text13, { children: pending.summary }),
-    /* @__PURE__ */ jsx13(Box11, { marginTop: 1, children: /* @__PURE__ */ jsx13(Text13, { dimColor: true, children: "[y] allow once \xB7 [s] allow this session \xB7 [t] trust persistently \xB7 [n] deny" }) })
-  ] });
+  return /* @__PURE__ */ jsxs12(
+    Box12,
+    {
+      flexDirection: "column",
+      borderStyle: "double",
+      borderColor: pending.destructive ? "red" : "yellow",
+      paddingX: 1,
+      marginY: 1,
+      children: [
+        /* @__PURE__ */ jsx13(Text13, { bold: true, color: pending.destructive ? "red" : "yellow", children: pending.destructive ? "\u26A0 Critical Tool Approval Required" : "\u26A1 Tool Approval Required" }),
+        /* @__PURE__ */ jsxs12(Box12, { marginTop: 1, flexDirection: "column", children: [
+          /* @__PURE__ */ jsxs12(Text13, { children: [
+            "Tool: ",
+            /* @__PURE__ */ jsx13(Text13, { color: "cyan", bold: true, children: pending.toolName })
+          ] }),
+          /* @__PURE__ */ jsx13(Text13, { color: "gray", children: pending.summary })
+        ] }),
+        /* @__PURE__ */ jsx13(Box12, { marginTop: 1, children: /* @__PURE__ */ jsxs12(Text13, { children: [
+          /* @__PURE__ */ jsx13(Text13, { bold: true, color: "green", children: "[y] Allow" }),
+          " \xB7 ",
+          /* @__PURE__ */ jsx13(Text13, { bold: true, color: "red", children: "[n] Deny" }),
+          " \xB7 ",
+          /* @__PURE__ */ jsx13(Text13, { bold: true, color: "yellow", children: "[a] Always allow" }),
+          " \xB7 ",
+          /* @__PURE__ */ jsx13(Text13, { bold: true, color: "gray", children: "[ESC] Cancel" })
+        ] }) })
+      ]
+    }
+  );
 };
 
 // src/components/HintBar.tsx
-import { Box as Box12, Text as Text14 } from "ink";
+import { Box as Box13, Text as Text14, useStdout as useStdout3 } from "ink";
 import { jsx as jsx14, jsxs as jsxs13 } from "react/jsx-runtime";
 var HintBar = ({ status = "idle" }) => {
-  if (status === "thinking") {
-    return /* @__PURE__ */ jsxs13(Box12, { flexDirection: "row", marginTop: 1, children: [
-      /* @__PURE__ */ jsx14(Text14, { color: "gray", children: "\u2500".repeat(58) }),
-      /* @__PURE__ */ jsxs13(Box12, { flexDirection: "row", marginTop: 1, children: [
-        /* @__PURE__ */ jsx14(Text14, { color: "gray", children: "? for shortcuts \xB7 " }),
-        /* @__PURE__ */ jsx14(Text14, { color: "gray", children: "Esc to interrupt" })
-      ] })
-    ] });
-  }
-  if (status === "awaiting-approval") {
-    return /* @__PURE__ */ jsxs13(Box12, { flexDirection: "row", marginTop: 1, children: [
-      /* @__PURE__ */ jsx14(Text14, { color: "gray", children: "\u2500".repeat(58) }),
-      /* @__PURE__ */ jsxs13(Box12, { flexDirection: "row", marginTop: 1, children: [
-        /* @__PURE__ */ jsx14(Text14, { color: "gray", children: "? for shortcuts \xB7 " }),
-        /* @__PURE__ */ jsx14(Text14, { color: "gray", children: "y/n to approve" })
-      ] })
-    ] });
-  }
-  return /* @__PURE__ */ jsxs13(Box12, { flexDirection: "column", marginTop: 1, children: [
-    /* @__PURE__ */ jsx14(Text14, { color: "gray", children: "\u2500".repeat(58) }),
-    /* @__PURE__ */ jsxs13(Box12, { flexDirection: "row", marginTop: 1, children: [
-      /* @__PURE__ */ jsx14(Text14, { color: "gray", children: "? for shortcuts \xB7 " }),
-      /* @__PURE__ */ jsx14(Text14, { color: "gray", children: "/ for commands" })
-    ] })
+  const { stdout } = useStdout3();
+  const termWidth = stdout.columns ?? 80;
+  const contentWidth = Math.min(termWidth - 4, 76);
+  const getHints = () => {
+    switch (status) {
+      case "thinking":
+        return /* @__PURE__ */ jsxs13(Text14, { color: "gray", children: [
+          /* @__PURE__ */ jsx14(Text14, { bold: true, color: "#D97757", children: "Esc" }),
+          " to interrupt \xB7 ",
+          /* @__PURE__ */ jsx14(Text14, { bold: true, color: "#D97757", children: "?" }),
+          " for shortcuts"
+        ] });
+      case "awaiting-approval":
+        return /* @__PURE__ */ jsxs13(Text14, { color: "gray", children: [
+          /* @__PURE__ */ jsx14(Text14, { bold: true, color: "green", children: "y" }),
+          " allow \xB7 ",
+          /* @__PURE__ */ jsx14(Text14, { bold: true, color: "red", children: "n" }),
+          " deny \xB7 ",
+          /* @__PURE__ */ jsx14(Text14, { bold: true, color: "yellow", children: "a" }),
+          " always \xB7 ",
+          /* @__PURE__ */ jsx14(Text14, { bold: true, color: "gray", children: "ESC" }),
+          " cancel"
+        ] });
+      case "idle":
+      default:
+        return /* @__PURE__ */ jsxs13(Text14, { color: "gray", children: [
+          /* @__PURE__ */ jsx14(Text14, { bold: true, color: "#D97757", children: "?" }),
+          " for shortcuts \xB7 ",
+          /* @__PURE__ */ jsx14(Text14, { bold: true, color: "#D97757", children: "/" }),
+          " for commands \xB7 ",
+          /* @__PURE__ */ jsx14(Text14, { bold: true, color: "red", children: "Ctrl+C" }),
+          " to exit"
+        ] });
+    }
+  };
+  return /* @__PURE__ */ jsxs13(Box13, { flexDirection: "column", marginTop: 1, children: [
+    /* @__PURE__ */ jsx14(Text14, { color: "gray", dimColor: true, children: "\u2500".repeat(contentWidth + 2) }),
+    /* @__PURE__ */ jsx14(Box13, { paddingLeft: 1, marginTop: 0, children: getHints() })
   ] });
 };
 
@@ -3062,31 +3464,21 @@ var STUBS = [
   { name: "skill-creator", category: "skills", milestone: "M13", description: "Author a new skill interactively." },
   { name: "agent-browser", category: "skills", milestone: "M7", description: "Run the Playwright browser-automation skill." },
   // Auth / sync
-  { name: "login", category: "auth", milestone: "M6", description: "Log in via OAuth or with an API key." },
-  { name: "logout", category: "auth", milestone: "M6", description: "Log out and clear credentials." },
   { name: "team", category: "auth", milestone: "M6", description: "Switch the active team workspace." },
   { name: "sync", category: "auth", milestone: "M6", description: "Push/pull skills and settings to/from the backend." },
-  { name: "usage", category: "auth", milestone: "M6", description: "Show current API usage and quota." },
-  { name: "cost", category: "auth", milestone: "M12", description: "Show pinned $/token meter. Use /cost limit <usd>." },
   // Config / project
   { name: "init", category: "config", milestone: "M7", description: "Initialize the project with an AGENTS.md." },
   { name: "add-dir", category: "config", milestone: "M5", description: "Add another working directory to this session." },
-  { name: "profile", category: "config", milestone: "M10", description: "Switch the project profile (strict-ts, hobby, paranoid\u2026)." },
-  { name: "release-notes", category: "config", milestone: "M14", description: "Show release notes for the current version." },
   // Safety
   // /trust, /secret wired in M5.
   { name: "sandbox", category: "safety", milestone: "M10", description: "Toggle Docker/Podman sandbox for risky commands." },
-  { name: "rewind", category: "safety", milestone: "M10", description: "Time-travel: undo the last N turns including file changes." },
   { name: "replay", category: "safety", milestone: "M10", description: "Deterministically rerun a recorded session." },
   // Collab
   { name: "mirror", category: "collab", milestone: "M11", description: "Open the web UI mirror at http://localhost:7777." },
   { name: "pair", category: "collab", milestone: "M11", description: "Start or join a live pair session over LAN/tunnel." },
-  { name: "worktree", category: "collab", milestone: "M11", description: "Toggle git-worktree-per-task isolation." },
   // Workflows / palette
   // /workflow wired in M5.
   { name: "palette", category: "utility", milestone: "M12", description: "Open the fuzzy command palette (Ctrl+K)." },
-  { name: "diff", category: "utility", milestone: "M10", description: "Show pending file changes from the agent (lands with time-travel)." },
-  { name: "mcp", category: "utility", milestone: "M13", description: "Manage MCP servers and the MCP marketplace." },
   // Cyber
   { name: "cyber", category: "cyber", milestone: "Phase 2", description: "Reserved for the autonomous bug-bounty mode. Coming soon." }
 ];
@@ -3386,7 +3778,7 @@ function toAnthropicTool(t) {
 }
 
 // ../providers/src/cybermind-cloud.ts
-var DEFAULT_BASE_URL = process.env.CYBERMIND_CLOUD_URL ?? "https://cybermindcli.info/v1";
+var DEFAULT_BASE_URL = process.env.CYBERMIND_CLOUD_URL ?? "https://cybercli-api.onrender.com/v1";
 var CybermindCloudProvider = class extends AnthropicProvider {
   info;
   constructor(opts = {}) {
@@ -4365,11 +4757,20 @@ ${result.summary}`;
 var singletonRouter = null;
 var singletonRegistry = null;
 function getRouter() {
+  const config = loadConfig();
+  const configKeys = config.apiKeys ?? {};
+  const cloudApiKey = process.env.CYBERMIND_API_KEY ?? config.authToken ?? configKeys.cybermind ?? configKeys.cybermind_cloud;
   if (!singletonRouter) {
     singletonRouter = new ProviderRouter({
-      preferred: defaultProviderOrder(),
-      anthropic: { apiKey: process.env.ANTHROPIC_API_KEY },
-      cloud: { apiKey: process.env.CYBERMIND_API_KEY }
+      preferred: defaultProviderOrder(config, configKeys),
+      anthropic: { apiKey: process.env.ANTHROPIC_API_KEY ?? configKeys.anthropic },
+      cloud: {
+        apiKey: cloudApiKey,
+        baseURL: process.env.CYBERMIND_CLOUD_URL ?? "https://cybercli-api.onrender.com/v1"
+      },
+      ollama: {
+        defaultModel: config.lastModel || "auto"
+      }
     });
   }
   return singletonRouter;
@@ -4378,10 +4779,15 @@ function getSkillRegistry() {
   if (!singletonRegistry) singletonRegistry = new SkillRegistry();
   return singletonRegistry;
 }
-function defaultProviderOrder() {
+function defaultProviderOrder(config, configKeys) {
   const order = [];
-  if (process.env.CYBERMIND_API_KEY) order.push("cybermind-cloud");
-  if (process.env.ANTHROPIC_API_KEY) order.push("anthropic");
+  const cloudApiKey = process.env.CYBERMIND_API_KEY ?? config.authToken ?? configKeys.cybermind ?? configKeys.cybermind_cloud;
+  if (cloudApiKey) {
+    order.push("cybermind-cloud");
+  }
+  if (process.env.ANTHROPIC_API_KEY || configKeys.anthropic) {
+    order.push("anthropic");
+  }
   order.push("ollama");
   return order;
 }
@@ -6882,9 +7288,9 @@ var log18 = createLogger("auth");
 function buildLoginCommand(ctx) {
   return {
     name: "login",
-    description: "Login to CyberCoder (required like Claude Code)",
+    description: "Login using an API Key",
     category: "auth",
-    usage: "/login [email] [password]",
+    usage: "/login <api_key>",
     run: async (args) => {
       const reply = (content) => ctx.appendMessage({
         id: `login-${Date.now()}`,
@@ -6892,75 +7298,38 @@ function buildLoginCommand(ctx) {
         content,
         createdAt: Date.now()
       });
-      const parts = args.trim().split(/\s+/).filter(Boolean);
-      if (parts.length === 0) {
-        reply(`\u{1F510} CyberCoder Login Required
+      const key = args.trim();
+      if (!key) {
+        reply(
+          `\u{1F510} CyberCoder Authentication Required
 
-Like Claude Code, you must login to use CyberCoder.
+Usage: /login <api_key>
 
-Usage: /login <email> <password>
+You can get an API key from the Web dashboard:
+https://cybermindcli.info/settings/api-keys
 
-Or visit: https://cybercoder.ai/login
-
-Free plan includes:
-\u2022 Ollama local models
-\u2022 Basic commands
-\u2022 Community support`);
+Or use local models offline: /provider ollama`
+        );
         return;
       }
-      if (parts.length < 2) {
-        reply("Usage: /login <email> <password>");
-        return;
+      reply("\u{1F510} Authenticating key with CyberMind Cloud...");
+      try {
+        const authInfo = await apiClient.authenticate(key);
+        setAuthToken(key);
+        setSessionId(authInfo.session_id);
+        setUserProfile(authInfo.user);
+        reply(
+          `\u2705 Authentication Successful!
+
+Welcome back, ${authInfo.user.name || "Developer"}!
+Plan: ${authInfo.user.plan?.toUpperCase() || "FREE"}
+Session ID: ${authInfo.session_id}
+
+\u{1F680} CyberCoder is now online and connected to the cloud!`
+        );
+      } catch (err) {
+        reply(`\u2715 Authentication failed: ${err.message || String(err)}`);
       }
-      const email = parts[0];
-      const password = parts[1];
-      reply(`\u{1F510} Logging in to CyberCoder...
-
-Email: ${email}
-Status: Authenticating
-
-\u23F3 Please wait...`);
-      setTimeout(() => {
-        const userProfile = {
-          id: "user_" + Math.random().toString(36).substr(2, 9),
-          email,
-          name: email.split("@")[0],
-          plan: email.includes("enterprise") ? "enterprise" : email.includes("pro") ? "pro" : email.includes("basic") ? "basic" : "free",
-          preferences: {
-            preferredModel: "auto",
-            autoAgentAssignment: true,
-            learningEnabled: true
-          },
-          knowledgeGraph: {
-            skills: [],
-            projects: [],
-            patterns: [],
-            lastUsed: {}
-          },
-          usage: {
-            requests: 0,
-            tokens: 0,
-            cost: 0,
-            lastReset: Date.now()
-          }
-        };
-        reply(`\u2705 Login Successful!
-
-Welcome back, ${userProfile.name}!
-
-Plan: ${userProfile.plan.toUpperCase()}
-Email: ${userProfile.email}
-User ID: ${userProfile.id}
-
-\u{1F680} CyberCoder is ready to use!
-
-Next steps:
-\u2022 Set up API key: /secret set ANTHROPIC_API_KEY your-key
-\u2022 Or use free models: /provider ollama
-\u2022 View commands: /help
-
-\u{1F4A1} Your knowledge graph will build as you use CyberCoder!`);
-      }, 2e3);
     }
   };
 }
@@ -6970,7 +7339,7 @@ function buildLogoutCommand(ctx) {
     description: "Logout from CyberCoder and clear all session data",
     category: "auth",
     usage: "/logout",
-    run: (args) => {
+    run: async (args) => {
       void args;
       const reply = (content) => ctx.appendMessage({
         id: `logout-${Date.now()}`,
@@ -6978,102 +7347,65 @@ function buildLogoutCommand(ctx) {
         content,
         createdAt: Date.now()
       });
+      reply("\u{1F44B} Logging out...");
+      try {
+        await apiClient.logout();
+      } catch {
+      }
+      clearLogin();
       if (ctx.logout) {
         ctx.logout();
-        reply("\u{1F44B} Logged out successfully.\n\nAll session data cleared.\nRun cm again to login.\n");
-      } else {
-        reply("Logout is not available in this context.");
       }
+      reply("\u{1F44B} Logged out successfully. Session data cleared.");
     }
   };
 }
 function buildProfileCommand2(ctx) {
   return {
     name: "profile",
-    description: "View and manage your CyberCoder profile",
+    description: "View your profile and active session stats",
     category: "auth",
-    usage: "/profile [view|edit|reset]",
-    run: (args) => {
-      const parts = args.trim().split(/\s+/).filter(Boolean);
+    usage: "/profile",
+    run: async (args) => {
+      void args;
       const reply = (content) => ctx.appendMessage({
         id: `profile-${Date.now()}`,
         role: "system",
         content,
         createdAt: Date.now()
       });
-      const command = parts[0] || "view";
-      switch (command) {
-        case "view":
-          const profileLines = [
-            "\u{1F464} CyberCoder Profile",
-            "",
-            "\u{1F4CB} Account Info:",
-            "\u2022 Name: Demo User",
-            "\u2022 Email: demo@cybercoder.ai",
-            "\u2022 Plan: PRO",
-            "\u2022 Member Since: 2024-12-01",
-            "",
-            "\u{1F3AF} Preferences:",
-            "\u2022 Preferred Model: Auto",
-            "\u2022 Auto Agent Assignment: \u2705 Enabled",
-            "\u2022 Learning Enabled: \u2705 Enabled",
-            "",
-            "\u{1F9E0} Knowledge Graph:",
-            "\u2022 Skills Learned: 12",
-            "\u2022 Projects Analyzed: 5",
-            "\u2022 Patterns Detected: 28",
-            "",
-            "\u{1F4CA} Usage This Month:",
-            "\u2022 Requests: 1,247",
-            "\u2022 Tokens: 2.3M",
-            "\u2022 Cost: $23.50",
-            "",
-            "\u{1F4A1} Quick Actions:",
-            "\u2022 /profile edit - Edit preferences",
-            "\u2022 /profile reset - Reset learning",
-            "\u2022 /usage status - Detailed usage"
-          ];
-          reply(profileLines.join("\n"));
-          break;
-        case "edit":
-          reply(`\u2699\uFE0F Profile Settings
-
-Edit your preferences:
-
-1. Preferred Model:
-   /model <model-name>
-
-2. Auto Agent Assignment:
-   /profile auto-agent on/off
-
-3. Learning Settings:
-   /profile learning on/off
-
-4. API Keys:
-   /secret list
-   /secret set <key> <value>
-
-\u{1F4A1} Changes saved automatically!`);
-          break;
-        case "reset":
-          reply(`\u{1F504} Reset Knowledge Graph?
-
-\u26A0\uFE0F This will clear all learned patterns and preferences.
-
-To confirm, run:
-/profile reset confirm
-
-This will reset:
-\u2022 Learned skills
-\u2022 Project patterns
-\u2022 Usage history
-\u2022 Custom preferences
-
-Your account and API keys will remain intact.`);
-          break;
-        default:
-          reply("Usage: /profile <view|edit|reset>");
-          break;
+      const token = getAuthToken();
+      if (!token) {
+        reply("\u{1F464} Offline / Not Authenticated. Type /login to connect to the cloud.");
+        return;
+      }
+      reply("\u{1F50D} Loading profile data from cloud...");
+      try {
+        const stats = await apiClient.getStats();
+        const profile = getUserProfile();
+        const profileLines = [
+          "\u{1F464} CyberCoder Profile",
+          "\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+          `\u{1F4CB} Account:`,
+          `  \u2022 Name: ${profile.name || "Developer"}`,
+          `  \u2022 Email: ${profile.email || "N/A"}`,
+          `  \u2022 Plan: ${profile.plan?.toUpperCase() || "FREE"}`,
+          "",
+          `\u{1F4CA} Session Usage:`,
+          `  \u2022 Session ID: ${stats.current_session.id}`,
+          `  \u2022 Commands Executed: ${stats.current_session.total_commands}`,
+          `  \u2022 AI Interactions: ${stats.current_session.ai_interactions}`,
+          `  \u2022 Session Tokens: ${stats.usage.this_session.tokens.toLocaleString()}`,
+          `  \u2022 Session Cost: $${stats.usage.this_session.cost.toFixed(4)}`,
+          "",
+          `\u{1F4C9} Monthly Totals:`,
+          `  \u2022 Total Requests: ${stats.usage.this_month.total_requests}`,
+          `  \u2022 Total Cost: $${stats.usage.this_month.total_cost.toFixed(4)}`,
+          `  \u2022 Total Commands: ${stats.usage.this_month.total_commands}`
+        ];
+        reply(profileLines.join("\n"));
+      } catch (err) {
+        reply(`\u2715 Failed to load profile: ${err.message || String(err)}`);
       }
     }
   };
@@ -7081,148 +7413,38 @@ Your account and API keys will remain intact.`);
 function buildKnowledgeCommand(ctx) {
   return {
     name: "knowledge",
-    description: "View your AI knowledge graph and learning progress",
+    description: "View your AI knowledge graph context",
     category: "utility",
-    usage: "/knowledge <graph|skills|patterns|projects>",
-    run: (args) => {
-      const parts = args.trim().split(/\s+/).filter(Boolean);
+    usage: "/knowledge [topic]",
+    run: async (args) => {
       const reply = (content) => ctx.appendMessage({
         id: `knowledge-${Date.now()}`,
         role: "system",
         content,
         createdAt: Date.now()
       });
-      const command = parts[0] || "graph";
-      switch (command) {
-        case "graph":
-          const graphLines = [
-            "\u{1F9E0} Your Knowledge Graph",
-            "",
-            "\u{1F4CA} Overall Progress:",
-            "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 85% Complete",
-            "",
-            "\u{1F3AF} Key Insights:",
-            "\u2022 You prefer TypeScript over JavaScript",
-            "\u2022 React is your most used framework",
-            "\u2022 You work best in the morning",
-            "\u2022 Debugging is your strongest skill",
-            "",
-            "\u{1F517} Connections Found:",
-            "\u2022 React \u2194 TypeScript (strong correlation)",
-            "\u2022 Testing \u2194 Code Quality (positive impact)",
-            "\u2022 Documentation \u2194 Maintainability (high value)",
-            "",
-            "\u{1F4C8} Learning Velocity:",
-            "\u2022 New skills/week: 2.3",
-            "\u2022 Retention rate: 94%",
-            "\u2022 Application rate: 87%",
-            "",
-            "\u{1F4A1} Recommendations:",
-            "\u2022 Learn Rust (based on your systems interests)",
-            "\u2022 Try GraphQL (matches your API patterns)",
-            "\u2022 Explore Kubernetes (scales with your DevOps work)"
-          ];
-          reply(graphLines.join("\n"));
-          break;
-        case "skills":
-          const skillsLines = [
-            "\u{1F6E0}\uFE0F Your Skills Portfolio",
-            "",
-            "\u{1F525} Mastered Skills:",
-            "\u2022 React Development - Expert (Level 5)",
-            "\u2022 TypeScript Programming - Expert (Level 5)",
-            "\u2022 API Design - Advanced (Level 4)",
-            "\u2022 Database Architecture - Advanced (Level 4)",
-            "",
-            "\u{1F4DA} Learning Skills:",
-            "\u2022 Rust Programming - Intermediate (Level 3)",
-            "\u2022 Machine Learning - Beginner (Level 2)",
-            "\u2022 Cloud Architecture - Beginner (Level 2)",
-            "",
-            "\u{1F3AF} Recommended Next Skills:",
-            "\u2022 GraphQL API Design",
-            "\u2022 Kubernetes Orchestration",
-            "\u2022 Advanced Testing Patterns",
-            "",
-            "\u{1F4CA} Skill Distribution:",
-            "Frontend: \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 70%",
-            "Backend:  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588         40%",
-            "DevOps:   \u2588\u2588\u2588\u2588\u2588\u2588               20%",
-            "AI/ML:    \u2588\u2588\u2588                  10%"
-          ];
-          reply(skillsLines.join("\n"));
-          break;
-        case "patterns":
-          const patternsLines = [
-            "\u{1F50D} Your Coding Patterns",
-            "",
-            "\u{1F3AF} Code Style Patterns:",
-            "\u2022 Functional programming preference",
-            "\u2022 Immutable state management",
-            "\u2022 Error-first callback patterns",
-            "\u2022 Composition over inheritance",
-            "",
-            "\u26A1 Performance Patterns:",
-            "\u2022 Lazy loading optimization",
-            "\u2022 Memoization usage",
-            "\u2022 Efficient data structures",
-            "\u2022 Minimal re-renders",
-            "",
-            "\u{1F3D7}\uFE0F Architecture Patterns:",
-            "\u2022 Microservices preference",
-            "\u2022 Event-driven design",
-            "\u2022 Repository pattern usage",
-            "\u2022 Service layer abstraction",
-            "",
-            "\u{1F9EA} Testing Patterns:",
-            "\u2022 TDD approach",
-            "\u2022 Integration testing focus",
-            "\u2022 Mock isolation",
-            "\u2022 Behavior verification",
-            "",
-            "\u{1F4A1} Pattern Insights:",
-            "Your code follows 87% of best practices",
-            "Consistency score: 92%",
-            "Maintainability rating: A+"
-          ];
-          reply(patternsLines.join("\n"));
-          break;
-        case "projects":
-          const projectsLines = [
-            "\u{1F4C1} Your Project Analysis",
-            "",
-            "\u{1F680} Active Projects:",
-            "\u2022 E-commerce Platform - 85% complete",
-            "\u2022 API Gateway Service - 92% complete",
-            "\u2022 Mobile App Backend - 67% complete",
-            "",
-            "\u{1F4CA} Project Complexity:",
-            "High Complexity: \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 3 projects",
-            "Medium Complexity: \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588         2 projects",
-            "Low Complexity: \u2588\u2588\u2588                1 project",
-            "",
-            "\u{1F527} Technologies Used:",
-            "Frontend: React, TypeScript, Next.js",
-            "Backend: Node.js, Express, PostgreSQL",
-            "DevOps: Docker, AWS, CI/CD",
-            "Testing: Jest, Cypress, Integration",
-            "",
-            "\u{1F4C8} Project Insights:",
-            "\u2022 Average completion time: 2.3 weeks",
-            "\u2022 Code quality score: 88/100",
-            "\u2022 Documentation coverage: 76%",
-            "\u2022 Test coverage: 82%",
-            "",
-            "\u{1F4A1} Project Recommendations:",
-            "\u2022 Consider monorepo for similar projects",
-            "\u2022 Standardize testing patterns",
-            "\u2022 Implement automated code reviews"
-          ];
-          reply(projectsLines.join("\n"));
-          break;
-        default:
-          reply("Usage: /knowledge <graph|skills|patterns|projects>");
-          break;
+      const token = getAuthToken();
+      if (!token) {
+        reply("\u{1F9E0} Offline / Not Authenticated. Connect to cloud to sync knowledge.");
+        return;
+      }
+      reply("\u{1F9E0} Fetching knowledge graph context...");
+      try {
+        const context = await apiClient.getContext(args.trim());
+        const lines = [
+          "\u{1F9E0} Your Knowledge Graph Context",
+          "\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+          "\u{1F4CA} Learned Skills:",
+          context.knowledge?.skills?.length > 0 ? context.knowledge.skills.map((s) => `  \u2022 ${s.technology} (Level ${s.level})`).join("\n") : "  \u2022 No skills recorded yet.",
+          "",
+          "\u{1F3D7}\uFE0F Project Directories:",
+          `  \u2022 Current Directory: ${context.current_session.working_directory}`,
+          `  \u2022 Recent Active Directories:`,
+          ...context.recent_sessions?.map((s) => `    - ${s.directory} (${s.commands} cmds)`) || ["    - None"]
+        ];
+        reply(lines.join("\n"));
+      } catch (err) {
+        reply(`\u2715 Failed to load knowledge: ${err.message || String(err)}`);
       }
     }
   };
@@ -7346,31 +7568,33 @@ import { Fragment as Fragment4, jsx as jsx15, jsxs as jsxs14 } from "react/jsx-r
 var App = ({ showWelcome, initialModel, initialProvider }) => {
   const { exit } = useApp2();
   const configTheme = getTheme();
-  const hasCompletedOnboarding = isOnboardingComplete();
-  const [screen, setScreen] = useState7(hasCompletedOnboarding ? "welcome" : "onboarding");
-  const [themeConfig, setThemeConfig] = useState7({
+  const hasCompletedOnboarding = isOnboardingComplete() && isAuthenticated();
+  const [screen, setScreen] = useState8(hasCompletedOnboarding ? "welcome" : "onboarding");
+  const [themeConfig, setThemeConfig] = useState8({
     mode: configTheme.mode,
     syntaxTheme: configTheme.syntaxTheme
   });
   void themeConfig;
-  const [messages, setMessages] = useState7([]);
-  const [status, setStatus] = useState7("idle");
-  const [model, setModel] = useState7(initialModel ?? "auto");
-  const [provider, setProvider] = useState7(initialProvider ?? "auto");
-  const [, setPromptColor] = useState7("cyan");
-  const [welcomeVisible, setWelcomeVisible] = useState7(showWelcome);
-  const [exitConfirm, setExitConfirm] = useState7(false);
-  const [pendingApproval, setPendingApproval] = useState7(null);
-  const [updateNotice, setUpdateNotice] = useState7("");
-  useEffect(() => {
+  const [messages, setMessages] = useState8([]);
+  const [totalTokens, setTotalTokens] = useState8(0);
+  const [totalCost, setTotalCost] = useState8(0);
+  const [status, setStatus] = useState8("idle");
+  const [model, setModel] = useState8(initialModel ?? "auto");
+  const [provider, setProvider] = useState8(initialProvider ?? "auto");
+  const [, setPromptColor] = useState8("cyan");
+  const [welcomeVisible, setWelcomeVisible] = useState8(showWelcome);
+  const [exitConfirm, setExitConfirm] = useState8(false);
+  const [pendingApproval, setPendingApproval] = useState8(null);
+  const [updateNotice, setUpdateNotice] = useState8("");
+  useEffect3(() => {
     if (screen === "chat" || screen === "welcome") {
       void getUpdateMessage().then((msg) => {
         if (msg) setUpdateNotice(msg);
       });
     }
   }, [screen]);
-  const streamingIdRef = useRef(null);
-  const driveChatRef = useRef(async () => {
+  const streamingIdRef = useRef2(null);
+  const driveChatRef = useRef2(async () => {
   });
   const approvalUI = useMemo(
     () => ({
@@ -7420,7 +7644,7 @@ var App = ({ showWelcome, initialModel, initialProvider }) => {
     }),
     [appendMessage, clearMessages, exit, model, provider, setScreen, setMessages, setWelcomeVisible]
   );
-  useInput7((input, key) => {
+  useInput8((input, key) => {
     if (key.ctrl && input === "c") {
       if (exitConfirm) {
         exit();
@@ -7474,6 +7698,10 @@ var App = ({ showWelcome, initialModel, initialProvider }) => {
               appendDelta(`
 ${trimmed}
 `);
+            } else if (evt.type === "usage") {
+              setTotalTokens((prev) => prev + evt.inputTokens + evt.outputTokens);
+              const costAmt = evt.inputTokens * 3e-6 + evt.outputTokens * 15e-6;
+              setTotalCost((prev) => prev + costAmt);
             } else if (evt.type === "done") {
               if (evt.reason === "error") {
                 appendDelta(`
@@ -7578,29 +7806,29 @@ ${trimmed}
         return /* @__PURE__ */ jsx15(ReleaseNotes, { onClose: handleReleaseNotesClose });
       case "welcome":
         return /* @__PURE__ */ jsxs14(Fragment4, { children: [
-          updateNotice && /* @__PURE__ */ jsx15(Box13, { marginBottom: 1, children: /* @__PURE__ */ jsx15(Text15, { color: "yellow", children: updateNotice }) }),
+          updateNotice && /* @__PURE__ */ jsx15(Box14, { marginBottom: 1, children: /* @__PURE__ */ jsx15(Text15, { color: "yellow", children: updateNotice }) }),
           welcomeVisible && /* @__PURE__ */ jsx15(Welcome, { provider, model }),
           /* @__PURE__ */ jsx15(MessageList, { messages }),
           pendingApproval && /* @__PURE__ */ jsx15(ApprovalDialog, { pending: pendingApproval }),
           /* @__PURE__ */ jsx15(Prompt, { onSubmit: handleSubmit, disabled: status !== "idle" }),
-          /* @__PURE__ */ jsx15(StatusBar, { status, model, provider }),
+          /* @__PURE__ */ jsx15(StatusBar, { status, model, provider, tokens: totalTokens, cost: totalCost }),
           /* @__PURE__ */ jsx15(HintBar, { status }),
           exitConfirm && /* @__PURE__ */ jsx15(ExitConfirm, {})
         ] });
       case "chat":
       default:
         return /* @__PURE__ */ jsxs14(Fragment4, { children: [
-          updateNotice && /* @__PURE__ */ jsx15(Box13, { marginBottom: 1, children: /* @__PURE__ */ jsx15(Text15, { color: "yellow", children: updateNotice }) }),
+          updateNotice && /* @__PURE__ */ jsx15(Box14, { marginBottom: 1, children: /* @__PURE__ */ jsx15(Text15, { color: "yellow", children: updateNotice }) }),
           /* @__PURE__ */ jsx15(MessageList, { messages }),
           pendingApproval && /* @__PURE__ */ jsx15(ApprovalDialog, { pending: pendingApproval }),
           /* @__PURE__ */ jsx15(Prompt, { onSubmit: handleSubmit, disabled: status !== "idle" }),
-          /* @__PURE__ */ jsx15(StatusBar, { status, model, provider }),
+          /* @__PURE__ */ jsx15(StatusBar, { status, model, provider, tokens: totalTokens, cost: totalCost }),
           /* @__PURE__ */ jsx15(HintBar, { status }),
           exitConfirm && /* @__PURE__ */ jsx15(ExitConfirm, {})
         ] });
     }
   };
-  return /* @__PURE__ */ jsx15(Box13, { flexDirection: "column", children: renderScreen() });
+  return /* @__PURE__ */ jsx15(Box14, { flexDirection: "column", children: renderScreen() });
 };
 function cryptoRandomId() {
   return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;

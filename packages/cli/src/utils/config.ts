@@ -18,7 +18,10 @@ export interface UserConfig {
   user?: {
     email?: string;
     name?: string;
+    plan?: string;
   };
+  authToken?: string;
+  sessionId?: string;
   autoUpdateCheck?: boolean;
   showWelcome?: boolean;
   telemetry?: boolean;
@@ -36,6 +39,8 @@ const DEFAULT_CONFIG: UserConfig = {
   lastProvider: 'auto',
   lastModel: 'auto',
   user: {},
+  authToken: undefined,
+  sessionId: undefined,
   autoUpdateCheck: true,
   showWelcome: true,
   telemetry: true,
@@ -91,6 +96,8 @@ export function clearLogin(): void {
     loginMethod: null,
     user: {},
     apiKeys: {},
+    authToken: undefined,
+    sessionId: undefined,
   });
 }
 
@@ -103,6 +110,44 @@ export function setApiKey(provider: string, key: string): void {
 
 export function getApiKey(provider: string): string | undefined {
   return loadConfig().apiKeys?.[provider];
+}
+
+export function setAuthToken(token: string): void {
+  updateConfig({ authToken: token });
+}
+
+export function getAuthToken(): string | undefined {
+  return loadConfig().authToken;
+}
+
+export function setSessionId(sessionId: string): void {
+  updateConfig({ sessionId });
+}
+
+export function getSessionId(): string | undefined {
+  return loadConfig().sessionId;
+}
+
+export function isAuthenticated(): boolean {
+  const config = loadConfig();
+  if (config.loginMethod === 'cybercli') {
+    return !!config.authToken;
+  }
+  if (config.loginMethod === 'apikey') {
+    return !!(config.apiKeys && (config.apiKeys.cybermind || config.apiKeys.cybermind_cloud || config.apiKeys.anthropic));
+  }
+  if (config.loginMethod === 'thirdparty') {
+    return true; // Ollama local doesn't require cloud auth
+  }
+  return false;
+}
+
+export function setUserProfile(profile: { email?: string; name?: string; plan?: string }): void {
+  updateConfig({ user: profile });
+}
+
+export function getUserProfile(): { email?: string; name?: string; plan?: string } {
+  return loadConfig().user ?? {};
 }
 
 export function setTheme(

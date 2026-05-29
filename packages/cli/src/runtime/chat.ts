@@ -9,16 +9,28 @@ import {
 } from '@cybermind/tools';
 import { SkillRegistry, buildSpawnSubagentTool } from '@cybermind/skills';
 import type { SessionMessage } from '../state/session.js';
+import { loadConfig } from '../utils/config.js';
 
 let singletonRouter: ProviderRouter | null = null;
 let singletonRegistry: SkillRegistry | null = null;
 
 export function getRouter(): ProviderRouter {
+  const config = loadConfig();
+  const configKeys = config.apiKeys ?? {};
+  
+  const cloudApiKey = process.env.CYBERMIND_API_KEY ?? config.authToken ?? configKeys.cybermind ?? configKeys.cybermind_cloud;
+
   if (!singletonRouter) {
     singletonRouter = new ProviderRouter({
-      preferred: defaultProviderOrder(),
-      anthropic: { apiKey: process.env.ANTHROPIC_API_KEY },
-      cloud: { apiKey: process.env.CYBERMIND_API_KEY },
+      preferred: defaultProviderOrder(config, configKeys),
+      anthropic: { apiKey: process.env.ANTHROPIC_API_KEY ?? configKeys.anthropic },
+      cloud: { 
+        apiKey: cloudApiKey,
+        baseURL: process.env.CYBERMIND_CLOUD_URL ?? 'https://cybercli-api.onrender.com/v1'
+      },
+      ollama: {
+        defaultModel: config.lastModel || 'auto'
+      }
     });
   }
   return singletonRouter;
@@ -29,12 +41,16 @@ export function getSkillRegistry(): SkillRegistry {
   return singletonRegistry;
 }
 
-function defaultProviderOrder(): ProviderId[] {
-  // If a CyberMind cloud key is present, prefer it (matches your backend default).
-  // Then fall back to direct Anthropic BYOK, then Ollama local.
+function defaultProviderOrder(config: any, configKeys: Record<string, string>): ProviderId[] {
   const order: ProviderId[] = [];
-  if (process.env.CYBERMIND_API_KEY) order.push('cybermind-cloud');
-  if (process.env.ANTHROPIC_API_KEY) order.push('anthropic');
+  const cloudApiKey = process.env.CYBERMIND_API_KEY ?? config.authToken ?? configKeys.cybermind ?? configKeys.cybermind_cloud;
+  
+  if (cloudApiKey) {
+    order.push('cybermind-cloud');
+  }
+  if (process.env.ANTHROPIC_API_KEY || configKeys.anthropic) {
+    order.push('anthropic');
+  }
   order.push('ollama');
   return order;
 }

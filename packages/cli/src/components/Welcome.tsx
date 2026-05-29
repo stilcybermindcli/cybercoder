@@ -1,68 +1,86 @@
 import React from 'react';
-import { Box, Text } from 'ink';
+import { Box, Text, useStdout } from 'ink';
 import { CYBERMIND_VERSION, CYBERMIND_NAME } from '@cybermind/shared';
-import { MiniMascot } from './Mascot.js';
-import { CompactSkyScene } from './SkyScene.js';
+import { Mascot } from './Mascot.js';
+import { getUserProfile } from '../utils/config.js';
 
 interface WelcomeProps {
   provider?: string;
   model?: string;
 }
 
-/**
- * Claude-Code-style welcome-back card.
- * Left side: sky scene + mascot + model info + cwd.
- * Right side: tips + what's new.
- */
-export const Welcome: React.FC<WelcomeProps> = ({ model = 'auto' }) => {
+export const Welcome: React.FC<WelcomeProps> = ({ model = 'auto', provider = 'auto' }) => {
   const cwd = process.cwd();
-  const user = process.env.USER ?? process.env.USERNAME ?? 'friend';
+  const profile = getUserProfile();
+  const userName = profile.name || process.env.USER || process.env.USERNAME || 'Coder';
+  const userPlan = profile.plan || 'Free';
+
+  const { stdout } = useStdout();
+  const termWidth = stdout.columns ?? 80;
+  const contentWidth = Math.min(termWidth - 4, 76);
+
+  const renderBorderTop = (title: string) => {
+    const titleText = ` ${title} `;
+    const dashLength = Math.max(2, contentWidth - titleText.length - 2);
+    return <Text color="#D97757">╭{titleText}{'─'.repeat(dashLength)}╮</Text>;
+  };
+
+  const renderBorderBottom = () => {
+    return <Text color="#D97757">╰{'─'.repeat(contentWidth)}╯</Text>;
+  };
 
   return (
-    <Box flexDirection="column" marginBottom={1}>
-      {/* Top title bar */}
-      <Text color="#D97736">{CYBERMIND_NAME} Code v{CYBERMIND_VERSION}</Text>
-      <Text color="#D97736">{'─'.repeat(58)}</Text>
-
-      <Box flexDirection="row" marginTop={1}>
-        {/* LEFT COLUMN — Sky scene + mascot + info */}
-        <Box flexDirection="column" width={40} paddingLeft={1}>
-          <Text bold color="white">  Welcome back!</Text>
-          <Box marginTop={1} />
-          <CompactSkyScene />
-          <Box marginTop={1} />
-          <MiniMascot />
-          <Box marginTop={1} />
-          <Text color="gray">  {model} · API Usage Billing</Text>
-          <Text color="gray">  {user}'s Individual Org</Text>
-          <Box marginTop={1} />
-          <Text color="gray">  {cwd}</Text>
+    <Box flexDirection="column" paddingX={1} width={contentWidth + 4}>
+      {renderBorderTop(`${CYBERMIND_NAME} v${CYBERMIND_VERSION}`)}
+      
+      <Box flexDirection="column" paddingX={2} marginY={1}>
+        <Box flexDirection="row" alignItems="center" marginBottom={1}>
+          <Mascot />
+          <Box flexDirection="column" marginLeft={2}>
+            <Text bold color="white">Welcome back, {userName}!</Text>
+            <Text color="gray">
+              Model: <Text color="cyan" bold>{model}</Text> · Provider: <Text color="cyan" bold>{provider}</Text>
+            </Text>
+            <Text color="gray">
+              Plan: <Text color="yellow" bold>{userPlan}</Text> · Organization: {userName}'s Workspace
+            </Text>
+            <Text color="gray" wrap="truncate-end">
+              Cwd: <Text color="cyan">{cwd}</Text>
+            </Text>
+          </Box>
         </Box>
 
-        {/* RIGHT COLUMN — Tips + What's new */}
-        <Box flexDirection="column" flexGrow={1} paddingLeft={1}>
-          <Text color="#ff9f43" bold>Tips for getting started</Text>
-          <Text>
-            Run <Text color="cyan">/init</Text> to create a CYBER.md file with instructions for CyberCoder.
-          </Text>
-          <Box marginTop={1} />
-          <Text color="#ff9f43" bold>What's new</Text>
-          <Text color="gray">
-            Fixed theme picker to apply colors in real-time across the terminal.
-          </Text>
-          <Text color="gray">
-            Added config persistence so login state survives between sessions.
-          </Text>
-          <Text color="gray">
-            New 3rd-party platform support: OpenRouter, Groq, local Ollama.
-          </Text>
-          <Text color="gray">
-            See <Text color="cyan">/release-notes</Text> for the full changelog.
-          </Text>
+        <Text color="#D97757" bold marginBottom={1}>
+          {'─'.repeat(contentWidth - 4)}
+        </Text>
+
+        <Box flexDirection="row" width="100%">
+          {/* Left Column: Tips */}
+          <Box flexDirection="column" width="50%" paddingRight={1}>
+            <Text bold color="white" marginBottom={1}>Tips</Text>
+            <Text color="gray">• <Text color="cyan">/init</Text> creates CYBER.md configuration</Text>
+            <Text color="gray">• <Text color="cyan">/model</Text> changes active model</Text>
+            <Text color="gray">• <Text color="cyan">/compact</Text> shrinks context size</Text>
+            <Text color="gray">• <Text color="cyan">/help</Text> list all options</Text>
+          </Box>
+
+          {/* Right Column: What's New */}
+          <Box flexDirection="column" width="50%" paddingLeft={1}>
+            <Text bold color="white" marginBottom={1}>What's New</Text>
+            <Text color="gray">• Real-time model consensus mode</Text>
+            <Text color="gray">• Fully working web OAuth & redirection</Text>
+            <Text color="gray">• Rich terminal Markdown formatting</Text>
+            <Text color="gray">• Cost and token usage tracking</Text>
+          </Box>
         </Box>
       </Box>
 
-      <Text color="#D97736">{'─'.repeat(58)}</Text>
+      {renderBorderBottom()}
+      <Box paddingX={2} marginBottom={1}>
+        <Text color="gray" italic>
+          Need help? Ask CyberCoder a coding question or use / for commands.
+        </Text>
+      </Box>
     </Box>
   );
 };

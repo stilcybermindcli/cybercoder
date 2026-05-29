@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Text, useInput } from 'ink';
 import gradient from 'gradient-string';
+import { loadConfig, updateConfig } from '../utils/config.js';
 
 const cyber = gradient(['#00e5ff', '#7b5cff', '#ff5c8a']);
 
@@ -13,35 +14,24 @@ const SETTINGS_CATEGORIES = [
     id: 'general',
     label: 'General',
     items: [
-      { key: 'welcome', label: 'Show welcome screen on startup', value: true },
-      { key: 'auto_approve', label: 'Auto-approve non-destructive changes', value: false },
-      { key: 'telemetry', label: 'Enable telemetry', value: true },
+      { key: 'welcome', label: 'Show welcome screen on startup', isBool: true },
+      { key: 'telemetry', label: 'Enable telemetry', isBool: true },
     ],
   },
   {
     id: 'appearance',
     label: 'Appearance',
     items: [
-      { key: 'theme', label: 'Theme', value: 'Dark mode' },
-      { key: 'syntax', label: 'Syntax highlighting', value: 'Monokai Extended' },
-      { key: 'mascot', label: 'Show mascot', value: true },
+      { key: 'theme', label: 'Theme Mode', isBool: false },
+      { key: 'syntax', label: 'Syntax highlighting', isBool: false },
     ],
   },
   {
     id: 'ai',
     label: 'AI & Providers',
     items: [
-      { key: 'default_provider', label: 'Default provider', value: 'auto' },
-      { key: 'default_model', label: 'Default model', value: 'auto' },
-      { key: 'council_mode', label: 'Council Mode default', value: false },
-    ],
-  },
-  {
-    id: 'safety',
-    label: 'Safety',
-    items: [
-      { key: 'confirm_destructive', label: 'Confirm destructive operations', value: true },
-      { key: 'max_tokens', label: 'Max tokens per request', value: '4096' },
+      { key: 'default_provider', label: 'Default provider', isBool: false },
+      { key: 'default_model', label: 'Default model', isBool: false },
     ],
   },
 ];
@@ -49,8 +39,50 @@ const SETTINGS_CATEGORIES = [
 export const Settings: React.FC<SettingsProps> = ({ onClose }) => {
   const [catIdx, setCatIdx] = useState(0);
   const [itemIdx, setItemIdx] = useState(0);
+  const [config, setConfig] = useState(() => loadConfig());
 
   const currentCat = SETTINGS_CATEGORIES[catIdx];
+
+  const getSettingValue = (key: string): any => {
+    switch (key) {
+      case 'welcome':
+        return config.showWelcome ?? true;
+      case 'telemetry':
+        return config.telemetry ?? true;
+      case 'theme':
+        return config.theme?.mode ?? 'dark';
+      case 'syntax':
+        return config.theme?.syntaxTheme ?? 'Monokai Extended';
+      case 'default_provider':
+        return config.lastProvider ?? 'auto';
+      case 'default_model':
+        return config.lastModel ?? 'auto';
+      default:
+        return (config as any)[key] ?? false;
+    }
+  };
+
+  const toggleSetting = (key: string) => {
+    const currentValue = getSettingValue(key);
+    let updatedPartial: any = {};
+
+    if (key === 'welcome') {
+      updatedPartial = { showWelcome: !currentValue };
+    } else if (key === 'telemetry') {
+      updatedPartial = { telemetry: !currentValue };
+    } else if (key === 'theme') {
+      const modes = ['dark', 'light', 'auto', 'dark-ansi', 'light-ansi'];
+      const nextMode = modes[(modes.indexOf(currentValue) + 1) % modes.length];
+      updatedPartial = { theme: { ...config.theme, mode: nextMode as any, syntaxTheme: config.theme?.syntaxTheme || 'Monokai Extended' } };
+    } else if (key === 'default_provider') {
+      const providers = ['auto', 'cybermind', 'openai', 'anthropic', 'groq', 'google', 'openrouter', 'ollama'];
+      const nextProvider = providers[(providers.indexOf(currentValue) + 1) % providers.length];
+      updatedPartial = { lastProvider: nextProvider };
+    }
+
+    const newConfig = updateConfig(updatedPartial);
+    setConfig(newConfig);
+  };
 
   useInput((_, key) => {
     if (key.escape || (key.ctrl && _ === 'c')) {
@@ -58,6 +90,7 @@ export const Settings: React.FC<SettingsProps> = ({ onClose }) => {
       return;
     }
     if (!currentCat) return;
+
     if (key.upArrow) {
       setItemIdx((i) => Math.max(0, i - 1));
     } else if (key.downArrow) {
@@ -69,12 +102,9 @@ export const Settings: React.FC<SettingsProps> = ({ onClose }) => {
       setCatIdx((c) => Math.min(SETTINGS_CATEGORIES.length - 1, c + 1));
       setItemIdx(0);
     } else if (key.return) {
-      // Toggle boolean values
       const item = currentCat.items[itemIdx];
-      if (item && typeof item.value === 'boolean') {
-        item.value = !item.value;
-        // Force re-render
-        setItemIdx((i) => i);
+      if (item) {
+        toggleSetting(item.key);
       }
     }
   });
@@ -98,32 +128,35 @@ export const Settings: React.FC<SettingsProps> = ({ onClose }) => {
           ))}
         </Box>
 
-        <Text color="gray">{'─'.repeat(50)}</Text>
+        <Text color="gray">{'─'.repeat(66)}</Text>
 
         {/* Settings items */}
-        {currentCat && currentCat.items.map((item, i) => (
-          <Box key={item.key} flexDirection="row" marginY={1}>
-            <Text>
-              {i === itemIdx ? (
-                <Text color="#D97736">{'› '}</Text>
-              ) : (
-                <Text color="gray">{'  '}</Text>
-              )}
-              <Text color={i === itemIdx ? 'white' : 'gray'} bold={i === itemIdx}>
-                {item.label}
+        {currentCat && currentCat.items.map((item, i) => {
+          const val = getSettingValue(item.key);
+          return (
+            <Box key={item.key} flexDirection="row" marginY={1}>
+              <Text>
+                {i === itemIdx ? (
+                  <Text color="#D97736">{'› '}</Text>
+                ) : (
+                  <Text color="gray">{'  '}</Text>
+                )}
+                <Text color={i === itemIdx ? 'white' : 'gray'} bold={i === itemIdx}>
+                  {item.label}
+                </Text>
               </Text>
-            </Text>
-            <Box flexGrow={1} />
-            <Text color={typeof item.value === 'boolean' ? (item.value ? 'green' : 'red') : 'cyan'}>
-              {typeof item.value === 'boolean'
-                ? (item.value ? '✓ enabled' : '✗ disabled')
-                : item.value}
-            </Text>
-          </Box>
-        ))}
+              <Box flexGrow={1} />
+              <Text color={typeof val === 'boolean' ? (val ? 'green' : 'red') : 'cyan'}>
+                {typeof val === 'boolean'
+                  ? (val ? '✓ enabled' : '✗ disabled')
+                  : val}
+              </Text>
+            </Box>
+          );
+        })}
 
         <Box marginTop={1} />
-        <Text color="gray">Arrow keys to navigate, Enter to toggle, ESC to close</Text>
+        <Text color="gray">Arrow keys to navigate · Enter to toggle/cycle · ESC to close</Text>
       </Box>
 
       <Text>{cyber('╰──────────────────────────────────────────────────────────────────╯')}</Text>
