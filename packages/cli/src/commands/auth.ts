@@ -99,10 +99,11 @@ export function buildLoginCommand(ctx: CommandContext): SlashCommandHandler {
 export function buildLogoutCommand(ctx: CommandContext): SlashCommandHandler {
   return {
     name: 'logout',
-    description: 'Logout from CyberCoder',
+    description: 'Logout from CyberCoder and clear all session data',
     category: 'auth',
     usage: '/logout',
     run: (args: string) => {
+      void args;
       const reply = (content: string) =>
         ctx.appendMessage({
           id: `logout-${Date.now()}`,
@@ -111,7 +112,12 @@ export function buildLogoutCommand(ctx: CommandContext): SlashCommandHandler {
           createdAt: Date.now(),
         });
 
-      reply(`👋 Logging out from CyberCoder...\n\nClearing session data...\nRemoving API keys...\nResetting knowledge graph...\n\n✅ Logged out successfully!\n\nThank you for using CyberCoder! 🚀\n\nSee you soon!\n\nTo login again: /login`);
+      if (ctx.logout) {
+        ctx.logout();
+        reply('👋 Logged out successfully.\n\nAll session data cleared.\nRun cm again to login.\n');
+      } else {
+        reply('Logout is not available in this context.');
+      }
     },
   };
 }

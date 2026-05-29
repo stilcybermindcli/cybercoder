@@ -48,6 +48,8 @@ export interface CommandContext {
   setPromptColor?: (color: string) => void;
   /** Navigate to a different screen (onboarding, theme, settings, welcome, chat). */
   setScreen?: (screen: string) => void;
+  /** Clear login state and return to onboarding. */
+  logout?: () => void;
 }
 
 export interface SlashCommandHandler {

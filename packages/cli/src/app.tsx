@@ -11,6 +11,7 @@ import { ExitConfirm } from './components/ExitConfirm.js';
 import { ApprovalDialog, type PendingApproval } from './components/ApprovalDialog.js';
 import { buildCommandRegistry } from './commands/index.js';
 import { runChat } from './runtime/chat.js';
+import { isOnboardingComplete, getTheme, setTheme, clearLogin } from './utils/config.js';
 import type { ApprovalDecision, ApprovalPrompt, ApprovalUI } from '@cybermind/tools';
 import type { SessionMessage, SessionStatus } from './state/session.js';
 
@@ -25,10 +26,14 @@ interface AppProps {
 export const App: React.FC<AppProps> = ({ showWelcome, initialModel, initialProvider }) => {
   const { exit } = useApp();
 
-  // Determine initial screen based on whether user has completed onboarding
-  const hasCompletedOnboarding = false; // TODO: check config file
+  // Check config for onboarding completion and saved theme
+  const configTheme = getTheme();
+  const hasCompletedOnboarding = isOnboardingComplete();
   const [screen, setScreen] = useState<Screen>(hasCompletedOnboarding ? 'welcome' : 'onboarding');
-  const [themeConfig, setThemeConfig] = useState<ThemeConfig>({ mode: 'dark', syntaxTheme: 'Monokai Extended' });
+  const [themeConfig, setThemeConfig] = useState<ThemeConfig>({
+    mode: configTheme.mode as ThemeConfig['mode'],
+    syntaxTheme: configTheme.syntaxTheme,
+  });
 
   const [messages, setMessages] = useState<SessionMessage[]>([]);
   const [status, setStatus] = useState<SessionStatus>('idle');
@@ -90,6 +95,12 @@ export const App: React.FC<AppProps> = ({ showWelcome, initialModel, initialProv
         setProvider,
         setPromptColor,
         setScreen: (s: string) => setScreen(s as Screen),
+        logout: () => {
+          clearLogin();
+          setMessages([]);
+          setWelcomeVisible(true);
+          setScreen('onboarding');
+        },
       }),
     [appendMessage, clearMessages, exit, model, provider],
   );
@@ -221,6 +232,7 @@ export const App: React.FC<AppProps> = ({ showWelcome, initialModel, initialProv
 
   const handleThemeComplete = useCallback((theme: ThemeConfig) => {
     setThemeConfig(theme);
+    setTheme(theme.mode, theme.syntaxTheme);
     setScreen('welcome');
   }, []);
 

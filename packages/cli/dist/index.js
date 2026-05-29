@@ -124,7 +124,7 @@ function createLogger(scope) {
 }
 
 // ../shared/src/version.ts
-var CYBERMIND_VERSION = "0.1.16";
+var CYBERMIND_VERSION = "0.1.17";
 var CYBERMIND_NAME = "CyberMind";
 
 // ../shared/src/checkpoint.ts
@@ -1612,122 +1612,369 @@ var CustomServerManager = class {
 var log9 = createLogger("auto-agent");
 
 // src/app.tsx
-import { Box as Box10, useApp, useInput as useInput5 } from "ink";
+import { Box as Box10, useApp as useApp2, useInput as useInput5 } from "ink";
 import { useCallback, useMemo, useRef, useState as useState5 } from "react";
 
 // src/components/Welcome.tsx
-import { Box, Text as Text2 } from "ink";
-import gradient from "gradient-string";
+import { Box, Text as Text3 } from "ink";
 
 // src/components/Mascot.tsx
 import { Text } from "ink";
 import { jsx, jsxs } from "react/jsx-runtime";
 var Mascot = () => {
   return /* @__PURE__ */ jsxs(Text, { children: [
-    /* @__PURE__ */ jsxs(Text, { color: "cyan", children: [
-      "    \u259B\u2588\u2588\u2588\u259C",
+    /* @__PURE__ */ jsxs(Text, { color: "#FF6B6B", children: [
+      "    \u2584\u2584\u2584\u2584\u2584\u2584\u2584    ",
       "\n"
     ] }),
-    /* @__PURE__ */ jsxs(Text, { color: "cyan", children: [
-      "   \u259F\u2588\u2588\u2588\u2588\u2588\u2599",
+    /* @__PURE__ */ jsxs(Text, { color: "#FF6B6B", children: [
+      "   \u2584\u2588\u2591\u2591\u2591\u2591\u2591\u2591\u2588\u2584   ",
       "\n"
     ] }),
-    /* @__PURE__ */ jsxs(Text, { color: "cyan", children: [
-      "  \u2590\u259B     \u259C\u258C",
+    /* @__PURE__ */ jsxs(Text, { color: "#FF8E8E", children: [
+      "  \u2584\u2588\u2591\u2591\u2584\u2591\u2591\u2584\u2591\u2591\u2588\u2584  ",
       "\n"
     ] }),
-    /* @__PURE__ */ jsxs(Text, { color: "cyan", children: [
-      "  \u2590  \u25C9 \u25C9  \u258C",
+    /* @__PURE__ */ jsxs(Text, { color: "#FF8E8E", children: [
+      "  \u2588\u2591\u2591\u2591\u2580\u2591\u2591\u2580\u2591\u2591\u2591\u2588  ",
       "\n"
     ] }),
-    /* @__PURE__ */ jsxs(Text, { color: "cyan", children: [
-      "  \u2590   \u2573   \u258C",
+    /* @__PURE__ */ jsxs(Text, { color: "#FF6B6B", children: [
+      "  \u2588\u2591\u2591\u2591\u2591\u2584\u2584\u2591\u2591\u2591\u2591\u2588  ",
       "\n"
     ] }),
-    /* @__PURE__ */ jsxs(Text, { color: "cyan", children: [
-      "   \u259C\u2588\u2588\u2588\u2588\u2588\u259B",
+    /* @__PURE__ */ jsxs(Text, { color: "#FF6B6B", children: [
+      "   \u2580\u2588\u2591\u2591\u2591\u2591\u2591\u2591\u2588\u2580   ",
       "\n"
     ] }),
-    /* @__PURE__ */ jsxs(Text, { color: "magentaBright", children: [
-      "    \u259F\u2599   \u259F\u2599",
+    /* @__PURE__ */ jsxs(Text, { color: "#FF4757", children: [
+      "     \u2580\u2580\u2580\u2580\u2580\u2580     ",
       "\n"
     ] }),
-    /* @__PURE__ */ jsx(Text, { color: "magentaBright", children: "    \u2588    \u2588" })
+    /* @__PURE__ */ jsxs(Text, { color: "#FF4757", children: [
+      "     \u258C    \u258C     ",
+      "\n"
+    ] }),
+    /* @__PURE__ */ jsx(Text, { color: "#FF4757", children: "     \u258C    \u258C     " })
+  ] });
+};
+var MiniMascot = () => {
+  return /* @__PURE__ */ jsxs(Text, { children: [
+    /* @__PURE__ */ jsxs(Text, { color: "#FF8E8E", children: [
+      "  \u2584\u2584\u2584\u2584\u2584\u2584\u2584  ",
+      "\n"
+    ] }),
+    /* @__PURE__ */ jsxs(Text, { color: "#FF8E8E", children: [
+      " \u2584\u2588\u2584\u2584\u2584\u2584\u2584\u2584\u2588\u2584 ",
+      "\n"
+    ] }),
+    /* @__PURE__ */ jsxs(Text, { color: "#FF6B6B", children: [
+      " \u2588\u2591\u2591\u2584\u2591\u2591\u2584\u2591\u2591\u2588 ",
+      "\n"
+    ] }),
+    /* @__PURE__ */ jsxs(Text, { color: "#FF6B6B", children: [
+      " \u2588\u2591\u2591\u2580\u2591\u2591\u2580\u2591\u2591\u2588 ",
+      "\n"
+    ] }),
+    /* @__PURE__ */ jsxs(Text, { color: "#FF4757", children: [
+      "  \u2580\u2580\u2580\u2580\u2580\u2580\u2580\u2580  ",
+      "\n"
+    ] }),
+    /* @__PURE__ */ jsx(Text, { color: "#FF4757", children: "  \u2590      \u258C  " })
+  ] });
+};
+
+// src/components/SkyScene.tsx
+import { Text as Text2 } from "ink";
+import { jsx as jsx2, jsxs as jsxs2 } from "react/jsx-runtime";
+var SkyScene = () => {
+  return /* @__PURE__ */ jsxs2(Text2, { children: [
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "     " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                       " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#E8E8E8", children: "\u2588\u2588\u2588\u2588\u2588\u2593\u2593\u2591" }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                 " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "         " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#D0D0D0", children: "\u2588\u2588\u2588\u2593\u2591     \u2591\u2591" }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "            " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2591\u2591\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                        " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#B8B8B8", children: "\u2588\u2588\u2588\u2593\u2591        " }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "    " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#505050", children: "\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "   " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#707070", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                      " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#A0A0A0", children: "\u2588\u2588\u2588\u2593\u2591        " }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "   " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#404040", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "    " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#888888", children: "\u2588\u2588\u2593\u2591\u2591      \u2593" }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                             " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#707070", children: "\u2591\u2593\u2593\u2588\u2588\u2588\u2593\u2593\u2591 " }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: " " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                 " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#505050", children: "\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "               " }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                 " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "              " }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                               " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#707070", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "        " }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "       " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#404040", children: "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "               " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#808080", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "         " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "      " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#505050", children: "\u2588\u2588\u2584\u2588\u2588\u2588\u2588\u2588\u2584\u2588\u2588" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                        " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "               " }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "       " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "      " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                   " }),
+    "\n"
+  ] });
+};
+var DottedBorder = ({ width = 58 }) => {
+  return /* @__PURE__ */ jsx2(Text2, { color: "#D97736", children: ".".repeat(width) });
+};
+var CompactSkyScene = () => {
+  return /* @__PURE__ */ jsxs2(Text2, { children: [
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "     " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                 " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#E8E8E8", children: "\u2588\u2588\u2588\u2588\u2593\u2593\u2591" }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                         " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "         " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#C0C0C0", children: "\u2588\u2588\u2593\u2591   \u2591\u2591" }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "          " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2591\u2591\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                    " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#A0A0A0", children: "\u2588\u2588\u2593\u2591      " }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "   " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#505050", children: "\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "   " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#707070", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                  " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#888888", children: "\u2588\u2588\u2593\u2591      " }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "  " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#404040", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "  " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "              " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#707070", children: "\u2588\u2593\u2591\u2591    \u2593" }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                                           " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2591\u2593\u2593\u2588\u2588\u2593\u2593\u2591" }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: " " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                               " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#505050", children: "\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "             " }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                               " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "            " }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                             " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#707070", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "      " }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "     " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#404040", children: "\u2588\u2588\u2588\u2588\u2588\u2588\u2588" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "             " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#808080", children: "\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "       " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "    " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#505050", children: "\u2588\u2588\u2584\u2588\u2588\u2588\u2584\u2588\u2588" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                      " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "             " }),
+    "\n",
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "     " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "#606060", children: "\u2588\u2588\u2588\u2588\u2588\u2588\u2588" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "    " }),
+    /* @__PURE__ */ jsx2(Text2, { color: "white", bold: true, children: "*" }),
+    /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "                 " }),
+    "\n"
   ] });
 };
 
 // src/components/Welcome.tsx
-import { jsx as jsx2, jsxs as jsxs2 } from "react/jsx-runtime";
-var cyber = gradient(["#00e5ff", "#7b5cff", "#ff5c8a"]);
-var Welcome = ({ provider = "auto", model = "auto" }) => {
-  void provider;
+import { jsx as jsx3, jsxs as jsxs3 } from "react/jsx-runtime";
+var Welcome = ({ model = "auto" }) => {
   const cwd = process.cwd();
   const user = process.env.USER ?? process.env.USERNAME ?? "friend";
-  return /* @__PURE__ */ jsxs2(Box, { flexDirection: "column", marginBottom: 1, children: [
-    /* @__PURE__ */ jsx2(Text2, { children: cyber(`\u256D\u2500 ${CYBERMIND_NAME} Code v${CYBERMIND_VERSION} \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E`) }),
-    /* @__PURE__ */ jsxs2(Box, { flexDirection: "row", children: [
-      /* @__PURE__ */ jsxs2(Box, { flexDirection: "column", width: 38, paddingLeft: 2, paddingRight: 2, children: [
-        /* @__PURE__ */ jsxs2(Text2, { bold: true, color: "white", children: [
-          "  Welcome back, ",
-          user,
-          "!"
-        ] }),
-        /* @__PURE__ */ jsx2(Box, { marginTop: 1 }),
-        /* @__PURE__ */ jsx2(Mascot, {}),
-        /* @__PURE__ */ jsx2(Box, { marginTop: 1 }),
-        /* @__PURE__ */ jsxs2(Text2, { color: "gray", children: [
+  return /* @__PURE__ */ jsxs3(Box, { flexDirection: "column", marginBottom: 1, children: [
+    /* @__PURE__ */ jsxs3(Text3, { color: "#D97736", children: [
+      CYBERMIND_NAME,
+      " Code v",
+      CYBERMIND_VERSION
+    ] }),
+    /* @__PURE__ */ jsx3(Text3, { color: "#D97736", children: "\u2500".repeat(58) }),
+    /* @__PURE__ */ jsxs3(Box, { flexDirection: "row", marginTop: 1, children: [
+      /* @__PURE__ */ jsxs3(Box, { flexDirection: "column", width: 40, paddingLeft: 1, children: [
+        /* @__PURE__ */ jsx3(Text3, { bold: true, color: "white", children: "  Welcome back!" }),
+        /* @__PURE__ */ jsx3(Box, { marginTop: 1 }),
+        /* @__PURE__ */ jsx3(CompactSkyScene, {}),
+        /* @__PURE__ */ jsx3(Box, { marginTop: 1 }),
+        /* @__PURE__ */ jsx3(MiniMascot, {}),
+        /* @__PURE__ */ jsx3(Box, { marginTop: 1 }),
+        /* @__PURE__ */ jsxs3(Text3, { color: "gray", children: [
           "  ",
           model,
-          " \xB7 API Usage Billing \xB7 ",
-          user,
-          "'s"
+          " \xB7 API Usage Billing"
         ] }),
-        /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "  Individual Org" }),
-        /* @__PURE__ */ jsx2(Box, { marginTop: 1 }),
-        /* @__PURE__ */ jsxs2(Text2, { color: "gray", children: [
+        /* @__PURE__ */ jsxs3(Text3, { color: "gray", children: [
+          "  ",
+          user,
+          "'s Individual Org"
+        ] }),
+        /* @__PURE__ */ jsx3(Box, { marginTop: 1 }),
+        /* @__PURE__ */ jsxs3(Text3, { color: "gray", children: [
           "  ",
           cwd
         ] })
       ] }),
-      /* @__PURE__ */ jsxs2(Box, { flexDirection: "column", flexGrow: 1, children: [
-        /* @__PURE__ */ jsx2(Text2, { color: "#ff9f43", bold: true, children: "Tips for getting started" }),
-        /* @__PURE__ */ jsxs2(Text2, { children: [
+      /* @__PURE__ */ jsxs3(Box, { flexDirection: "column", flexGrow: 1, paddingLeft: 1, children: [
+        /* @__PURE__ */ jsx3(Text3, { color: "#ff9f43", bold: true, children: "Tips for getting started" }),
+        /* @__PURE__ */ jsxs3(Text3, { children: [
           "Run ",
-          /* @__PURE__ */ jsx2(Text2, { color: "cyan", children: "/init" }),
-          " to create an AGENTS.md for your project."
+          /* @__PURE__ */ jsx3(Text3, { color: "cyan", children: "/init" }),
+          " to create a CYBER.md file with instructions for CyberCoder."
         ] }),
-        /* @__PURE__ */ jsxs2(Text2, { children: [
-          "Type ",
-          /* @__PURE__ */ jsx2(Text2, { color: "cyan", children: "/help" }),
-          " to list every command."
-        ] }),
-        /* @__PURE__ */ jsxs2(Text2, { children: [
-          "Type ",
-          /* @__PURE__ */ jsx2(Text2, { color: "cyan", children: "/theme" }),
-          " to change the color scheme."
-        ] }),
-        /* @__PURE__ */ jsx2(Box, { marginTop: 1 }),
-        /* @__PURE__ */ jsx2(Text2, { color: "#ff9f43", bold: true, children: "What's new" }),
-        /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "M1 \u2014 welcome screen, slash command framework." }),
-        /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "M2 \u2014 8+ AI providers (Anthropic, OpenAI, Groq, Gemini)." }),
-        /* @__PURE__ */ jsx2(Text2, { color: "gray", children: "M3 \u2014 multi-model Council Mode & conversation branching." }),
-        /* @__PURE__ */ jsxs2(Text2, { color: "gray", children: [
+        /* @__PURE__ */ jsx3(Box, { marginTop: 1 }),
+        /* @__PURE__ */ jsx3(Text3, { color: "#ff9f43", bold: true, children: "What's new" }),
+        /* @__PURE__ */ jsx3(Text3, { color: "gray", children: "Fixed theme picker to apply colors in real-time across the terminal." }),
+        /* @__PURE__ */ jsx3(Text3, { color: "gray", children: "Added config persistence so login state survives between sessions." }),
+        /* @__PURE__ */ jsx3(Text3, { color: "gray", children: "New 3rd-party platform support: OpenRouter, Groq, local Ollama." }),
+        /* @__PURE__ */ jsxs3(Text3, { color: "gray", children: [
           "See ",
-          /* @__PURE__ */ jsx2(Text2, { color: "cyan", children: "/release-notes" }),
+          /* @__PURE__ */ jsx3(Text3, { color: "cyan", children: "/release-notes" }),
           " for the full changelog."
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ jsx2(Text2, { children: cyber("\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F") })
+    /* @__PURE__ */ jsx3(Text3, { color: "#D97736", children: "\u2500".repeat(58) })
   ] });
 };
 
 // src/components/Onboarding.tsx
 import { useState } from "react";
-import { Box as Box2, Text as Text3, useInput } from "ink";
-import gradient2 from "gradient-string";
-import { jsx as jsx3, jsxs as jsxs3 } from "react/jsx-runtime";
-var cyber2 = gradient2(["#00e5ff", "#7b5cff", "#ff5c8a"]);
+import { Box as Box2, Text as Text4, useInput, useApp } from "ink";
+import TextInput from "ink-text-input";
+import { spawn } from "child_process";
+
+// src/utils/config.ts
+import { readFileSync as readFileSync7, writeFileSync as writeFileSync7, existsSync as existsSync8, mkdirSync as mkdirSync7 } from "fs";
+import { homedir as homedir2 } from "os";
+import { join as join8 } from "path";
+var CONFIG_DIR = join8(homedir2(), ".cybercoder");
+var CONFIG_FILE = join8(CONFIG_DIR, "config.json");
+var DEFAULT_CONFIG = {
+  onboardingComplete: false,
+  loginMethod: null,
+  theme: {
+    mode: "dark",
+    syntaxTheme: "Monokai Extended"
+  },
+  apiKeys: {},
+  lastProvider: "auto",
+  lastModel: "auto",
+  user: {},
+  autoUpdateCheck: true,
+  showWelcome: true,
+  telemetry: true,
+  version: "0.1.16"
+};
+function ensureConfigDir() {
+  if (!existsSync8(CONFIG_DIR)) {
+    mkdirSync7(CONFIG_DIR, { recursive: true });
+  }
+}
+function loadConfig() {
+  ensureConfigDir();
+  try {
+    if (existsSync8(CONFIG_FILE)) {
+      const raw = readFileSync7(CONFIG_FILE, "utf-8");
+      const parsed = JSON.parse(raw);
+      return { ...DEFAULT_CONFIG, ...parsed };
+    }
+  } catch {
+  }
+  return { ...DEFAULT_CONFIG };
+}
+function saveConfig(config) {
+  ensureConfigDir();
+  writeFileSync7(CONFIG_FILE, JSON.stringify(config, null, 2), "utf-8");
+}
+function updateConfig(partial) {
+  const current = loadConfig();
+  const merged = { ...current, ...partial };
+  saveConfig(merged);
+  return merged;
+}
+function isOnboardingComplete() {
+  return loadConfig().onboardingComplete === true;
+}
+function markOnboardingComplete(method) {
+  updateConfig({
+    onboardingComplete: true,
+    loginMethod: method
+  });
+}
+function clearLogin() {
+  updateConfig({
+    onboardingComplete: false,
+    loginMethod: null,
+    user: {},
+    apiKeys: {}
+  });
+}
+function setApiKey(provider, key) {
+  const config = loadConfig();
+  const apiKeys = { ...config.apiKeys ?? {} };
+  apiKeys[provider] = key;
+  updateConfig({ apiKeys });
+}
+function setTheme(mode, syntaxTheme) {
+  updateConfig({ theme: { mode, syntaxTheme } });
+}
+function getTheme() {
+  return loadConfig().theme ?? DEFAULT_CONFIG.theme;
+}
+
+// src/components/Onboarding.tsx
+import { jsx as jsx4, jsxs as jsxs4 } from "react/jsx-runtime";
 var LOGIN_METHODS = [
   {
     id: "cybercli",
@@ -1745,59 +1992,306 @@ var LOGIN_METHODS = [
     desc: "OpenRouter, Groq, or local Ollama"
   }
 ];
+var THIRDPARTY_PLATFORMS = [
+  { id: "openrouter", label: "OpenRouter", desc: "interactive setup" },
+  { id: "groq", label: "Groq", desc: "interactive setup" },
+  { id: "ollama", label: "Ollama (local)", desc: "interactive setup" },
+  { id: "back", label: "Go back", desc: "" }
+];
 var Onboarding = ({ onComplete }) => {
+  const { exit } = useApp();
+  const [screen, setScreen] = useState("main");
   const [selected, setSelected] = useState(0);
-  useInput((_, key) => {
-    if (key.upArrow) {
-      setSelected((s) => Math.max(0, s - 1));
-    } else if (key.downArrow) {
-      setSelected((s) => Math.min(LOGIN_METHODS.length - 1, s + 1));
-    } else if (key.return) {
-      const method = LOGIN_METHODS[selected];
-      if (method) onComplete(method.id);
-    }
-  });
-  return /* @__PURE__ */ jsxs3(Box2, { flexDirection: "column", marginBottom: 1, children: [
-    /* @__PURE__ */ jsx3(Text3, { children: cyber2(`\u256D\u2500 Welcome to ${CYBERMIND_NAME} Code v${CYBERMIND_VERSION} \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E`) }),
-    /* @__PURE__ */ jsxs3(Box2, { flexDirection: "row", marginTop: 1, children: [
-      /* @__PURE__ */ jsx3(Box2, { flexDirection: "column", width: 28, paddingLeft: 2, children: /* @__PURE__ */ jsx3(Mascot, {}) }),
-      /* @__PURE__ */ jsxs3(Box2, { flexDirection: "column", flexGrow: 1, paddingRight: 2, children: [
-        /* @__PURE__ */ jsxs3(Text3, { bold: true, color: "white", children: [
-          CYBERMIND_NAME,
-          " Code can be used with your CyberCli subscription or billed based on API usage through your own keys."
-        ] }),
-        /* @__PURE__ */ jsx3(Box2, { marginTop: 1 }),
-        /* @__PURE__ */ jsx3(Text3, { bold: true, color: "#D97736", children: "Select login method:" }),
-        /* @__PURE__ */ jsx3(Box2, { marginTop: 1 }),
-        LOGIN_METHODS.map((method, i) => /* @__PURE__ */ jsxs3(Box2, { flexDirection: "row", marginBottom: 1, children: [
-          /* @__PURE__ */ jsxs3(Text3, { children: [
-            i === selected ? /* @__PURE__ */ jsx3(Text3, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx3(Text3, { color: "gray", children: "  " }),
-            /* @__PURE__ */ jsxs3(Text3, { color: i === selected ? "white" : "gray", bold: i === selected, children: [
+  const [apiKeyInput, setApiKeyInput] = useState("");
+  const [apiKeyProvider, setApiKeyProvider] = useState("openai");
+  const [apiKeyStage, setApiKeyStage] = useState("provider");
+  const [tpSelected, setTpSelected] = useState(0);
+  const openBrowser = (url) => {
+    const platform = process.platform;
+    const cmd = platform === "win32" ? "start" : platform === "darwin" ? "open" : "xdg-open";
+    spawn(cmd, [url], { detached: true, stdio: "ignore" });
+  };
+  if (screen === "main") {
+    useInput((_, key) => {
+      if (key.escape || key.ctrl && _ === "c") {
+        exit();
+        return;
+      }
+      if (key.upArrow) {
+        setSelected((s) => Math.max(0, s - 1));
+      } else if (key.downArrow) {
+        setSelected((s) => Math.min(LOGIN_METHODS.length - 1, s + 1));
+      } else if (key.return) {
+        const method = LOGIN_METHODS[selected];
+        if (method?.id === "cybercli") {
+          setScreen("cybercli-login");
+        } else if (method?.id === "apikey") {
+          setScreen("apikey-input");
+          setApiKeyStage("provider");
+          setApiKeyProvider("openai");
+        } else if (method?.id === "thirdparty") {
+          setScreen("thirdparty-platforms");
+          setTpSelected(0);
+        }
+      }
+    });
+    return /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginBottom: 1, children: [
+      /* @__PURE__ */ jsxs4(Text4, { color: "#D97736", children: [
+        "Welcome to ",
+        CYBERMIND_NAME,
+        " Code v",
+        CYBERMIND_VERSION
+      ] }),
+      /* @__PURE__ */ jsx4(DottedBorder, { width: 58 }),
+      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+      /* @__PURE__ */ jsx4(SkyScene, {}),
+      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+      /* @__PURE__ */ jsx4(DottedBorder, { width: 58 }),
+      /* @__PURE__ */ jsxs4(Box2, { flexDirection: "row", marginTop: 1, children: [
+        /* @__PURE__ */ jsx4(Box2, { flexDirection: "column", width: 20, paddingLeft: 2, children: /* @__PURE__ */ jsx4(Mascot, {}) }),
+        /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", flexGrow: 1, paddingRight: 2, children: [
+          /* @__PURE__ */ jsxs4(Text4, { bold: true, color: "white", children: [
+            CYBERMIND_NAME,
+            " Code can be used with your CyberCli subscription or billed based on API usage through your own keys."
+          ] }),
+          /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+          /* @__PURE__ */ jsx4(Text4, { bold: true, color: "#D97736", children: "Select login method:" }),
+          /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+          LOGIN_METHODS.map((method, i) => /* @__PURE__ */ jsx4(Box2, { flexDirection: "column", marginBottom: 1, children: /* @__PURE__ */ jsxs4(Text4, { children: [
+            i === selected ? /* @__PURE__ */ jsx4(Text4, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "  " }),
+            /* @__PURE__ */ jsxs4(Text4, { color: i === selected ? "white" : "gray", bold: i === selected, children: [
               i + 1,
               ". ",
               method.label
+            ] }),
+            /* @__PURE__ */ jsxs4(Text4, { color: "gray", children: [
+              " \xB7 ",
+              method.desc
             ] })
-          ] }),
-          /* @__PURE__ */ jsx3(Box2, { marginTop: 0 }),
-          /* @__PURE__ */ jsxs3(Text3, { color: "gray", children: [
-            "   ",
-            method.desc
-          ] })
-        ] }, method.id)),
-        /* @__PURE__ */ jsx3(Box2, { marginTop: 1 }),
-        /* @__PURE__ */ jsx3(Text3, { color: "gray", children: "Use arrow keys to navigate, Enter to select" })
+          ] }) }, method.id)),
+          /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+          /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Arrow keys to navigate, Enter to select, ESC to exit" })
+        ] })
       ] })
-    ] }),
-    /* @__PURE__ */ jsx3(Text3, { children: cyber2("\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F") })
-  ] });
+    ] });
+  }
+  if (screen === "cybercli-login") {
+    useInput((_, key) => {
+      if (key.escape) {
+        setScreen("main");
+        return;
+      }
+      if (key.return) {
+        const url = "https://cybermindcli.info/login?redirect=cli";
+        openBrowser(url);
+        markOnboardingComplete("cybercli");
+        onComplete("cybercli");
+      }
+    });
+    return /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginBottom: 1, children: [
+      /* @__PURE__ */ jsxs4(Text4, { color: "#D97736", children: [
+        "Welcome to ",
+        CYBERMIND_NAME,
+        " Code v",
+        CYBERMIND_VERSION
+      ] }),
+      /* @__PURE__ */ jsx4(DottedBorder, { width: 58 }),
+      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+      /* @__PURE__ */ jsx4(SkyScene, {}),
+      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+      /* @__PURE__ */ jsx4(DottedBorder, { width: 58 }),
+      /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginTop: 1, paddingLeft: 2, paddingRight: 2, children: [
+        /* @__PURE__ */ jsx4(Text4, { bold: true, color: "white", children: "Sign in to CyberCli" }),
+        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+        /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Browser didn't open? Use the url below to sign in (c to copy)" }),
+        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+        /* @__PURE__ */ jsx4(Text4, { color: "cyan", children: "https://cybermindcli.info/login?redirect=cli" }),
+        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+        /* @__PURE__ */ jsxs4(Text4, { color: "gray", children: [
+          "Paste code here if prompted ",
+          ">",
+          " "
+        ] }),
+        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+        /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Press Enter to open browser, ESC to go back" })
+      ] })
+    ] });
+  }
+  if (screen === "apikey-input") {
+    const API_PROVIDERS = [
+      { id: "openai", label: "OpenAI" },
+      { id: "anthropic", label: "Anthropic" },
+      { id: "groq", label: "Groq" },
+      { id: "google", label: "Google (Gemini)" },
+      { id: "openrouter", label: "OpenRouter" }
+    ];
+    if (apiKeyStage === "provider") {
+      useInput((_, key) => {
+        if (key.escape) {
+          setScreen("main");
+          return;
+        }
+        if (key.upArrow) {
+          setSelected((s) => Math.max(0, s - 1));
+        } else if (key.downArrow) {
+          setSelected((s) => Math.min(API_PROVIDERS.length - 1, s + 1));
+        } else if (key.return) {
+          const prov = API_PROVIDERS[selected];
+          if (prov) {
+            setApiKeyProvider(prov.id);
+            setApiKeyStage("key");
+            setApiKeyInput("");
+          }
+        }
+      });
+      return /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginBottom: 1, children: [
+        /* @__PURE__ */ jsxs4(Text4, { color: "#D97736", children: [
+          "Welcome to ",
+          CYBERMIND_NAME,
+          " Code v",
+          CYBERMIND_VERSION
+        ] }),
+        /* @__PURE__ */ jsx4(DottedBorder, { width: 58 }),
+        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+        /* @__PURE__ */ jsx4(SkyScene, {}),
+        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+        /* @__PURE__ */ jsx4(DottedBorder, { width: 58 }),
+        /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginTop: 1, paddingLeft: 2, paddingRight: 2, children: [
+          /* @__PURE__ */ jsx4(Text4, { bold: true, color: "white", children: "Enter your API key" }),
+          /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+          /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Select a provider:" }),
+          /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+          API_PROVIDERS.map((prov, i) => /* @__PURE__ */ jsx4(Box2, { flexDirection: "row", marginBottom: 1, children: /* @__PURE__ */ jsxs4(Text4, { children: [
+            i === selected ? /* @__PURE__ */ jsx4(Text4, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "  " }),
+            /* @__PURE__ */ jsxs4(Text4, { color: i === selected ? "white" : "gray", bold: i === selected, children: [
+              i + 1,
+              ". ",
+              prov.label
+            ] })
+          ] }) }, prov.id)),
+          /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+          /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Arrow keys to navigate, Enter to select, ESC to go back" })
+        ] })
+      ] });
+    }
+    return /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginBottom: 1, children: [
+      /* @__PURE__ */ jsxs4(Text4, { color: "#D97736", children: [
+        "Welcome to ",
+        CYBERMIND_NAME,
+        " Code v",
+        CYBERMIND_VERSION
+      ] }),
+      /* @__PURE__ */ jsx4(DottedBorder, { width: 58 }),
+      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+      /* @__PURE__ */ jsx4(SkyScene, {}),
+      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+      /* @__PURE__ */ jsx4(DottedBorder, { width: 58 }),
+      /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginTop: 1, paddingLeft: 2, paddingRight: 2, children: [
+        /* @__PURE__ */ jsx4(Text4, { bold: true, color: "white", children: "Enter your API key" }),
+        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+        /* @__PURE__ */ jsxs4(Text4, { color: "gray", children: [
+          "Provider: ",
+          /* @__PURE__ */ jsx4(Text4, { color: "cyan", children: apiKeyProvider })
+        ] }),
+        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+        /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Paste your API key here:" }),
+        /* @__PURE__ */ jsxs4(Box2, { flexDirection: "row", children: [
+          /* @__PURE__ */ jsxs4(Text4, { color: "gray", children: [
+            ">",
+            " "
+          ] }),
+          /* @__PURE__ */ jsx4(
+            TextInput,
+            {
+              value: apiKeyInput,
+              onChange: setApiKeyInput,
+              onSubmit: () => {
+                if (apiKeyInput.trim()) {
+                  setApiKey(apiKeyProvider, apiKeyInput.trim());
+                  markOnboardingComplete("apikey");
+                  onComplete("apikey");
+                }
+              },
+              mask: "*"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+        /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Press Enter to submit, ESC to go back" })
+      ] })
+    ] });
+  }
+  if (screen === "thirdparty-platforms") {
+    useInput((_, key) => {
+      if (key.escape) {
+        setScreen("main");
+        return;
+      }
+      if (key.upArrow) {
+        setTpSelected((s) => Math.max(0, s - 1));
+      } else if (key.downArrow) {
+        setTpSelected((s) => Math.min(THIRDPARTY_PLATFORMS.length - 1, s + 1));
+      } else if (key.return) {
+        const plat = THIRDPARTY_PLATFORMS[tpSelected];
+        if (plat?.id === "back") {
+          setScreen("main");
+          setSelected(2);
+        } else if (plat) {
+          const urls = {
+            openrouter: "https://openrouter.ai/keys",
+            groq: "https://console.groq.com/keys",
+            ollama: "https://ollama.com/download"
+          };
+          const url = plat.id ? urls[plat.id] : void 0;
+          if (url) {
+            openBrowser(url);
+          }
+          markOnboardingComplete("thirdparty");
+          onComplete("thirdparty");
+        }
+      }
+    });
+    return /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginBottom: 1, children: [
+      /* @__PURE__ */ jsxs4(Text4, { color: "#D97736", children: [
+        "Welcome to ",
+        CYBERMIND_NAME,
+        " Code v",
+        CYBERMIND_VERSION
+      ] }),
+      /* @__PURE__ */ jsx4(DottedBorder, { width: 58 }),
+      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+      /* @__PURE__ */ jsx4(SkyScene, {}),
+      /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+      /* @__PURE__ */ jsx4(DottedBorder, { width: 58 }),
+      /* @__PURE__ */ jsxs4(Box2, { flexDirection: "column", marginTop: 1, paddingLeft: 2, paddingRight: 2, children: [
+        /* @__PURE__ */ jsx4(Text4, { bold: true, color: "white", children: "Using 3rd-party platforms" }),
+        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+        THIRDPARTY_PLATFORMS.map((plat, i) => /* @__PURE__ */ jsx4(Box2, { flexDirection: "column", marginBottom: 1, children: /* @__PURE__ */ jsxs4(Text4, { children: [
+          i === tpSelected ? /* @__PURE__ */ jsx4(Text4, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "  " }),
+          /* @__PURE__ */ jsxs4(Text4, { color: i === tpSelected ? "white" : "gray", bold: i === tpSelected, children: [
+            i + 1,
+            ". ",
+            plat.label
+          ] }),
+          plat.desc && /* @__PURE__ */ jsxs4(Text4, { color: "gray", children: [
+            " \xB7 ",
+            plat.desc
+          ] })
+        ] }) }, plat.id)),
+        /* @__PURE__ */ jsx4(Box2, { marginTop: 1 }),
+        /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Arrow keys to navigate, Enter to select, ESC to go back" })
+      ] })
+    ] });
+  }
+  return null;
 };
 
 // src/components/ThemePicker.tsx
 import { useState as useState2 } from "react";
-import { Box as Box3, Text as Text4, useInput as useInput2 } from "ink";
-import gradient3 from "gradient-string";
-import { Fragment, jsx as jsx4, jsxs as jsxs4 } from "react/jsx-runtime";
-var cyber3 = gradient3(["#00e5ff", "#7b5cff", "#ff5c8a"]);
+import { Box as Box3, Text as Text5, useInput as useInput2 } from "ink";
+import gradient from "gradient-string";
+import { Fragment, jsx as jsx5, jsxs as jsxs5 } from "react/jsx-runtime";
+var cyber = gradient(["#00e5ff", "#7b5cff", "#ff5c8a"]);
 var THEMES = [
   { id: "auto", label: "Auto (match terminal)" },
   { id: "dark", label: "Dark mode" },
@@ -1850,78 +2344,78 @@ var ThemePicker = ({ onComplete }) => {
     { line: 2, text: '  console.log("Hello, CyberCoder!");', new: true },
     { line: 3, text: "}", color: "cyan" }
   ];
-  return /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", marginBottom: 1, children: [
-    /* @__PURE__ */ jsx4(Text4, { children: cyber3("\u256D\u2500 Theme Selection \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E") }),
-    /* @__PURE__ */ jsxs4(Box3, { flexDirection: "column", paddingLeft: 2, paddingRight: 2, marginTop: 1, children: [
-      /* @__PURE__ */ jsx4(Text4, { bold: true, color: "white", children: "Let's get started." }),
-      /* @__PURE__ */ jsx4(Box3, { marginTop: 1 }),
-      /* @__PURE__ */ jsx4(Text4, { bold: true, color: "#D97736", children: "Choose the text style that looks best with your terminal" }),
-      /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "To change this later, run /theme" }),
-      /* @__PURE__ */ jsx4(Box3, { marginTop: 1 }),
-      stage === "theme" && /* @__PURE__ */ jsxs4(Fragment, { children: [
-        THEMES.map((t, i) => /* @__PURE__ */ jsx4(Box3, { flexDirection: "row", children: /* @__PURE__ */ jsxs4(Text4, { children: [
-          i === selected ? /* @__PURE__ */ jsx4(Text4, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "  " }),
-          /* @__PURE__ */ jsxs4(Text4, { color: i === selected ? "white" : "gray", bold: i === selected, children: [
+  return /* @__PURE__ */ jsxs5(Box3, { flexDirection: "column", marginBottom: 1, children: [
+    /* @__PURE__ */ jsx5(Text5, { children: cyber("\u256D\u2500 Theme Selection \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E") }),
+    /* @__PURE__ */ jsxs5(Box3, { flexDirection: "column", paddingLeft: 2, paddingRight: 2, marginTop: 1, children: [
+      /* @__PURE__ */ jsx5(Text5, { bold: true, color: "white", children: "Let's get started." }),
+      /* @__PURE__ */ jsx5(Box3, { marginTop: 1 }),
+      /* @__PURE__ */ jsx5(Text5, { bold: true, color: "#D97736", children: "Choose the text style that looks best with your terminal" }),
+      /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "To change this later, run /theme" }),
+      /* @__PURE__ */ jsx5(Box3, { marginTop: 1 }),
+      stage === "theme" && /* @__PURE__ */ jsxs5(Fragment, { children: [
+        THEMES.map((t, i) => /* @__PURE__ */ jsx5(Box3, { flexDirection: "row", children: /* @__PURE__ */ jsxs5(Text5, { children: [
+          i === selected ? /* @__PURE__ */ jsx5(Text5, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "  " }),
+          /* @__PURE__ */ jsxs5(Text5, { color: i === selected ? "white" : "gray", bold: i === selected, children: [
             i + 1,
             ". ",
             t.label
           ] }),
-          i === selected && /* @__PURE__ */ jsx4(Text4, { color: "green", children: "  \u2713" })
+          i === selected && /* @__PURE__ */ jsx5(Text5, { color: "green", children: "  \u2713" })
         ] }) }, t.id)),
-        /* @__PURE__ */ jsx4(Box3, { marginTop: 1 }),
-        /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Use arrow keys, Enter to confirm" })
+        /* @__PURE__ */ jsx5(Box3, { marginTop: 1 }),
+        /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "Use arrow keys, Enter to confirm" })
       ] }),
-      stage === "syntax" && /* @__PURE__ */ jsxs4(Fragment, { children: [
-        /* @__PURE__ */ jsx4(Text4, { bold: true, color: "#D97736", children: "Choose syntax highlighting theme:" }),
-        /* @__PURE__ */ jsx4(Box3, { marginTop: 1 }),
-        SYNTAX_THEMES.map((t, i) => /* @__PURE__ */ jsx4(Box3, { flexDirection: "row", children: /* @__PURE__ */ jsxs4(Text4, { children: [
-          i === syntaxIdx ? /* @__PURE__ */ jsx4(Text4, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "  " }),
-          /* @__PURE__ */ jsxs4(Text4, { color: i === syntaxIdx ? "white" : "gray", bold: i === syntaxIdx, children: [
+      stage === "syntax" && /* @__PURE__ */ jsxs5(Fragment, { children: [
+        /* @__PURE__ */ jsx5(Text5, { bold: true, color: "#D97736", children: "Choose syntax highlighting theme:" }),
+        /* @__PURE__ */ jsx5(Box3, { marginTop: 1 }),
+        SYNTAX_THEMES.map((t, i) => /* @__PURE__ */ jsx5(Box3, { flexDirection: "row", children: /* @__PURE__ */ jsxs5(Text5, { children: [
+          i === syntaxIdx ? /* @__PURE__ */ jsx5(Text5, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "  " }),
+          /* @__PURE__ */ jsxs5(Text5, { color: i === syntaxIdx ? "white" : "gray", bold: i === syntaxIdx, children: [
             i + 1,
             ". ",
             t
           ] })
         ] }) }, t)),
-        /* @__PURE__ */ jsx4(Box3, { marginTop: 1 }),
-        /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "Use arrow keys, Enter to confirm" })
+        /* @__PURE__ */ jsx5(Box3, { marginTop: 1 }),
+        /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "Use arrow keys, Enter to confirm" })
       ] }),
-      /* @__PURE__ */ jsx4(Box3, { marginTop: 1 }),
-      /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500" }),
-      previewLines.map((p, idx) => /* @__PURE__ */ jsxs4(Box3, { flexDirection: "row", children: [
-        /* @__PURE__ */ jsxs4(Text4, { color: "gray", children: [
+      /* @__PURE__ */ jsx5(Box3, { marginTop: 1 }),
+      /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500" }),
+      previewLines.map((p, idx) => /* @__PURE__ */ jsxs5(Box3, { flexDirection: "row", children: [
+        /* @__PURE__ */ jsxs5(Text5, { color: "gray", children: [
           p.line.toString().padStart(2),
           " "
         ] }),
-        "old" in p && p.old && /* @__PURE__ */ jsxs4(Text4, { color: "red", children: [
+        "old" in p && p.old && /* @__PURE__ */ jsxs5(Text5, { color: "red", children: [
           "- ",
           p.text
         ] }),
-        "new" in p && p.new && /* @__PURE__ */ jsxs4(Text4, { color: "green", children: [
+        "new" in p && p.new && /* @__PURE__ */ jsxs5(Text5, { color: "green", children: [
           "+ ",
           p.text
         ] }),
-        "color" in p && /* @__PURE__ */ jsxs4(Text4, { color: p.color, children: [
+        "color" in p && /* @__PURE__ */ jsxs5(Text5, { color: p.color, children: [
           "  ",
           p.text
         ] })
       ] }, idx)),
-      /* @__PURE__ */ jsx4(Text4, { color: "gray", children: "\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500" }),
-      /* @__PURE__ */ jsxs4(Text4, { color: "gray", children: [
+      /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500" }),
+      /* @__PURE__ */ jsxs5(Text5, { color: "gray", children: [
         "Syntax theme: ",
         SYNTAX_THEMES[syntaxIdx],
         " (ctrl+t to disable)"
       ] })
     ] }),
-    /* @__PURE__ */ jsx4(Text4, { children: cyber3("\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F") })
+    /* @__PURE__ */ jsx5(Text5, { children: cyber("\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F") })
   ] });
 };
 
 // src/components/Settings.tsx
 import { useState as useState3 } from "react";
-import { Box as Box4, Text as Text5, useInput as useInput3 } from "ink";
-import gradient4 from "gradient-string";
-import { jsx as jsx5, jsxs as jsxs5 } from "react/jsx-runtime";
-var cyber4 = gradient4(["#00e5ff", "#7b5cff", "#ff5c8a"]);
+import { Box as Box4, Text as Text6, useInput as useInput3 } from "ink";
+import gradient2 from "gradient-string";
+import { jsx as jsx6, jsxs as jsxs6 } from "react/jsx-runtime";
+var cyber2 = gradient2(["#00e5ff", "#7b5cff", "#ff5c8a"]);
 var SETTINGS_CATEGORIES = [
   {
     id: "general",
@@ -1987,38 +2481,38 @@ var Settings = ({ onClose }) => {
       }
     }
   });
-  return /* @__PURE__ */ jsxs5(Box4, { flexDirection: "column", marginBottom: 1, children: [
-    /* @__PURE__ */ jsx5(Text5, { children: cyber4("\u256D\u2500 Settings \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E") }),
-    /* @__PURE__ */ jsxs5(Box4, { flexDirection: "column", paddingLeft: 2, paddingRight: 2, marginTop: 1, children: [
-      /* @__PURE__ */ jsx5(Box4, { flexDirection: "row", marginBottom: 1, children: SETTINGS_CATEGORIES.map((cat, i) => /* @__PURE__ */ jsxs5(Text5, { children: [
-        /* @__PURE__ */ jsxs5(Text5, { color: i === catIdx ? "#D97736" : "gray", bold: i === catIdx, children: [
+  return /* @__PURE__ */ jsxs6(Box4, { flexDirection: "column", marginBottom: 1, children: [
+    /* @__PURE__ */ jsx6(Text6, { children: cyber2("\u256D\u2500 Settings \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256E") }),
+    /* @__PURE__ */ jsxs6(Box4, { flexDirection: "column", paddingLeft: 2, paddingRight: 2, marginTop: 1, children: [
+      /* @__PURE__ */ jsx6(Box4, { flexDirection: "row", marginBottom: 1, children: SETTINGS_CATEGORIES.map((cat, i) => /* @__PURE__ */ jsxs6(Text6, { children: [
+        /* @__PURE__ */ jsxs6(Text6, { color: i === catIdx ? "#D97736" : "gray", bold: i === catIdx, children: [
           " ",
           cat.label,
           " "
         ] }),
-        i < SETTINGS_CATEGORIES.length - 1 && /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "\u2502" })
+        i < SETTINGS_CATEGORIES.length - 1 && /* @__PURE__ */ jsx6(Text6, { color: "gray", children: "\u2502" })
       ] }, cat.id)) }),
-      /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "\u2500".repeat(50) }),
-      currentCat && currentCat.items.map((item, i) => /* @__PURE__ */ jsxs5(Box4, { flexDirection: "row", marginY: 1, children: [
-        /* @__PURE__ */ jsxs5(Text5, { children: [
-          i === itemIdx ? /* @__PURE__ */ jsx5(Text5, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "  " }),
-          /* @__PURE__ */ jsx5(Text5, { color: i === itemIdx ? "white" : "gray", bold: i === itemIdx, children: item.label })
+      /* @__PURE__ */ jsx6(Text6, { color: "gray", children: "\u2500".repeat(50) }),
+      currentCat && currentCat.items.map((item, i) => /* @__PURE__ */ jsxs6(Box4, { flexDirection: "row", marginY: 1, children: [
+        /* @__PURE__ */ jsxs6(Text6, { children: [
+          i === itemIdx ? /* @__PURE__ */ jsx6(Text6, { color: "#D97736", children: "\u203A " }) : /* @__PURE__ */ jsx6(Text6, { color: "gray", children: "  " }),
+          /* @__PURE__ */ jsx6(Text6, { color: i === itemIdx ? "white" : "gray", bold: i === itemIdx, children: item.label })
         ] }),
-        /* @__PURE__ */ jsx5(Box4, { flexGrow: 1 }),
-        /* @__PURE__ */ jsx5(Text5, { color: typeof item.value === "boolean" ? item.value ? "green" : "red" : "cyan", children: typeof item.value === "boolean" ? item.value ? "\u2713 enabled" : "\u2717 disabled" : item.value })
+        /* @__PURE__ */ jsx6(Box4, { flexGrow: 1 }),
+        /* @__PURE__ */ jsx6(Text6, { color: typeof item.value === "boolean" ? item.value ? "green" : "red" : "cyan", children: typeof item.value === "boolean" ? item.value ? "\u2713 enabled" : "\u2717 disabled" : item.value })
       ] }, item.key)),
-      /* @__PURE__ */ jsx5(Box4, { marginTop: 1 }),
-      /* @__PURE__ */ jsx5(Text5, { color: "gray", children: "Arrow keys to navigate, Enter to toggle, ESC to close" })
+      /* @__PURE__ */ jsx6(Box4, { marginTop: 1 }),
+      /* @__PURE__ */ jsx6(Text6, { color: "gray", children: "Arrow keys to navigate, Enter to toggle, ESC to close" })
     ] }),
-    /* @__PURE__ */ jsx5(Text5, { children: cyber4("\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F") })
+    /* @__PURE__ */ jsx6(Text6, { children: cyber2("\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256F") })
   ] });
 };
 
 // src/components/Prompt.tsx
 import { useState as useState4 } from "react";
-import { Box as Box5, Text as Text6 } from "ink";
-import TextInput from "ink-text-input";
-import { jsx as jsx6, jsxs as jsxs6 } from "react/jsx-runtime";
+import { Box as Box5, Text as Text7 } from "ink";
+import TextInput2 from "ink-text-input";
+import { jsx as jsx7, jsxs as jsxs7 } from "react/jsx-runtime";
 var Prompt = ({ onSubmit, disabled }) => {
   const [value, setValue] = useState4("");
   const handleSubmit = (text) => {
@@ -2026,17 +2520,17 @@ var Prompt = ({ onSubmit, disabled }) => {
     setValue("");
   };
   if (disabled) {
-    return /* @__PURE__ */ jsx6(Box5, { children: /* @__PURE__ */ jsx6(Text6, { color: "gray", children: "\u23F3 (waiting\u2026)" }) });
+    return /* @__PURE__ */ jsx7(Box5, { children: /* @__PURE__ */ jsx7(Text7, { color: "gray", children: "\u23F3 (waiting\u2026)" }) });
   }
-  return /* @__PURE__ */ jsxs6(Box5, { children: [
-    /* @__PURE__ */ jsx6(Text6, { color: "cyan", children: "\u203A " }),
-    /* @__PURE__ */ jsx6(TextInput, { value, onChange: setValue, onSubmit: handleSubmit, placeholder: "Try /help or describe what you want\u2026" })
+  return /* @__PURE__ */ jsxs7(Box5, { children: [
+    /* @__PURE__ */ jsx7(Text7, { color: "cyan", children: "\u203A " }),
+    /* @__PURE__ */ jsx7(TextInput2, { value, onChange: setValue, onSubmit: handleSubmit, placeholder: "Try /help or describe what you want\u2026" })
   ] });
 };
 
 // src/components/MessageList.tsx
-import { Box as Box6, Text as Text7 } from "ink";
-import { jsx as jsx7, jsxs as jsxs7 } from "react/jsx-runtime";
+import { Box as Box6, Text as Text8 } from "ink";
+import { jsx as jsx8, jsxs as jsxs8 } from "react/jsx-runtime";
 var ROLE_COLOR = {
   user: "cyan",
   assistant: "white",
@@ -2051,15 +2545,15 @@ var ROLE_LABEL = {
 };
 var MessageList = ({ messages }) => {
   if (messages.length === 0) return null;
-  return /* @__PURE__ */ jsx7(Box6, { flexDirection: "column", marginBottom: 1, children: messages.map((m) => /* @__PURE__ */ jsxs7(Box6, { flexDirection: "column", marginBottom: 1, children: [
-    /* @__PURE__ */ jsx7(Text7, { color: ROLE_COLOR[m.role], bold: true, children: ROLE_LABEL[m.role] }),
-    /* @__PURE__ */ jsx7(Text7, { color: m.role === "system" ? "gray" : void 0, children: m.content })
+  return /* @__PURE__ */ jsx8(Box6, { flexDirection: "column", marginBottom: 1, children: messages.map((m) => /* @__PURE__ */ jsxs8(Box6, { flexDirection: "column", marginBottom: 1, children: [
+    /* @__PURE__ */ jsx8(Text8, { color: ROLE_COLOR[m.role], bold: true, children: ROLE_LABEL[m.role] }),
+    /* @__PURE__ */ jsx8(Text8, { color: m.role === "system" ? "gray" : void 0, children: m.content })
   ] }, m.id)) });
 };
 
 // src/components/StatusBar.tsx
-import { Box as Box7, Text as Text8 } from "ink";
-import { jsx as jsx8, jsxs as jsxs8 } from "react/jsx-runtime";
+import { Box as Box7, Text as Text9 } from "ink";
+import { jsx as jsx9, jsxs as jsxs9 } from "react/jsx-runtime";
 var STATUS_LABEL = {
   idle: "ready",
   thinking: "thinking\u2026",
@@ -2073,29 +2567,29 @@ var STATUS_COLOR = {
   error: "red"
 };
 var StatusBar = ({ status, model, provider }) => {
-  return /* @__PURE__ */ jsxs8(Box7, { marginTop: 1, children: [
-    /* @__PURE__ */ jsx8(Text8, { color: "gray", children: "[" }),
-    /* @__PURE__ */ jsx8(Text8, { color: STATUS_COLOR[status], bold: true, children: STATUS_LABEL[status] }),
-    /* @__PURE__ */ jsx8(Text8, { color: "gray", children: "] " }),
-    /* @__PURE__ */ jsx8(Text8, { color: "gray", children: "provider=" }),
-    /* @__PURE__ */ jsx8(Text8, { color: "cyan", children: provider }),
-    /* @__PURE__ */ jsxs8(Text8, { color: "gray", children: [
+  return /* @__PURE__ */ jsxs9(Box7, { marginTop: 1, children: [
+    /* @__PURE__ */ jsx9(Text9, { color: "gray", children: "[" }),
+    /* @__PURE__ */ jsx9(Text9, { color: STATUS_COLOR[status], bold: true, children: STATUS_LABEL[status] }),
+    /* @__PURE__ */ jsx9(Text9, { color: "gray", children: "] " }),
+    /* @__PURE__ */ jsx9(Text9, { color: "gray", children: "provider=" }),
+    /* @__PURE__ */ jsx9(Text9, { color: "cyan", children: provider }),
+    /* @__PURE__ */ jsxs9(Text9, { color: "gray", children: [
       "  ",
       "model="
     ] }),
-    /* @__PURE__ */ jsx8(Text8, { color: "cyan", children: model }),
-    /* @__PURE__ */ jsx8(Text8, { color: "gray", children: "  \xB7 \xB7 for shortcuts" })
+    /* @__PURE__ */ jsx9(Text9, { color: "cyan", children: model }),
+    /* @__PURE__ */ jsx9(Text9, { color: "gray", children: "  \xB7 \xB7 for shortcuts" })
   ] });
 };
 
 // src/components/ExitConfirm.tsx
-import { Box as Box8, Text as Text9 } from "ink";
-import { jsx as jsx9 } from "react/jsx-runtime";
-var ExitConfirm = () => /* @__PURE__ */ jsx9(Box8, { marginTop: 1, children: /* @__PURE__ */ jsx9(Text9, { color: "yellow", children: "Press Ctrl+C again within 2s to exit, or type /exit." }) });
+import { Box as Box8, Text as Text10 } from "ink";
+import { jsx as jsx10 } from "react/jsx-runtime";
+var ExitConfirm = () => /* @__PURE__ */ jsx10(Box8, { marginTop: 1, children: /* @__PURE__ */ jsx10(Text10, { color: "yellow", children: "Press Ctrl+C again within 2s to exit, or type /exit." }) });
 
 // src/components/ApprovalDialog.tsx
-import { Box as Box9, Text as Text10, useInput as useInput4 } from "ink";
-import { jsx as jsx10, jsxs as jsxs9 } from "react/jsx-runtime";
+import { Box as Box9, Text as Text11, useInput as useInput4 } from "ink";
+import { jsx as jsx11, jsxs as jsxs10 } from "react/jsx-runtime";
 var ApprovalDialog = ({ pending }) => {
   useInput4((input) => {
     const key = input.toLowerCase();
@@ -2104,14 +2598,14 @@ var ApprovalDialog = ({ pending }) => {
     else if (key === "t") pending.resolve("allow-persistent");
     else if (key === "n") pending.resolve("deny");
   });
-  return /* @__PURE__ */ jsxs9(Box9, { flexDirection: "column", borderStyle: "round", borderColor: pending.destructive ? "red" : "yellow", paddingX: 1, children: [
-    /* @__PURE__ */ jsxs9(Text10, { bold: true, children: [
+  return /* @__PURE__ */ jsxs10(Box9, { flexDirection: "column", borderStyle: "round", borderColor: pending.destructive ? "red" : "yellow", paddingX: 1, children: [
+    /* @__PURE__ */ jsxs10(Text11, { bold: true, children: [
       pending.destructive ? "\u26A0 " : "",
       "Approve tool: ",
-      /* @__PURE__ */ jsx10(Text10, { color: "cyan", children: pending.toolName })
+      /* @__PURE__ */ jsx11(Text11, { color: "cyan", children: pending.toolName })
     ] }),
-    /* @__PURE__ */ jsx10(Text10, { children: pending.summary }),
-    /* @__PURE__ */ jsx10(Box9, { marginTop: 1, children: /* @__PURE__ */ jsx10(Text10, { dimColor: true, children: "[y] allow once \xB7 [s] allow this session \xB7 [t] trust persistently \xB7 [n] deny" }) })
+    /* @__PURE__ */ jsx11(Text11, { children: pending.summary }),
+    /* @__PURE__ */ jsx11(Box9, { marginTop: 1, children: /* @__PURE__ */ jsx11(Text11, { dimColor: true, children: "[y] allow once \xB7 [s] allow this session \xB7 [t] trust persistently \xB7 [n] deny" }) })
   ] });
 };
 
@@ -2792,14 +3286,14 @@ var ProviderRouter = class {
 };
 
 // ../tools/src/approval.ts
-import { existsSync as existsSync8, mkdirSync as mkdirSync7, readFileSync as readFileSync7, writeFileSync as writeFileSync7 } from "fs";
+import { existsSync as existsSync9, mkdirSync as mkdirSync8, readFileSync as readFileSync8, writeFileSync as writeFileSync8 } from "fs";
 import { dirname } from "path";
 var log14 = createLogger("tools:approval");
 function loadTrustStore() {
   const path = getTrustPath();
-  if (!existsSync8(path)) return { tools: [] };
+  if (!existsSync9(path)) return { tools: [] };
   try {
-    const raw = readFileSync7(path, "utf8");
+    const raw = readFileSync8(path, "utf8");
     const parsed = JSON.parse(raw);
     return { tools: Array.isArray(parsed.tools) ? parsed.tools : [] };
   } catch (err) {
@@ -2809,8 +3303,8 @@ function loadTrustStore() {
 }
 function saveTrustStore(store) {
   const path = getTrustPath();
-  if (!existsSync8(dirname(path))) mkdirSync7(dirname(path), { recursive: true });
-  writeFileSync7(path, JSON.stringify(store, null, 2), "utf8");
+  if (!existsSync9(dirname(path))) mkdirSync8(dirname(path), { recursive: true });
+  writeFileSync8(path, JSON.stringify(store, null, 2), "utf8");
 }
 var ApprovalGate = class {
   constructor(ui) {
@@ -2874,7 +3368,7 @@ var HeadlessApprovalUI = class {
 };
 
 // ../tools/src/secrets.ts
-import { existsSync as existsSync9, mkdirSync as mkdirSync8, readFileSync as readFileSync8, writeFileSync as writeFileSync8 } from "fs";
+import { existsSync as existsSync10, mkdirSync as mkdirSync9, readFileSync as readFileSync9, writeFileSync as writeFileSync9 } from "fs";
 import { createCipheriv, createDecipheriv, createHash, randomBytes, scryptSync } from "crypto";
 var log15 = createLogger("tools:secrets");
 var ALGO = "aes-256-gcm";
@@ -2908,12 +3402,12 @@ var SecretsVault = class {
   load() {
     if (this.cache) return this.cache;
     const path = getSecretsPath();
-    if (!existsSync9(path)) {
+    if (!existsSync10(path)) {
       this.cache = {};
       return this.cache;
     }
     try {
-      const buf = readFileSync8(path);
+      const buf = readFileSync9(path);
       const salt = buf.subarray(0, SALT_LEN);
       const iv = buf.subarray(SALT_LEN, SALT_LEN + IV_LEN);
       const tag = buf.subarray(SALT_LEN + IV_LEN, SALT_LEN + IV_LEN + 16);
@@ -2932,14 +3426,14 @@ var SecretsVault = class {
   }
   save(all) {
     const path = getSecretsPath();
-    if (!existsSync9(getHomeDir())) mkdirSync8(getHomeDir(), { recursive: true });
+    if (!existsSync10(getHomeDir())) mkdirSync9(getHomeDir(), { recursive: true });
     const salt = randomBytes(SALT_LEN);
     const iv = randomBytes(IV_LEN);
     const key = scryptSync(this.pepper(), salt, KEY_LEN);
     const cipher = createCipheriv(ALGO, key, iv);
     const ciphertext = Buffer.concat([cipher.update(JSON.stringify(all), "utf8"), cipher.final()]);
     const tag = cipher.getAuthTag();
-    writeFileSync8(path, Buffer.concat([salt, iv, tag, ciphertext]));
+    writeFileSync9(path, Buffer.concat([salt, iv, tag, ciphertext]));
     this.cache = { ...all };
   }
   /**
@@ -2953,7 +3447,7 @@ var SecretsVault = class {
 };
 
 // ../tools/src/builtin/read-file.ts
-import { readFileSync as readFileSync9 } from "fs";
+import { readFileSync as readFileSync10 } from "fs";
 import { resolve as resolve2 } from "path";
 var MAX_BYTES = 1e6;
 var readFileTool = {
@@ -2975,7 +3469,7 @@ var readFileTool = {
     const path = String(input.path ?? "");
     if (!path) throw new Error("read_file requires a non-empty path");
     const abs = resolve2(ctx.cwd, path);
-    const raw = readFileSync9(abs);
+    const raw = readFileSync10(abs);
     if (raw.byteLength > MAX_BYTES) {
       const truncated = raw.subarray(0, MAX_BYTES).toString("utf8");
       return numberLines(truncated, input.offset, input.limit) + `
@@ -2995,7 +3489,7 @@ function numberLines(text, offset, limit) {
 }
 
 // ../tools/src/builtin/write-file.ts
-import { existsSync as existsSync10, mkdirSync as mkdirSync9, writeFileSync as writeFileSync9 } from "fs";
+import { existsSync as existsSync11, mkdirSync as mkdirSync10, writeFileSync as writeFileSync10 } from "fs";
 import { dirname as dirname2, resolve as resolve3 } from "path";
 var writeFileTool = {
   schema: {
@@ -3016,18 +3510,18 @@ var writeFileTool = {
     const content = String(input.content ?? "");
     if (!path) throw new Error("write_file requires a path");
     const abs = resolve3(ctx.cwd, path);
-    if (existsSync10(abs)) {
+    if (existsSync11(abs)) {
       throw new Error(`Refusing to overwrite existing file ${abs}. Use the edit tool instead.`);
     }
     const dir = dirname2(abs);
-    if (!existsSync10(dir)) mkdirSync9(dir, { recursive: true });
-    writeFileSync9(abs, content, "utf8");
+    if (!existsSync11(dir)) mkdirSync10(dir, { recursive: true });
+    writeFileSync10(abs, content, "utf8");
     return `Wrote ${Buffer.byteLength(content, "utf8")} bytes to ${abs}.`;
   }
 };
 
 // ../tools/src/builtin/edit.ts
-import { readFileSync as readFileSync10, writeFileSync as writeFileSync10 } from "fs";
+import { readFileSync as readFileSync11, writeFileSync as writeFileSync11 } from "fs";
 import { resolve as resolve4 } from "path";
 var editTool = {
   schema: {
@@ -3054,12 +3548,12 @@ var editTool = {
     if (!oldStr) throw new Error("edit requires a non-empty old_string");
     if (oldStr === newStr) throw new Error("edit requires old_string !== new_string");
     const abs = resolve4(ctx.cwd, path);
-    const original = readFileSync10(abs, "utf8");
+    const original = readFileSync11(abs, "utf8");
     if (replaceAll) {
       const count = occurrenceCount(original, oldStr);
       if (count === 0) throw new Error(`No occurrences of old_string found in ${abs}`);
       const next2 = original.split(oldStr).join(newStr);
-      writeFileSync10(abs, next2, "utf8");
+      writeFileSync11(abs, next2, "utf8");
       return `Replaced ${count} occurrence(s) in ${abs}.`;
     }
     const idx = original.indexOf(oldStr);
@@ -3070,7 +3564,7 @@ var editTool = {
       );
     }
     const next = original.slice(0, idx) + newStr + original.slice(idx + oldStr.length);
-    writeFileSync10(abs, next, "utf8");
+    writeFileSync11(abs, next, "utf8");
     return `Edited ${abs} (${original.length - next.length > 0 ? "-" : "+"}${Math.abs(original.length - next.length)} bytes).`;
   }
 };
@@ -3087,7 +3581,7 @@ function occurrenceCount(haystack, needle) {
 
 // ../tools/src/builtin/list-dir.ts
 import { readdirSync as readdirSync4, statSync } from "fs";
-import { join as join8, resolve as resolve5 } from "path";
+import { join as join9, resolve as resolve5 } from "path";
 var MAX_ENTRIES = 200;
 var listDirTool = {
   schema: {
@@ -3108,7 +3602,7 @@ var listDirTool = {
     const entries = readdirSync4(abs, { withFileTypes: true }).slice(0, MAX_ENTRIES);
     const lines = [];
     for (const e of entries) {
-      const full = join8(abs, e.name);
+      const full = join9(abs, e.name);
       let size = "";
       try {
         if (e.isFile()) size = `${statSync(full).size}b`;
@@ -3124,8 +3618,8 @@ var listDirTool = {
 };
 
 // ../tools/src/builtin/grep.ts
-import { readdirSync as readdirSync5, readFileSync as readFileSync11, statSync as statSync2 } from "fs";
-import { join as join9, resolve as resolve6 } from "path";
+import { readdirSync as readdirSync5, readFileSync as readFileSync12, statSync as statSync2 } from "fs";
+import { join as join10, resolve as resolve6 } from "path";
 var MAX_MATCHES = 200;
 var MAX_FILE_BYTES = 2e6;
 var SKIP_DIRS = /* @__PURE__ */ new Set(["node_modules", ".git", "dist", "build", ".turbo", ".next", ".cache"]);
@@ -3159,7 +3653,7 @@ var grepTool = {
       try {
         const stat = statSync2(file);
         if (stat.size > MAX_FILE_BYTES) return true;
-        const text = readFileSync11(file, "utf8");
+        const text = readFileSync12(file, "utf8");
         const lines = text.split("\n");
         for (let i = 0; i < lines.length && matches.length < MAX_MATCHES; i++) {
           const line = lines[i] ?? "";
@@ -3202,13 +3696,13 @@ function walk(root, visit) {
     }
     for (const e of entries) {
       if (e.isDirectory() && SKIP_DIRS.has(e.name)) continue;
-      stack.push(join9(cur, e.name));
+      stack.push(join10(cur, e.name));
     }
   }
 }
 
 // ../tools/src/builtin/run-command.ts
-import { spawn } from "child_process";
+import { spawn as spawn2 } from "child_process";
 var DEFAULT_TIMEOUT_MS = 6e4;
 var MAX_OUTPUT_BYTES = 2e5;
 var SHELL = process.platform === "win32" ? "powershell.exe" : "/bin/bash";
@@ -3234,7 +3728,7 @@ var runCommandTool = {
     const cwd = input.cwd ?? ctx.cwd;
     const timeoutMs = Number(input.timeout_ms ?? DEFAULT_TIMEOUT_MS);
     return await new Promise((resolveResult) => {
-      const child = spawn(SHELL, [SHELL_ARG, command], {
+      const child = spawn2(SHELL, [SHELL_ARG, command], {
         cwd,
         env: process.env,
         windowsHide: true
@@ -3341,8 +3835,8 @@ ${issues}`);
 }
 
 // ../skills/src/loader.ts
-import { existsSync as existsSync11, readFileSync as readFileSync12, readdirSync as readdirSync6, statSync as statSync3 } from "fs";
-import { dirname as dirname3, join as join10, resolve as resolve7 } from "path";
+import { existsSync as existsSync12, readFileSync as readFileSync13, readdirSync as readdirSync6, statSync as statSync3 } from "fs";
+import { dirname as dirname3, join as join11, resolve as resolve7 } from "path";
 import { fileURLToPath } from "url";
 var log16 = createLogger("skills:loader");
 function getBundledDir() {
@@ -3350,7 +3844,7 @@ function getBundledDir() {
   let dir = here;
   for (let i = 0; i < 6; i++) {
     const candidate = resolve7(dir, "skills-bundled");
-    if (existsSync11(candidate)) return candidate;
+    if (existsSync12(candidate)) return candidate;
     const parent = resolve7(dir, "..");
     if (parent === dir) break;
     dir = parent;
@@ -3358,7 +3852,7 @@ function getBundledDir() {
   return resolve7(here, "..", "..", "..", "skills-bundled");
 }
 function scanDir(root, source) {
-  if (!existsSync11(root)) return [];
+  if (!existsSync12(root)) return [];
   const out = [];
   let entries;
   try {
@@ -3368,7 +3862,7 @@ function scanDir(root, source) {
     return [];
   }
   for (const name of entries) {
-    const folder = join10(root, name);
+    const folder = join11(root, name);
     let stat;
     try {
       stat = statSync3(folder);
@@ -3376,10 +3870,10 @@ function scanDir(root, source) {
       continue;
     }
     if (!stat.isDirectory()) continue;
-    const skillFile = join10(folder, "SKILL.md");
-    if (!existsSync11(skillFile)) continue;
+    const skillFile = join11(folder, "SKILL.md");
+    if (!existsSync12(skillFile)) continue;
     try {
-      const raw = readFileSync12(skillFile, "utf8");
+      const raw = readFileSync13(skillFile, "utf8");
       const { frontmatter, body } = parseSkillSource(raw);
       const id = `${source}/${frontmatter.name}`;
       out.push({ id, source, path: skillFile, frontmatter, body });
@@ -4039,8 +4533,8 @@ function buildSettingsCommand(ctx) {
 }
 
 // src/commands/workflow.ts
-import { existsSync as existsSync12, readFileSync as readFileSync13, readdirSync as readdirSync7, statSync as statSync4 } from "fs";
-import { join as join11, resolve as resolve8 } from "path";
+import { existsSync as existsSync13, readFileSync as readFileSync14, readdirSync as readdirSync7, statSync as statSync4 } from "fs";
+import { join as join12, resolve as resolve8 } from "path";
 import { parse as parseYaml2 } from "yaml";
 import { z as z10 } from "zod";
 var WORKFLOW_DIR = ".cybermind/workflows";
@@ -4065,7 +4559,7 @@ function buildWorkflowCommand(ctx) {
       const reply = (content) => ctx.appendMessage({ id: `wf-${Date.now()}`, role: "system", content, createdAt: Date.now() });
       const workflowsDir = resolve8(process.cwd(), WORKFLOW_DIR);
       if (!trimmed || trimmed === "list") {
-        if (!existsSync12(workflowsDir)) {
+        if (!existsSync13(workflowsDir)) {
           reply(`No workflows directory at ${workflowsDir}. Create one and add <name>.yml files.`);
           return;
         }
@@ -4087,8 +4581,8 @@ function buildWorkflowCommand(ctx) {
       }
       let path = "";
       for (const ext of [".yml", ".yaml"]) {
-        const candidate = join11(workflowsDir, name + ext);
-        if (existsSync12(candidate) && statSync4(candidate).isFile()) {
+        const candidate = join12(workflowsDir, name + ext);
+        if (existsSync13(candidate) && statSync4(candidate).isFile()) {
           path = candidate;
           break;
         }
@@ -4099,7 +4593,7 @@ function buildWorkflowCommand(ctx) {
       }
       let parsed;
       try {
-        const raw = readFileSync13(path, "utf8");
+        const raw = readFileSync14(path, "utf8");
         const doc = parseYaml2(raw);
         parsed = WorkflowSchema.parse(doc);
       } catch (err) {
@@ -6141,29 +6635,23 @@ Next steps:
 function buildLogoutCommand(ctx) {
   return {
     name: "logout",
-    description: "Logout from CyberCoder",
+    description: "Logout from CyberCoder and clear all session data",
     category: "auth",
     usage: "/logout",
     run: (args) => {
+      void args;
       const reply = (content) => ctx.appendMessage({
         id: `logout-${Date.now()}`,
         role: "system",
         content,
         createdAt: Date.now()
       });
-      reply(`\u{1F44B} Logging out from CyberCoder...
-
-Clearing session data...
-Removing API keys...
-Resetting knowledge graph...
-
-\u2705 Logged out successfully!
-
-Thank you for using CyberCoder! \u{1F680}
-
-See you soon!
-
-To login again: /login`);
+      if (ctx.logout) {
+        ctx.logout();
+        reply("\u{1F44B} Logged out successfully.\n\nAll session data cleared.\nRun cm again to login.\n");
+      } else {
+        reply("Logout is not available in this context.");
+      }
     }
   };
 }
@@ -6473,12 +6961,16 @@ function buildCommandRegistry(ctx) {
 }
 
 // src/app.tsx
-import { Fragment as Fragment2, jsx as jsx11, jsxs as jsxs10 } from "react/jsx-runtime";
+import { Fragment as Fragment2, jsx as jsx12, jsxs as jsxs11 } from "react/jsx-runtime";
 var App = ({ showWelcome, initialModel, initialProvider }) => {
-  const { exit } = useApp();
-  const hasCompletedOnboarding = false;
+  const { exit } = useApp2();
+  const configTheme = getTheme();
+  const hasCompletedOnboarding = isOnboardingComplete();
   const [screen, setScreen] = useState5(hasCompletedOnboarding ? "welcome" : "onboarding");
-  const [themeConfig, setThemeConfig] = useState5({ mode: "dark", syntaxTheme: "Monokai Extended" });
+  const [themeConfig, setThemeConfig] = useState5({
+    mode: configTheme.mode,
+    syntaxTheme: configTheme.syntaxTheme
+  });
   const [messages, setMessages] = useState5([]);
   const [status, setStatus] = useState5("idle");
   const [model, setModel] = useState5(initialModel ?? "auto");
@@ -6528,7 +7020,13 @@ var App = ({ showWelcome, initialModel, initialProvider }) => {
       getProvider: () => provider,
       setProvider,
       setPromptColor,
-      setScreen: (s) => setScreen(s)
+      setScreen: (s) => setScreen(s),
+      logout: () => {
+        clearLogin();
+        setMessages([]);
+        setWelcomeVisible(true);
+        setScreen("onboarding");
+      }
     }),
     [appendMessage, clearMessages, exit, model, provider]
   );
@@ -6645,6 +7143,7 @@ ${trimmed}
   }, []);
   const handleThemeComplete = useCallback((theme) => {
     setThemeConfig(theme);
+    setTheme(theme.mode, theme.syntaxTheme);
     setScreen("welcome");
   }, []);
   const handleSettingsClose = useCallback(() => {
@@ -6653,32 +7152,32 @@ ${trimmed}
   const renderScreen = () => {
     switch (screen) {
       case "onboarding":
-        return /* @__PURE__ */ jsx11(Onboarding, { onComplete: handleOnboardingComplete });
+        return /* @__PURE__ */ jsx12(Onboarding, { onComplete: handleOnboardingComplete });
       case "theme":
-        return /* @__PURE__ */ jsx11(ThemePicker, { onComplete: handleThemeComplete });
+        return /* @__PURE__ */ jsx12(ThemePicker, { onComplete: handleThemeComplete });
       case "settings":
-        return /* @__PURE__ */ jsx11(Settings, { onClose: handleSettingsClose });
+        return /* @__PURE__ */ jsx12(Settings, { onClose: handleSettingsClose });
       case "welcome":
-        return /* @__PURE__ */ jsxs10(Fragment2, { children: [
-          welcomeVisible && /* @__PURE__ */ jsx11(Welcome, { provider, model }),
-          /* @__PURE__ */ jsx11(MessageList, { messages }),
-          pendingApproval && /* @__PURE__ */ jsx11(ApprovalDialog, { pending: pendingApproval }),
-          /* @__PURE__ */ jsx11(Prompt, { onSubmit: handleSubmit, disabled: status !== "idle" }),
-          /* @__PURE__ */ jsx11(StatusBar, { status, model, provider }),
-          exitConfirm && /* @__PURE__ */ jsx11(ExitConfirm, {})
+        return /* @__PURE__ */ jsxs11(Fragment2, { children: [
+          welcomeVisible && /* @__PURE__ */ jsx12(Welcome, { provider, model }),
+          /* @__PURE__ */ jsx12(MessageList, { messages }),
+          pendingApproval && /* @__PURE__ */ jsx12(ApprovalDialog, { pending: pendingApproval }),
+          /* @__PURE__ */ jsx12(Prompt, { onSubmit: handleSubmit, disabled: status !== "idle" }),
+          /* @__PURE__ */ jsx12(StatusBar, { status, model, provider }),
+          exitConfirm && /* @__PURE__ */ jsx12(ExitConfirm, {})
         ] });
       case "chat":
       default:
-        return /* @__PURE__ */ jsxs10(Fragment2, { children: [
-          /* @__PURE__ */ jsx11(MessageList, { messages }),
-          pendingApproval && /* @__PURE__ */ jsx11(ApprovalDialog, { pending: pendingApproval }),
-          /* @__PURE__ */ jsx11(Prompt, { onSubmit: handleSubmit, disabled: status !== "idle" }),
-          /* @__PURE__ */ jsx11(StatusBar, { status, model, provider }),
-          exitConfirm && /* @__PURE__ */ jsx11(ExitConfirm, {})
+        return /* @__PURE__ */ jsxs11(Fragment2, { children: [
+          /* @__PURE__ */ jsx12(MessageList, { messages }),
+          pendingApproval && /* @__PURE__ */ jsx12(ApprovalDialog, { pending: pendingApproval }),
+          /* @__PURE__ */ jsx12(Prompt, { onSubmit: handleSubmit, disabled: status !== "idle" }),
+          /* @__PURE__ */ jsx12(StatusBar, { status, model, provider }),
+          exitConfirm && /* @__PURE__ */ jsx12(ExitConfirm, {})
         ] });
     }
   };
-  return /* @__PURE__ */ jsx11(Box10, { flexDirection: "column", children: renderScreen() });
+  return /* @__PURE__ */ jsx12(Box10, { flexDirection: "column", children: renderScreen() });
 };
 function cryptoRandomId() {
   return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
@@ -6693,7 +7192,7 @@ function stringifyArgs(input) {
 }
 
 // src/index.tsx
-import { jsx as jsx12 } from "react/jsx-runtime";
+import { jsx as jsx13 } from "react/jsx-runtime";
 var log19 = createLogger("cli");
 async function main() {
   const program = new Command();
@@ -6708,7 +7207,7 @@ async function main() {
       return;
     }
     const { waitUntilExit } = render(
-      /* @__PURE__ */ jsx12(
+      /* @__PURE__ */ jsx13(
         App,
         {
           showWelcome: opts.welcome !== false,
