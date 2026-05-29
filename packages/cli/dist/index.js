@@ -124,7 +124,7 @@ function createLogger(scope) {
 }
 
 // ../shared/src/version.ts
-var CYBERMIND_VERSION = "0.1.14";
+var CYBERMIND_VERSION = "0.1.15";
 var CYBERMIND_NAME = "CyberMind";
 
 // ../shared/src/checkpoint.ts
