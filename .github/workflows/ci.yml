@@ -109,7 +109,6 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && github.event_name == 'push'
-    continue-on-error: true
     
     steps:
     - name: Checkout code
