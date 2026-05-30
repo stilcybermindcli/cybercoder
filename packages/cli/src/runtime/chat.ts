@@ -14,6 +14,7 @@ import { SkillRegistry, buildSpawnSubagentTool, buildSpawnTeamTool } from '@cybe
 import type { SessionMessage } from '../state/session.js';
 import { loadConfig } from '../utils/config.js';
 import { getGitContext, gitContextPrompt } from '../utils/git-context.js';
+import { projectMemoryPrompt } from '../utils/project-memory.js';
 import { runHooks } from './hooks.js';
 
 let singletonRouter: ProviderRouter | null = null;
@@ -99,6 +100,11 @@ prefer code over prose, and never invent file paths. You have access to these to
 - run_command(command, cwd?, timeout_ms?) — PowerShell on Windows, bash on Unix
 - web_search(query, max_results?) — live keyless web search (titles, urls, snippets)
 - web_fetch(url, max_chars?) — fetch a page and return clean readable text
+- project_memory(action, …) — self-learning project memory in .cyber/: action='read'
+  to recall what's known, 'update' to save durable facts (stack, entry points,
+  commands, conventions, key paths, glossary, decisions), 'note' to log a learning.
+  Update it whenever you discover something durable so future sessions (or any AI)
+  understand this project from .cyber/ alone.
 - spawn_subagent(skill, prompt) — delegate to an installed skill (research, plan,
   code-review, …) which runs in an isolated context and returns a summary
 - spawn_team(tasks[]) — run MULTIPLE sub-agents IN PARALLEL for independent
@@ -227,7 +233,8 @@ async function buildAgentTools(approvalUI?: ApprovalUI): Promise<{ tools: any[];
   }));
 
   const gitBlock = gitContextPrompt(getGitContext());
-  const systemPrompt = gitBlock ? `${SYSTEM_PROMPT}\n\n${gitBlock}` : SYSTEM_PROMPT;
+  const memoryBlock = projectMemoryPrompt();
+  const systemPrompt = [SYSTEM_PROMPT, memoryBlock, gitBlock].filter(Boolean).join('\n\n');
 
   return { tools: [...wrappedBuiltins, spawnTool, teamTool, ...mcpWrapped], systemPrompt };
 }

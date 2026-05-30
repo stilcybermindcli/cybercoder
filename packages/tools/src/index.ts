@@ -14,6 +14,7 @@ export * from './builtin/edit.js';
 export * from './builtin/list-dir.js';
 export * from './builtin/grep.js';
 export * from './builtin/repo-map.js';
+export * from './builtin/project-memory-tool.js';
 export * from './builtin/run-command.js';
 export * from './builtin/web-search.js';
 export * from './builtin/web-fetch.js';

@@ -1,6 +1,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import type { CommandContext, SlashCommandHandler } from './index.js';
+import { initProjectMemory, cyberDirExists } from '../utils/project-memory.js';
 
 export function buildInitCommand(ctx: CommandContext): SlashCommandHandler {
   return {
@@ -83,7 +84,36 @@ ${guidelines}
 
       try {
         fs.writeFileSync(targetPath, template, 'utf8');
-        reply(`✅ Successfully initialized project! Created CYBER.md for **${projectType}**.`);
+
+        // Also seed the self-learning .cyber/ project memory with what we
+        // detected, so future sessions (or any AI) understand the project
+        // from .cyber/ alone and CyberCoder can keep enriching it.
+        let memoryNote = ''
+        try {
+          const stackMap: Record<string, string[]> = {
+            'Node.js / TypeScript': ['Node.js', 'TypeScript'],
+            'Rust': ['Rust'],
+            'Go': ['Go'],
+            'Python': ['Python'],
+            'Generic': [],
+          }
+          const alreadyHad = cyberDirExists(cwd)
+          initProjectMemory(cwd, {
+            name: path.basename(cwd),
+            summary: `${projectType} project.`,
+            stack: stackMap[projectType] ?? [],
+            commands: { build: buildCommand, test: testCommand },
+            entryPoints: [],
+            conventions: ['See CYBER.md for full coding conventions.'],
+          })
+          memoryNote = alreadyHad
+            ? '\n\nUpdated `.cyber/` project memory.'
+            : '\n\nAlso created `.cyber/` self-learning project memory (project.json, memory.md). Future sessions will understand this project from `.cyber/` alone.'
+        } catch {
+          /* memory seeding is best-effort; never fail /init over it */
+        }
+
+        reply(`✅ Successfully initialized project! Created CYBER.md for **${projectType}**.${memoryNote}`);
       } catch (err) {
         reply(`❌ Failed to create CYBER.md: ${err instanceof Error ? err.message : String(err)}`);
       }
